@@ -1,0 +1,666 @@
+﻿@model TPV.Models.Cliente
+
+@{
+    ViewBag.Title = "Gestion de Clientes";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<div class="page-header">
+
+    <div class="pull-right">
+        <a onclick="MostrarFiltros()" class="btn btn-default" id="MostrarFiltros" style="color: #206299" data-toggle="button">
+            <i class="glyphicon glyphicon-filter"></i>
+            Filtros
+        </a>
+
+        <a href="#" class="btn btn-default disabled" id="EliminarSelec" style="color: #206299">
+            <i class="glyphicon glyphicon-trash"></i>
+            Eliminar Seleccionados
+        </a>
+
+        <div class="btn-group">
+            <a href="~/Clientes/Crear" class="btn btn-default" style="color: #206299">
+                <i class="glyphicon glyphicon-plus"></i>
+                Crear Cliente
+            </a>
+        </div>
+
+        <div class="btn-group">
+            <a href="~/Clientes" class="btn btn-default" style="color: #206299">
+                <i class="glyphicon glyphicon-th-list"></i>
+                Grupos
+            </a>
+        </div>
+
+        <button onclick="atras()" class="btn btn-default" style="color: #206299">
+            <i class="glyphicon glyphicon-triangle-left"></i>
+            Volver atras
+        </button>
+    </div>
+
+    <div class="pull-right">
+        <div class="input-group" style="width:5em">
+            <select class="form-control" id="Mostrar" style="color: #206299">
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+                <option>25</option>
+            </select>
+        </div>
+    </div>
+
+    <h2>Gestion de Clientes</h2>
+</div>
+
+<div class="row">
+    <div class="table-responsive">
+        <!-- table-bordered -->
+        <table class="table table-hover table-bordered  table-condensed">
+            <thead>
+                <tr class="text-center hidden" id="Filtros">
+
+                    <th>
+                    </th>
+
+
+                    <th>
+                    </th>
+
+                    <!--Filtro Nombres -->
+                    <th>
+                        <div class="input-group" style="width:13em">
+                            <input id="textFiltro" class="form-control" type="text" />
+                            <a href="#" class="input-group-addon" data-toggle='toggle'><i class="glyphicon glyphicon-filter"></i></a>
+                        </div>
+                    </th>
+
+                    <!--Filtro Identificacion -->
+                    <th>
+                        <div class="input-group" style="width:9em">
+                            <input id="textFiltro" class="form-control" type="text" />
+                            <a href="#" class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></a>
+                        </div>
+                    </th>
+
+                    <!--Filtro Telefono -->
+                    <th class="">
+                        <div class="input-group" style="width:9em">
+                            <input id="textFiltro" class="form-control" type="text" />
+                            <a href="#" class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></a>
+                        </div>
+                    </th>
+
+                    <!--Filtro Grupo -->
+                    <th>
+                        <div class="input-group" style="width:9em">
+                            <select class="form-control" id="Funciones">
+                                <option>Seleccione...</option>
+                                <option>Muy Frecuente</option>
+                                <option>Frecuente</option>
+                                <option>No Frecuente</option>
+                            </select>
+                            <!-- <input id="textFiltro" class="form-control" type="text" /> -->
+                            <!-- <a href="#" class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></a> -->
+                        </div>
+                    </th>
+
+                    <!--Filtro Creacion -->
+                    <th>
+                        <div class="input-group" style="width:7em">
+                            <input id="textFiltro" class="form-control" type="text" />
+                            <a href="#" class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></a>
+                        </div>
+                    </th>
+
+                    <!--Filtro Usuario -->
+                    <th>
+                        <div class="input-group" style="width:7em">
+
+                            <div class="input-group" style="width:9em">
+                                <select class="form-control" id="Funciones">
+                                    <option>Seleccione...</option>
+                                    <option>Muy Frecuente</option>
+                                    <option>Frecuente</option>
+                                    <option>No Frecuente</option>
+                                </select>
+                                <!-- <input id="textFiltro" class="form-control" type="text" /> -->
+                                <!-- <a href="#" class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></a> -->
+                            </div>
+                            <!-- <input id="textFiltro" class="form-control" type="text" />
+                        <a href="#" class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></a> -->
+                        </div>
+                    </th>
+
+                    <!-- Quitar Filtros -->
+                    <th>
+                        <!--
+                    <div class="" style="width:7em">
+                        <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-ban-circle"></i> No Filtros</a>
+                    </div>
+                    -->
+                    </th>
+                </tr>
+
+                <tr class="bg-primary">
+
+                    <!-- CheckBox -->
+                    <th>
+                        <strong>
+                            <input id="SelecPrincipal" onclick="seleccionarTodo(this)" type="checkbox">
+                        </strong>
+                    </th>
+
+                    <!-- Numero -->
+                    <th class="text-center">
+                        <strong><a href="#" style="color:white">#</a></strong>
+                    </th>
+
+                    <!-- Nombre -->
+                    <th>
+                        <a href="#" style="color:white">Nombre</a>
+                    </th>
+
+                    <!-- Identificacion -->
+                    <th>
+                        <a href="#" style="color:white"># de Identificacion</a>
+                    </th>
+
+                    <!-- Telefono -->
+                    <th class="text-center">
+                        <a href="#" style="color:white">Telefono</a>
+                    </th>
+
+                    <!-- Grupo -->
+                    <th class="text-center">
+                        <a href="#" style="color:white">Grupo</a>
+                    </th>
+
+                    <!-- Creado -->
+                    <th class="text-center">
+                        <a href="#" style="color:white">Creado el</a>
+                    </th>
+
+                    <!-- Creador -->
+                    <th class="text-center">
+                        <a href="#" style="color:white">Creador por</a>
+                    </th>
+
+                    <!-- Acciones -->
+                    <th class="text-center">
+                        <strong>Acciones</strong>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" name="sel" onclick="seleccionCheck(this)"></td>
+                    <td class="text-center">1</td>
+                    <td>Maria + Perez</td>
+                    <td>123-4567890-1</td>
+                    <td class="text-center">809-000-5555</td>
+                    <td class="text-center">
+                        <!-- class="btn btn-link" -->
+                        <a data-toggle="modal" style="cursor: pointer" data-target="#MostrarGrupo">
+                            <span>Frecuente</span>
+                        </a>
+                    </td>
+                    <td class="text-center">07/09/2014</td>
+                    <td class="text-center">
+                        <a data-toggle='tooltip' style="cursor: pointer" data-placement="bottom" title="Tooltip on left">
+                            <span>emarte</span>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <!-- class="btn btn-default" -->
+                        <a href="#" data-toggle="modal" data-target="#MostrarCliente">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#" data-toggle="modal" data-target="#BorrarCliente">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" name="sel" onclick="seleccionCheck(this)"></td>
+                    <td class="text-center">2</td>
+                    <td>Maria + Perez</td>
+                    <td>123-4567890-1</td>
+                    <td class="text-center">809-000-5555</td>
+                    <td class="text-center">
+                        <!-- class="btn btn-link" -->
+                        <a data-toggle="modal" style="cursor: pointer" data-target="#MostrarGrupo">
+                            <span>Frecuente</span>
+                        </a>
+                    </td>
+                    <td class="text-center">07/09/2014</td>
+                    <td class="text-center">
+                        <a data-toggle='tooltip' style="cursor: pointer" data-placement="bottom" title="Tooltip on left">
+                            <span>emarte</span>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <!-- class="btn btn-default" -->
+                        <a href="#" data-toggle="modal" data-target="#MostrarCliente">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#" data-toggle="modal" data-target="#BorrarCliente">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" name="sel" onclick="seleccionCheck(this)"></td>
+                    <td class="text-center">3</td>
+                    <td>Maria + Perez</td>
+                    <td>123-4567890-1</td>
+                    <td class="text-center">809-000-5555</td>
+                    <td class="text-center">
+                        <!-- class="btn btn-link" -->
+                        <a data-toggle="modal" style="cursor: pointer" data-target="#MostrarGrupo">
+                            <span>Frecuente</span>
+                        </a>
+                    </td>
+                    <td class="text-center">07/09/2014</td>
+                    <td class="text-center">
+                        <a data-toggle='tooltip' style="cursor: pointer" data-placement="bottom" title="Tooltip on left">
+                            <span>emarte</span>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <!-- class="btn btn-default" -->
+                        <a href="#" data-toggle="modal" data-target="#MostrarCliente">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#" data-toggle="modal" data-target="#BorrarCliente">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" name="sel" onclick="seleccionCheck(this)"></td>
+                    <td class="text-center">4</td>
+                    <td>Maria + Perez</td>
+                    <td>123-4567890-1</td>
+                    <td class="text-center">809-000-5555</td>
+                    <td class="text-center">
+                        <!-- class="btn btn-link" -->
+                        <a data-toggle="modal" style="cursor: pointer" data-target="#MostrarGrupo">
+                            <span>Frecuente</span>
+                        </a>
+                    </td>
+                    <td class="text-center">07/09/2014</td>
+                    <td class="text-center">
+                        <a data-toggle='tooltip' style="cursor: pointer" data-placement="bottom" title="Tooltip on left">
+                            <span>emarte</span>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <!-- class="btn btn-default" -->
+                        <a href="#" data-toggle="modal" data-target="#MostrarCliente">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#" data-toggle="modal" data-target="#BorrarCliente">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" name="sel" onclick="seleccionCheck(this)"></td>
+                    <td class="text-center">5</td>
+                    <td>Maria + Perez</td>
+                    <td>123-4567890-1</td>
+                    <td class="text-center">809-000-5555</td>
+                    <td class="text-center">
+                        <!-- class="btn btn-link" -->
+                        <a data-toggle="modal" style="cursor: pointer" data-target="#MostrarGrupo">
+                            <span>Frecuente</span>
+                        </a>
+                    </td>
+                    <td class="text-center">07/09/2014</td>
+                    <td class="text-center">
+                        <a data-toggle='tooltip' style="cursor: pointer" data-placement="bottom" title="Tooltip on left">
+                            <span>emarte</span>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <!-- class="btn btn-default" -->
+                        <a href="#" data-toggle="modal" data-target="#MostrarCliente">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#" data-toggle="modal" data-target="#BorrarCliente">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" name="sel" onclick="seleccionCheck(this)"></td>
+                    <td class="text-center">6</td>
+                    <td>Maria + Perez</td>
+                    <td>123-4567890-1</td>
+                    <td class="text-center">809-000-5555</td>
+                    <td class="text-center">
+                        <!-- class="btn btn-link" -->
+                        <a data-toggle="modal" style="cursor: pointer" data-target="#MostrarGrupo">
+                            <span>Frecuente</span>
+                        </a>
+                    </td>
+                    <td class="text-center">07/09/2014</td>
+                    <td class="text-center">
+                        <a data-toggle='tooltip' style="cursor: pointer" data-placement="bottom" title="Tooltip on left">
+                            <span>emarte</span>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <!-- class="btn btn-default" -->
+                        <a href="#" data-toggle="modal" data-target="#MostrarCliente">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#" data-toggle="modal" data-target="#BorrarCliente">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" name="sel" onclick="seleccionCheck(this)"></td>
+                    <td class="text-center">7</td>
+                    <td>Maria + Perez</td>
+                    <td>123-4567890-1</td>
+                    <td class="text-center">809-000-5555</td>
+                    <td class="text-center">
+                        <!-- class="btn btn-link" -->
+                        <a data-toggle="modal" style="cursor: pointer" data-target="#MostrarGrupo">
+                            <span>Frecuente</span>
+                        </a>
+                    </td>
+                    <td class="text-center">07/09/2014</td>
+                    <td class="text-center">
+                        <a data-toggle='tooltip' style="cursor: pointer" data-placement="bottom" title="Tooltip on left">
+                            <span>emarte</span>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <!-- class="btn btn-default" -->
+                        <a href="#" data-toggle="modal" data-target="#MostrarCliente">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#" data-toggle="modal" data-target="#BorrarCliente">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" name="sel" onclick="seleccionCheck(this)"></td>
+                    <td class="text-center">8</td>
+                    <td>Maria + Perez</td>
+                    <td>123-4567890-1</td>
+                    <td class="text-center">809-000-5555</td>
+                    <td class="text-center">
+                        <!-- class="btn btn-link" -->
+                        <a data-toggle="modal" style="cursor: pointer" data-target="#MostrarGrupo">
+                            <span>Frecuente</span>
+                        </a>
+                    </td>
+                    <td class="text-center">07/09/2014</td>
+                    <td class="text-center">
+                        <a data-toggle='tooltip' style="cursor: pointer" data-placement="bottom" title="Tooltip on left">
+                            <span>emarte</span>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <!-- class="btn btn-default" -->
+                        <a href="#" data-toggle="modal" data-target="#MostrarCliente">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#" data-toggle="modal" data-target="#BorrarCliente">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" name="sel" onclick="seleccionCheck(this)"></td>
+                    <td class="text-center">9</td>
+                    <td>Maria + Perez</td>
+                    <td>123-4567890-1</td>
+                    <td class="text-center">809-000-5555</td>
+                    <td class="text-center">
+                        <!-- class="btn btn-link" -->
+                        <a data-toggle="modal" style="cursor: pointer" data-target="#MostrarGrupo">
+                            <span>Frecuente</span>
+                        </a>
+                    </td>
+                    <td class="text-center">07/09/2014</td>
+                    <td class="text-center">
+                        <a data-toggle='tooltip' style="cursor: pointer" data-placement="bottom" title="Tooltip on left">
+                            <span>emarte</span>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <!-- class="btn btn-default" -->
+                        <a href="#" data-toggle="modal" data-target="#MostrarCliente">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#" data-toggle="modal" data-target="#BorrarCliente">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr class="success">
+                    <td><input type="checkbox" name="sel" onclick="seleccionCheck(this)"></td>
+                    <td class="text-center">10</td>
+                    <td>Rodriguez Sosa y Asociados</td>
+                    <td>123-45678-9</td>
+                    <td class="text-center">809-555-0000</td>
+                    <td class="text-center">
+                        <!-- class="btn btn-link" -->
+                        <a data-toggle="modal" style="cursor: pointer" data-target="#MostrarGrupo">
+                            <span>Frecuente</span>
+                        </a>
+                    </td>
+                    <td class="text-center">07/09/2014</td>
+                    <td class="text-center">
+                        <a data-toggle='tooltip' style="cursor: pointer" data-placement="bottom" title="Tooltip on left">
+                            <span>emarte</span>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <!-- class="btn btn-default" -->
+                        <a href="#" data-toggle="modal" data-target="#MostrarCliente">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <span>   </span>
+                        <a href="#" data-toggle="modal" data-target="#BorrarCliente">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tfoot></tfoot>
+        </table>
+
+        <nav>
+            <ul class="pager">
+                <li class="previous"><a href="#"><span aria-hidden="true" style="color: #206299"><i class="glyphicon glyphicon-chevron-left"></i></span> Siguiente</a></li>
+                <li class="active"><a href="#" style="color: #206299">1</a></li>
+                <li><a href="#" style="color: #206299">2</a></li>
+                <li><a href="#" style="color: #206299">3</a></li>
+                <li class="next"><a href="#">Atras <span aria-hidden="true" style="color: #206299"><i class="glyphicon glyphicon-chevron-right"></i></span></a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<script>
+    var chk = document.getElementsByName("sel");
+    var valor = true;
+    var chkSelec;
+    var chkSelecTodos = [];
+
+    function MostrarFiltros() {
+        //$("#Filtros").toggleClass("hidden");
+        $('#Filtros').fadeToggle(150, function () { $('#Filtros').removeClass("hidden"); });
+    };
+
+    function seleccionarTodo(source) {
+        for (i = 0; i < chk.length; i++) {
+            if (chk[i].type == "checkbox")
+                chk[i].checked = source.checked;
+            chkSelecTodos[i] = source;
+            console.log(source);
+        }
+
+        if (SelecPrincipal.checked == 1) {
+            $("#EliminarSelec").removeClass("disabled");
+            valor = false;
+        } else {
+            $("#EliminarSelec").addClass("disabled");
+            valor = true;
+        }
+    };
+
+    function seleccionCheck(source) {
+        chkSelec = source;
+        console.log(source);
+        if (valor) {
+            if (source.checked == 1) {
+                $("#EliminarSelec").removeClass("disabled");
+            } else {
+                $("#EliminarSelec").addClass("disabled");
+            }
+        }
+    };
+
+</script>
+<!-- Modal Detalles-->
+<div class="modal fade" id="MostrarCliente" tabindex="-1" role="dialog" aria-labelledby="MostrarCliente">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Nombre + Apellido</h4>
+            </div>
+            <div class="modal-body">
+                Datos cliente .. solo lectura
+            </div>
+            <div class="modal-footer">
+                <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</a>
+                <a href="#" type="button" class="btn btn-primary">Editar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Eliminar-->
+<div class="modal fade" id="BorrarCliente" tabindex="-1" role="dialog" aria-labelledby="BorrarCliente">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Borrar Cliente</h4>
+            </div>
+            <div class="modal-body">
+                Datos cliente .. solo lectura
+            </div>
+            <div class="modal-footer">
+                @*<a href="#" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</a>*@
+                <a href="#" type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</a>
+                <a href="#" type="button" class="btn btn-danger">Eliminar Cliente</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Grupo-->
+<div class="modal fade" id="MostrarGrupo" tabindex="-1" role="dialog" aria-labelledby="MostrarGrupo">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Grupo de Clientes</h4>
+            </div>
+            <div class="modal-body">
+                Datos solo lectura
+            </div>
+            <div class="modal-footer">
+                <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Creador-->
+<div class="modal fade" id="MostrarCreador" tabindex="-1" role="dialog" aria-labelledby="MostrarCreador">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Creador por</h4>
+            </div>
+            <div class="modal-body">
+                Datos .. solo lectura
+            </div>
+            <div class="modal-footer">
+                <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿@model TPV.Models.Rol
+
+@{
+    ViewBag.Title = "Crear Acceso";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<div class="page-header">
+    <button onclick="atras()" class="btn btn-default pull-right">
+        <i class="glyphicon glyphicon-triangle-left"></i>
+        Volver atras
+    </button>
+    <h2>Crear Acceso</h2>
+</div>
+<form class="form-horizontal">
+    <fieldset>
+        @*<legend>
+            </legend>*@
+        <div class="form-group">
+            @*@Html.LabelFor(m => m.Nombre, "Nombre", new { @class="col-lg-2 control-label"})*@
+            <label for="Nombre" class="col-lg-2 control-label">Nombre</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" id="Nombre" placeholder="Nombre del Acceso">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Descripcion" class="col-lg-2 control-label">Descripcion</label>
+            <div class="col-md-4">
+                <textarea class="form-control" rows="3" id="Descripcion" placeholder="Describa el Acceso"></textarea>
+                <span class="help-block">Breve descripcion del Acceso</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Funciones" class="col-lg-2 control-label">Accesos</label>
+            <div class="col-md-3">
+                <select multiple class="form-control" id="Funciones">
+                    <option>Seleccione...</option>
+                    <option>Empleados - Todos</option>
+                    <option>Productos - Ver</option>
+                    <option>Puestos - Ver</option>
+                    <option>Otro</option>
+                </select>
+                <div class="input-group">
+                    <a href="#" class="btn btn-default">Nuevo Acceso</a>
+                    @*<a href="#" class="btn btn-default input-group-addon">Nueva Funcion</a>*@
+                    @*<input type="text" class="form-control" id="NuevaFuncion" placeholder="Nueva Funcion">*@
+                    <input type="text" class="form-control hidden" id="NuevoAcceso" placeholder="Nuevo Acceso">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Estado</label>
+            <div class="col-lg-10">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="Estado" id="Activo" value="Activo">
+                        Activo
+                    </label>
+                    <label>
+                        <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
+                        Inactivo
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Limpiar</button>
+                <button onclick="atras()" class="btn btn-default">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Crear Acceso</button>
+            </div>
+        </div>
+    </fieldset>
+</form>

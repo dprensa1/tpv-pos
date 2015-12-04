@@ -1,0 +1,132 @@
+﻿@model TPV.Models.Usuario
+
+@{
+    ViewBag.Title = "Todos Los Usuarios";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<div class="page-header">
+    <div class="pull-right">
+        <a href="#" class="btn btn-default" disabled>
+            <i class="glyphicon glyphicon-trash"></i>
+            Eliminar Seleccionados
+        </a>
+
+        <a href="~/Empleados/Usuarios/Crear" class="btn btn-default">
+            <i class="glyphicon glyphicon-plus"></i>
+            Crear Nuevo
+        </a>
+        <button onclick="atras()" class="btn btn-default">
+            <i class="glyphicon glyphicon-triangle-left"></i>
+            Volver atras
+        </button>
+
+        @*@Html.ActionLink("Volver atras", "~/Empleados", null, new { })*@
+
+    </div>
+    <h2>Gestion de Usuarios</h2>
+</div>
+
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+
+            <thead>
+                <tr class="bg-primary">
+                    <th><strong><input type="checkbox"></strong></th>
+                    <th><strong>#</strong></th>
+                    <th><strong>ID Empleado</strong></th>
+                    <th><strong>Nombre Empleado</strong></th>
+                    <th><strong>Usuario</strong></th>
+                    <th><strong>Accesos</strong></th>
+                    <th><strong>Feacha Creacion</strong></th>
+                    <th><strong>Creado Por</strong></th>
+                    <th><strong>Acciones</strong></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="active">
+                    <td><input type="checkbox"></td>
+                    <td>1</td>
+                    <td>58</td>
+                    <td>Emilia + Marte</td>
+                    <td>emarte</td>
+                    <td>
+                        Admin <a href="#">
+                            <span class="caret"></span>
+                        </a>
+                    </td>
+                    <td>05/05/2015</td>
+                    <td>System</td>
+                    <td>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-eye-open"></i><span> Detalles </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-pencil"></i><span> Editar </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-trash"></i><span> Eliminar </span>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2</td>
+                    <td>58</td>
+                    <td>Emilia + Marte</td>
+                    <td>emarte</td>
+                    <td>
+                        Admin <a href="#">
+                            <span class="caret"></span>
+                        </a>
+                    </td>
+                    <td>05/05/2015</td>
+                    <td>System</td>
+                    <td>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-eye-open"></i><span> Detalles </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-pencil"></i><span> Editar </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-trash"></i><span> Eliminar </span>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>3</td>
+                    <td>58</td>
+                    <td>Emilia + Marte</td>
+                    <td>emarte</td>
+                    <td>
+                        Admin <a href="#">
+                            <span class="caret"></span>
+                        </a>
+                    </td>
+                    <td>05/05/2015</td>
+                    <td>System</td>
+                    <td>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-eye-open"></i><span> Detalles </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-pencil"></i><span> Editar </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-trash"></i><span> Eliminar </span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,192 @@
+﻿@model TPV.Models.Cliente
+
+@{
+    ViewBag.Title = "Crear Cliente ~ Persona";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<div class="page-header">
+    <button onclick="atras()" class="btn btn-default pull-right">
+        <i class="glyphicon glyphicon-triangle-left"></i>
+        Volver atras
+    </button>
+    <h2>Crear Cliente</h2>
+</div>
+
+@*<ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a data-toggle="tab" href="#Persona">Persona</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#Empresa">Empresa</a></li>
+    </ul>*@
+
+<div class="tab-content" ng-app>
+
+    @*Formulario Persona*@
+    <div id="Persona" class="tab-pane fade in active">
+        <form class=" form-horizontal">
+            <fieldset>
+
+                @*<legend>
+
+                    </legend>*@
+
+                <div class="form-group">
+                    @*@Html.LabelFor(m => m.Nombre, "Nombre", new { @class="col-lg-2 control-label"})*@
+                    <label for="Nombre" class="col-lg-2 control-label">Nombre</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="Nombre" placeholder="Nombre">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Apellido" class="col-lg-2 control-label">Apellido</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="Apellido" placeholder="Apellido">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Cedula" id="tipoIdentificacion" class="col-lg-2 control-label">Tipo de Identificacion</label>
+                    <div class="col-lg-10">
+                        <div class="radio">
+                            <label class="Identificacion">
+                                <input type="radio" name="Identificacion" id="Cedula" value="Cedula" ng-model="Identificacion">
+                                Cedula
+                            </label>
+                            <label class="Identificacion">
+                                <input type="radio" name="Identificacion" id="RNC" value="RNC" ng-model="Identificacion">
+                                RNC
+                            </label>
+                            <label class="Identificacion">
+                                <input type="radio" name="Identificacion" id="Pasaporte" value="Pasaporte" ng-model="Identificacion">
+                                Pasaporte
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Identificacion" class="col-lg-2 control-label">Datos de Identificacion</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="Identificacion" placeholder="{{Identificacion}}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Funciones" class="col-lg-2 control-label">Grupo</label>
+                    <div class="col-md-3">
+
+
+                        <div class="input-group">
+                            <select class="form-control" id="Funciones">
+                                <option>Seleccione...</option>
+                                <option>Muy Frecuente</option>
+                                <option>Frecuente</option>
+                                <option>No Frecuente</option>
+                            </select>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" onclick="Mostrar_Crear_Grupo()" data-toggle="button" id="NuevoGrupo">Nuevo Grupo</button>
+                            </span>
+                        </div>
+
+                        <div class="input-group">
+                            <script>
+                                function Mostrar_Crear_Grupo() {
+                                    //$('#NuevoGrupo').addClass("hidden");
+                                    //$('#NombreGrupo').removeClass("hidden");
+                                    //$('#CrearGrupo').removeClass("hidden");
+                                    //$('#NuevoGrupo').fadeToggle();
+                                    //$('#NuevoGrupo').fadeToggle(300, function () { $('#NuevoGrupo').addClass("hidden") });
+                                    $('#NombreGrupo').fadeToggle(200, function () { $('#NombreGrupo').removeClass("hidden") });
+                                    $('#CrearGrupo').fadeToggle(200, function () { $('#CrearGrupo').removeClass("hidden") });
+
+                                    $('#NombreGrupo').focusin();
+                                };
+
+                                function grupo_Creado() {
+                                    //$('#NuevoGrupo').removeClass("hidden");
+                                    //$('#NombreGrupo').addClass("hidden");
+                                    //$('#CrearGrupo').addClass("hidden");
+                                    //$('#NuevoGrupo').fadeToggle(300, function () { $('#NuevoGrupo').removeClass("hidden") });
+                                    $('#NombreGrupo').fadeToggle(200, function () { $('#NombreGrupo').addClass("hidden") });
+                                    $('#CrearGrupo').fadeToggle(200, function () { $('#CrearGrupo').addClass("hidden") });
+                                };
+                            </script>
+                            <input type="text" class="form-control hidden" id="NombreGrupo" placeholder="Nombre del Grupo">
+
+                            <span class="input-group-btn hidden" onclick="grupo_Creado()" id="CrearGrupo">
+                                <button class="btn btn-default">Crear Grupo</button>
+                            </span>
+                        </div>
+                        @*<div class="input-group">
+                            <button id="esto" class="btn btn-default">Nuevo grupo</button>
+                            <input type="text" class="form-control " nuevogrupo" placeholder="Nuevo Grupo">
+                            </div>*@
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Telefono" class="col-lg-2 control-label">Telefono</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="Telefono" placeholder="000-000-0000">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="NombreContacto" class="col-lg-2 control-label">Contacto</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="NombreContacto" placeholder="Nombre del Contacto">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="TelefonoContacto" class="col-lg-2 control-label">Telefono del Contacto</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="TelefonoContacto" placeholder="000-000-0000">
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="Extension" placeholder="Extension">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Activo" class="col-lg-2 control-label">Estado</label>
+                    <div class="col-lg-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="Estado" id="Activo" value="Activo">
+                                Activo
+                            </label>
+                            <label>
+                                <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
+                                Inactivo
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="reset" class="btn btn-default">Limpiar</button>
+                        <button onclick="atras()" class="btn btn-default">Cancelar</button>
+                        <button type="submit" onclick="validarIdentificacion()" id="crearUsuario" class="btn btn-primary">Crear Usuario</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+<script language="JavaScript" type="text/javascript">
+    function validaridentificacion() {
+        if ($('input[name=Identificacion]').is(':checked')) {
+        }
+        else {
+            alert('falta documento de identificacion');
+            $('#tipoidentificacion').focus();
+            $('#tipoidentificacion').css('color', 'red');
+            $('label[class=Identificacion]').css('color', 'red')
+        }
+    };
+
+</script>

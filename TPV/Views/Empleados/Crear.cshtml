@@ -1,0 +1,137 @@
+﻿@model TPV.Models.Empleado
+
+@{
+    ViewBag.Title = "Crear Empleado";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<div class="page-header">
+    <button onclick="atras()" class="btn btn-default pull-right">
+        <i class="glyphicon glyphicon-triangle-left"></i>
+        Volver atras
+    </button>
+    <h2>Crear Empleado</h2>
+</div>
+
+<form class="form-horizontal">
+    <fieldset>
+        @*<legend>
+            </legend>*@
+        <div class="form-group">
+            @*@Html.LabelFor(m => m.Nombre, "Nombre", new { @class="col-lg-2 control-label"})*@
+            <label for="Nombre" class="col-lg-2 control-label">Nombre</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" id="Nombre" placeholder="Nombre">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Apellido" class="col-lg-2 control-label">Apellido</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" id="Apellido" placeholder="Apellido">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Sexo</label>
+            <div class="col-lg-10">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="Sexo" id="Femenino" value="Femenino">
+                        Femenino
+                    </label>
+                    <label>
+                        <input type="radio" name="Sexo" id="Masculino" value="Masculino">
+                        Masculino
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Cedula" class="col-lg-2 control-label">Fecha de Nacimiento</label>
+            <div class="col-sm-1">
+                <input type="text" class="form-control" id="Fecha_Nacimiento_Dia" placeholder="Dia">
+            </div>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="Fecha_Nacimiento_Mes" placeholder="Mes">
+            </div>
+            <div class="col-sm-1">
+                <input type="text" class="form-control" id="Fecha_Nacimiento_Anio" placeholder="Año">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="Cedula" class="col-lg-2 control-label">Cedula</label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="Cedula" placeholder="Cedula: 000-0000000-0">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Telefono" class="col-lg-2 control-label">Telefono</label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="Telefono" placeholder="Telefono: 000-000-0000">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Salario" class="col-lg-2 control-label">Salario</label>
+
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="Salario" placeholder="Salario: 0,000 | 00,000 | 000,000 ">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Puesto" class="col-lg-2 control-label">Puesto</label>
+            <div class="col-md-3">
+                <select class="form-control" id="Puesto">
+                    <option>Cajera</option>
+                    <option>Supervisor</option>
+                    <option>Gerente</option>
+                    <option>Administrador</option>
+                    <option>Otro</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Fecha de Entrada</label>
+            <div class="col-sm-1">
+                <input type="text" class="form-control" id="Fecha_Entrada_Dia" placeholder="Dia">
+            </div>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="Fecha_Entrada_Mes" placeholder="Mes">
+            </div>
+            <div class="col-sm-1">
+                <input type="text" class="form-control" id="Fecha_Entrada_Anio" placeholder="Año">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Estado</label>
+            <div class="col-lg-10">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="Estado" id="Activo" value="Activo">
+                        Activo
+                    </label>
+                    <label>
+                        <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
+                        Inactivo
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Limpiar</button>
+                <button onclick="atras()" class="btn btn-default">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Crear Usuario</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
