@@ -21,11 +21,11 @@ namespace TPV.Models
 
         public double Salario { get; set; }
 
-        public virtual int PuestoID { get; set; }
+        public int PuestoID { get; set; }
 
         public virtual Puesto Puesto { get; set; }
 
-        //public int Codigo { get; set; }
+        public int Codigo { get; set; }
 
         public DateTime FechaEntrada { get; set; }
 
@@ -36,8 +36,8 @@ namespace TPV.Models
 
         public DateTime FechaCreacion { get; set; }
 
-        public virtual int UsuarioID { get; set; }
+        public int UsuarioID { get; set; }
 
-        public virtual Usuario CreadoPor { get; set; } //Usuario Actual logueado
+        public virtual Usuario CreadoPor { get; set; }
     }
 }

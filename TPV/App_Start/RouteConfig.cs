@@ -16,15 +16,10 @@ namespace TPV
                 url: "{controller}/{action}",
                 //url: "{controller}/{action}/{id}",
                 //defaults: new { controller = "Inicio", action = "Login", id = UrlParameter.Optional }
-                defaults: new { controller = "Inicio", action = "Login"}
+                defaults: new { controller = "Login", action = "Login"}
             );
 
-            routes.MapRoute("Empleados", "Empleados/Index",
-                new
-                {
-                    controller = "Empleados",
-                    action = "Index"
-                });
+            routes.MapRoute("Inicio", "Inicio/Main");
         }
     }
 }

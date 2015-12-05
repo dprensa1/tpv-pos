@@ -2,19 +2,12 @@
 
 namespace TPV.Controllers
 {
-    //[RoutePrefix("Empleados")]
+    //[RoutePrefix("~/Empleados")]
     public class EmpleadosController : Controller
     {
         // GET: Empleados
         [Route("Empleados")]
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: Empleados
-        [Route("Empleados/Todos")]
-        public ActionResult Todos()
         {
             return View();
         }

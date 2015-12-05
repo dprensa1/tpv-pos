@@ -31,15 +31,22 @@
                     <!-- Menu -->
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav">
-                            <li class="navbar‐btn"><span>            </span></li>
-                            <li class="navbar‐btn">@Html.ActionLink("Inicio", "Main", "Inicio"/*, new{}*/)</li>
-                            <li class="navbar‐btn">@Html.ActionLink("Ventas", "Index", "Ventas"/*, new{}*/)</li>
-                            <li class="navbar‐btn">@Html.ActionLink("Gestion Productos", "Index", "Productos"/*, new{}*/)</li>
-                            <li class="navbar‐btn">@Html.ActionLink("Reportes", "Index", "Reportes"/*, new{}*/)</li>
-                            <li class="navbar‐btn">@Html.ActionLink("Gestion Clientes", "Index", "Clientes"/*, new{}*/)</li>
-                            <li class="navbar‐btn">@Html.ActionLink("Gestion Empleados", "Index", "Empleados"/*, new{}*/)</li>
+                            <li class="navbar‐btn"><a href="/Inicio">Inicio</a></li>
+                            <li class="navbar‐btn"><a href="/Ventas">Ventas</a></li>
+                            <li class="navbar‐btn"><a href="/Productos">Productos</a></li>
+                            <li class="navbar‐btn"><a href="/Reportes">Reportes</a></li>
+                            <li class="navbar‐btn"><a href="/Clientes">Clientes</a></li>
+                            <li class="navbar‐btn">
+                                <a href="/Administracion" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracion</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Empleados"><i class="fa fa-child fa-lg"></i>  Empleados</a></li>
+                                    <li><a href="/Usuarios">Usuarios</a></li>
+                                    <li><a href="/Puestos">Puestos</a></li>
+                                    <li><a href="/Accesos">Accesos</a></li>
+                                </ul>
+                            </li>
                         </ul>
-
+                        
                         <!-- Usuario y Opciones -->
                         <div class="navbar-form navbar-right form-group">
                             <div class="pull-right">

@@ -1,69 +1,119 @@
 ﻿@model TPV.Models.Empleado
 
 @{
-    ViewBag.Title = "Gestion de Empleados";
+    ViewBag.Title = "Todos Los Empleados";
     Layout = "~/Views/Shared/_Layout3.cshtml";
 }
 
 <div class="page-header">
-    <button onclick="atras()" class="btn btn-default pull-right">
-        <i class="glyphicon glyphicon-triangle-left"></i>
-        Volver atras
-    </button>
+
+    <div class="pull-right">
+        <a href="#" class="btn btn-default" disabled>
+            <i class="glyphicon glyphicon-trash"></i>
+            Eliminar Seleccionados
+        </a>
+
+        <a href="~/Empleados/Crear" class="btn btn-default">
+            <i class="glyphicon glyphicon-plus"></i>
+            Crear Nuevo
+        </a>
+
+        <button onclick="atras()" class="btn btn-default">
+            <i class="glyphicon glyphicon-triangle-left"></i>
+            Volver atras
+        </button>
+    </div>
 
     <h2>Gestion de Empleados</h2>
 </div>
 
 
 <div class="row">
-    <div class="col-lg-12 text-center">
-        <div class="col-lg-3">
-            <a href="~/Empleados/Crear" class="btn btn-default" style="width:75%">Crear un Empleado</a>
-        </div>
-        <div class="col-lg-3">
-            <a href="~/Empleados/Usuarios/Crear" class="btn btn-default" style="width:75%">Crear un Usuario</a>
-        </div>
-        <div class="col-lg-3">
-            <a href="~/Empleados/Puestos/Crear" class="btn btn-default" style="width:75%">Crear un Puesto</a>
-        </div>
-        <div class="col-lg-3">
-            <a href="~/Empleados/Accesos/Crear" class="btn btn-default" style="width:75%">Crear un Acceso</a>
-        </div>
-    </div>
-</div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
 
-<hr />
+            <thead>
+                <tr class="bg-primary">
+                    <th><strong><input type="checkbox"></strong></th>
+                    <th><strong>#</strong></th>
+                    <th><strong>Nombre</strong></th>
+                    <th><strong>Apellido</strong></th>
+                    <th><strong>Telefono</strong></th>
+                    <th><strong>Puesto</strong></th>
+                    <th><strong>Salario</strong></th>
+                    <th><strong>Fecha de Entrada</strong></th>
+                    <th><strong>Acciones</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="active">
+                    <td><input type="checkbox"></td>
+                    <td>1</td>
+                    <td>Maria</td>
+                    <td>Perez</td>
+                    <td>809-000-5555</td>
+                    <td>Supervision</td>
+                    <td>35,000</td>
+                    <td>07/09/2014</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-eye-open"></i><span> Detalles </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-pencil"></i><span> Editar </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-trash"></i><span> Eliminar </span>
+                        </a>
+                    </td>
+                </tr>
 
-<div class="row">
-    <div class="col-md-6">
-        <a href="~/Empleados/Todos" class="btn btn-default">
-            <img src="~/Content/Iconos/empleado3.png" alt="Empleados" style="width:20%" />
-            <br />
-            <p>Empleados</p>
-        </a>
-    </div>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Perez</td>
+                    <td>809-000-5555</td>
+                    <td>Supervision</td>
+                    <td>35,000</td>
+                    <td>07/09/2014</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-eye-open"></i><span> Detalles </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-pencil"></i><span> Editar </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-trash"></i><span> Eliminar </span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>3</td>
+                    <td>Maria</td>
+                    <td>Perez</td>
+                    <td>809-000-5555</td>
+                    <td>Supervision</td>
+                    <td>35,000</td>
+                    <td>07/09/2014</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-eye-open"></i><span> Detalles </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-pencil"></i><span> Editar </span>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="glyphicon glyphicon-trash"></i><span> Eliminar </span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
 
-    <div class="col-md-6">
-        <a href="~/Empleados/Usuarios" class="btn btn-default">
-            <img src="~/Content/Iconos/usuarios.png" alt="Usuarios" style="width:20%" />
-            <br />
-            <p>Usuarios</p>
-        </a>
-    </div>
-
-    <div class="col-md-6">
-        <a href="~/Empleados/Puestos" class="btn btn-default">
-            <img src="~/Content/Iconos/puesto.png" alt="Puestos" style="width:20%" />
-            <br />
-            <p>Puestos</p>
-        </a>
-    </div>
-
-    <div class="col-md-6">
-        <a href="~/Empleados/Accesos" class="btn btn-default">
-            <img src="~/Content/Iconos/roles.png" alt="Roles" style="width:20%" />
-            <br />
-            <p>Accesos | Permisos</p>
-        </a>
+            </tfoot>
+        </table>
     </div>
 </div>

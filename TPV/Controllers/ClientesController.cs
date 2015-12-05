@@ -11,14 +11,14 @@ namespace TPV.Controllers
             return View();
         }
 
-        // GET: Clientes/Crear
+        // GET: Clientes/Create
         [Route("Clientes/Crear")]
         public ActionResult Crear()
         {
             return View();
         }
 
-        // GET: Clientes/Crear
+        // GET: Clientes/Create
         [HttpPost]
         public ActionResult Crear(FormCollection collection)
         {
