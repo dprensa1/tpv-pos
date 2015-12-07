@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPV", "TPV\TPV.csproj", "{887A1AC9-913F-41A9-8F51-CB1FBD131B15}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9344E24D-1B34-4EC3-8123-BFF46164C3CE}"
-	ProjectSection(SolutionItems) = preProject
-		WE-Palette.css = WE-Palette.css
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

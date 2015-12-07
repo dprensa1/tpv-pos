@@ -6,8 +6,8 @@
 }
 <div class="page-header">
     <button onclick="atras()" class="btn btn-default pull-right">
-        <i class="glyphicon glyphicon-triangle-left"></i>
-        Volver atras
+        <i class="fa fa-chevron-left" style="color:#276aa4"></i>
+        Atr&aacute;s
     </button>
     <h2>Crear Puesto</h2>
 </div>
@@ -28,13 +28,23 @@
             <label for="Descripcion" class="col-lg-2 control-label">Descripcion</label>
             <div class="col-md-4">
                 <textarea class="form-control" rows="3" id="Descripcion" placeholder="Describa el Puesto"></textarea>
-                <span class="help-block">Breve descripcion del Puesto</span>
+                <span class="help-block">Breve descripción del Puesto</span>
             </div>
         </div>
 
-        @*
-            Salario Sugerido
-        *@
+        <div class="form-group">
+            <label for="Puesto" class="col-lg-2 control-label">Rol</label>
+            <div class="col-sm-2">
+                <select class="form-control" id="Puesto">
+                    <option>Caja</option>
+                    <option>Admin</option>
+                    <option>Supervisor</option>
+                    <option>Gerente</option>
+                    <option>Otro</option>
+                </select>
+            </div>
+        </div>
+        @*@Html.DropDownList("test",<test>,"Seleccione..")*@
 
         <div class="form-group">
             <label class="col-lg-2 control-label">Estado</label>
@@ -55,7 +65,7 @@
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <button type="reset" class="btn btn-default">Limpiar</button>
-                <button onclick="atras()" class="btn btn-default">Cancelar</button>
+                <a href="/Puestos" class="btn btn-default">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Crear Puesto</button>
             </div>
         </div>

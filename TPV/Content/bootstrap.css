@@ -1,3 +1,21 @@
+strong a i{
+    color:#AAAAAA;
+}
+strong a i:hover{
+    color:white;
+}
+strong a.active i{
+    color:black;
+}
+
+ul.dropdown-menu li a i{
+ color:#276aa4;
+}
+
+ul.dropdown-menu li.active a i{
+    color:#ffffff;
+}
+ 
 div ul li a:hover {
     background: #f2f2f2;
 }

@@ -15,7 +15,7 @@ namespace TPV.Models
 
         public string Pass { get; set; }
 
-        public virtual ICollection<Role> Role { get; set; }
+        public virtual ICollection<Rol> Rol { get; set; }
 
         public char State { get; set; }
 

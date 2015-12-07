@@ -22,7 +22,7 @@ namespace TPV.Models
 
         public virtual int UsuarioID { get; set; }
 
-        public virtual Usuario CreadoPor { get; set; } //Usuario Actual logueado
+        public virtual Usuario CreadoPor { get; set; } 
 
     }
 }

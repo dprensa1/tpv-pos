@@ -1,7 +1,7 @@
 ﻿@model TPV.Models.Rol
 
 @{
-    ViewBag.Title = "Accesos";
+    ViewBag.Title = "Roles";
     Layout = "~/Views/Shared/_Layout3.cshtml";
 }
 
@@ -12,115 +12,104 @@
             Eliminar Seleccionados
         </a>
 
-        <a href="~/Empleados/Accesos/Crear" class="btn btn-default">
-            <i class="glyphicon glyphicon-plus"></i>
-            Crear Nuevo
+        <a href="Roles/Crear" class="btn btn-default">
+            <i class="glyphicon glyphicon-plus" style="color:#276aa4"></i>
+            Nuevo
         </a>
         <button onclick="atras()" class="btn btn-default">
-            <i class="glyphicon glyphicon-triangle-left"></i>
-            Volver atras
+            <i class="fa fa-chevron-left" style="color:#276aa4"></i>
+            Atras
         </button>
     </div>
-    <h2>Gestion de Accesos | Permisos</h2>
+    <h2>Gestion de Roles</h2>
 </div>
 
 <div class="row">
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
+    <table class="table table-responsive table-condensed table-bordered table-hover">
+        <thead>
+            <tr class="bg-primary">
+                <th><strong><input type="checkbox"></strong></th>
+                <th><strong># <a href="#"><i class="fa fa-sort"></i></a></strong></th>
+                <th><strong>Rol <a href="#" class="active"><i class="fa fa-sort"></i></a></strong></th>
+                <th><strong>Descripci&oacute;n <a href="#"><i class="fa fa-sort"></i></a></strong></th>
+                <th><strong>Accesos <a href="#"><i class="fa fa-sort"></i></a></strong></th>
+                <th><strong>Acciones <a href="#"><i class="fa fa-sort"></i></a></strong></th>
+            </tr>
+        </thead>
 
-            <thead>
-                <tr class="bg-primary">
-                    <th><strong><input type="checkbox"></strong></th>
-                    <th><strong>#</strong></th>
-                    <th><strong>Nombre del Acceso</strong></th>
-                    <th><strong>Descripcion</strong></th>
-                    <th><strong>Accesos</strong></th>
-                    <th><strong>Feacha Creacion</strong></th>
-                    <th><strong>Creado Por</strong></th>
-                    <th><strong>Acciones</strong></th>
-                </tr>
-            </thead>
+        <tbody>
+            <tr class="active">
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td><a href="#">Administrador</a></td> @* LINK IGUAL QUE EL BOTON VER *@
+                <td>Excepteur sint occaecat cupidatat non proident.</td>
+                <td>
+                    <a href="#">
+                        Todos <span class="fa fa-chevron-circle-down"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-default">
+                        <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
+                    </a>
+                    <a href="#" class="btn btn-default">
+                        <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
+                    </a>
+                    <a href="#" class="btn btn-default">
+                        <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
+                    </a>
+                </td>
+            </tr>
 
-            <tbody>
-                <tr class="active">
-                    <td><input type="checkbox"></td>
-                    <td>1</td>
-                    <td>System</td>
-                    <td>Excepteur sint occaecat cupidatat non proident.</td>
-                    <td>
-                        Todos <a href="#">
-                            <span class="caret"></span>
-                        </a>
-                    </td>
-                    <td>05/05/2015</td>
-                    <td>System</td>
-                    <td>
-                        <a href="#" class="btn btn-default">
-                            <i class="glyphicon glyphicon-eye-open"></i><span> Detalles </span>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="glyphicon glyphicon-pencil"></i><span> Editar </span>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="glyphicon glyphicon-trash"></i><span> Eliminar </span>
-                        </a>
-                    </td>
-                </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>2</td>
+                <td><a href="#">Gerente</a></td> @* LINK IGUAL QUE EL BOTON VER *@
+                <td>Excepteur sint occaecat cupidatat non proident.</td>
+                <td>
+                    <a href="#">
+                        Todos <span class="fa fa-chevron-circle-down"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-default">
+                        <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
+                    </a>
+                    <a href="#" class="btn btn-default">
+                        <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
+                    </a>
+                    <a href="#" class="btn btn-default">
+                        <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
+                    </a>
+                </td>
+            </tr>
 
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>1</td>
-                    <td>System</td>
-                    <td>Excepteur sint occaecat cupidatat non proident.</td>
-                    <td>
-                        Todos <a href="#">
-                            <span class="caret"></span>
-                        </a>
-                    </td>
-                    <td>05/05/2015</td>
-                    <td>System</td>
-                    <td>
-                        <a href="#" class="btn btn-default">
-                            <i class="glyphicon glyphicon-eye-open"></i><span> Detalles </span>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="glyphicon glyphicon-pencil"></i><span> Editar </span>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="glyphicon glyphicon-trash"></i><span> Eliminar </span>
-                        </a>
-                    </td>
-                </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>3</td>
+                <td><a href="#">Supervisor</a></td> @* LINK IGUAL QUE EL BOTON VER *@
+                <td>Excepteur sint occaecat cupidatat non proident.</td>
+                <td>
+                    <a href="#">
+                        Todos <span class="fa fa-chevron-circle-down"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-default">
+                        <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
+                    </a>
+                    <a href="#" class="btn btn-default">
+                        <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
+                    </a>
+                    <a href="#" class="btn btn-default">
+                        <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
+                    </a>
+                </td>
+            </tr>
 
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>1</td>
-                    <td>System</td>
-                    <td>Excepteur sint occaecat cupidatat non proident.</td>
-                    <td>
-                        Todos <a href="#">
-                            <span class="caret"></span>
-                        </a>
-                    </td>
-                    <td>05/05/2015</td>
-                    <td>System</td>
-                    <td>
-                        <a href="#" class="btn btn-default">
-                            <i class="glyphicon glyphicon-eye-open"></i><span> Detalles </span>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="glyphicon glyphicon-pencil"></i><span> Editar </span>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="glyphicon glyphicon-trash"></i><span> Eliminar </span>
-                        </a>
-                    </td>
-                </tr>
+        </tbody>
 
-            </tbody>
-
-            <tfoot>
-            </tfoot>
-        </table>
-    </div>
+        <tfoot>
+        </tfoot>
+    </table>
 </div>

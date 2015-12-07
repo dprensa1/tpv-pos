@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TPV.Models
 {
@@ -6,9 +7,11 @@ namespace TPV.Models
     {
         public int PuestoID { get; set; }
 
-        public virtual string Nombre { get; set; }
+        public string Nombre { get; set; }
 
-        public virtual string Descripcion { get; set; }
+        public string Descripcion { get; set; }
+
+        public virtual ICollection<Rol> Rol { get; set; }
 
         public char Estado { get; set; }
 
@@ -17,8 +20,8 @@ namespace TPV.Models
 
         public DateTime FechaCreacion { get; set; }
 
-        public virtual int UsuarioID { get; set; }
+        public int UsuarioID { get; set; }
 
-        public virtual Usuario CreadoPor { get; set; } //Usuario Actual logueado
+        public virtual Usuario CreadoPor { get; set; } 
     }
 }

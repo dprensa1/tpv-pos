@@ -5,20 +5,20 @@ namespace TPV.Controllers
     public class PuestosController : Controller
     {
         // GET: Puestos
-        [Route("Empleados/Puestos")]
+        [Route("Puestos")]
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Empleados/Puestos/Create
-        [Route("Empleados/Puestos/Crear")]
+        // GET: Puestos/Crear
+        [Route("Puestos/Crear")]
         public ActionResult Crear()
         {
             return View();
         }
 
-        // GET: Empleados/Puestos/Create
+        // GET: Puestos/Crear
         [HttpPost]
         public ActionResult Crear(FormCollection collection)
         {
