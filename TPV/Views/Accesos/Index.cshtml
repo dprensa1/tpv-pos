@@ -1,73 +1,80 @@
-﻿@model TPV.Models.Empleado
+﻿@model TPV.Models.Acceso
 
 @{
-    ViewBag.Title = "Todos Los Empleados";
+    ViewBag.Title = "Accesos";
     Layout = "~/Views/Shared/_Layout3.cshtml";
 }
-
 <div class="page-header">
-
     <div class="pull-right">
         <a href="#" class="btn btn-default" disabled>
             <i class="glyphicon glyphicon-trash"></i>
             Eliminar Seleccionados
         </a>
 
-        <a href="/Empleados/Crear" class="btn btn-default">
+        <a href="/Accesos/Crear" class="btn btn-default">
             <i class="glyphicon glyphicon-plus" style="color:#276aa4"></i>
-            Crear Nuevo
+            Nuevo
         </a>
-
         <button onclick="atras()" class="btn btn-default">
             <i class="fa fa-chevron-left" style="color:#276aa4"></i>
             Atr&aacute;s
         </button>
     </div>
-
-    <h2>Gestion de Empleados</h2>
+    <h2>Gestion de Accesos</h2>
 </div>
-
-
 <div class="row">
     <table class="table table-responsive table-condensed table-bordered table-hover">
-
         <thead>
             <tr class="bg-primary">
                 <th>
                     <strong>
-                    <input type="checkbox"></strong></th>
+                        <input type="checkbox">
+                    </strong>
+                </th>
+
                 <th>
-                    <strong># 
-                        <a href="#" class="active"><i class="fa fa-caret-down fa-flip-vertical"></i></a>
-                    </strong></th>
+                    <strong>
+                        # <a href="#">
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </strong>
+                </th>
+
                 <th>
-                    <strong>Nombre 
-                        <a href="#"><i class="fa fa-caret-down"></i></a>
-                    </strong></th>
+                    <strong>
+                        Nombre
+                        <a href="#" class="active">
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </strong>
+                </th>
+
                 <th>
-                    <strong>Apellido 
-                        <a href="#"><i class="fa fa-caret-down"></i></a>
-                    </strong></th>
-                <th>
-                    <strong>Telefono 
-                        <a href="#"><i class="fa fa-caret-down"></i></a>
-                    </strong></th>
-                <th>
-                    <strong>Puesto 
-                        <a href="#"><i class="fa fa-caret-down"></i></a>
-                    </strong></th>
+                    <strong>
+                        Descripci&oacute;n
+                        <a href="#">
+                            <i class="fa fa-caret-down fa-flip-vertical"></i>
+                        </a>
+                    </strong>
+                </th>
+
                 <th class="text-center">
-                    <strong>Acciones</strong></th>
+                    <strong>
+                        Acciones
+                        <a href="#">
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </strong>
+                </th>
             </tr>
         </thead>
+
         <tbody>
             <tr class="active">
                 <td><input type="checkbox"></td>
-                <td>3</td>
-                <td>Maria</td>
-                <td>Perez</td>
-                <td>809-111-1111</td>
-                <td>Supervision</td>
+                <td><a href="#">1</a></td>
+                <td><a href="#">Usuarios</a></td> @* LINK IGUAL QUE EL BOTON VER *@
+                <td><a href="#">Excepteur sint occaecat cupidatat non proident.</a></td>
                 <td class="text-center">
                     <div class="btn-group" role="group">
                         <a href="#" class="btn btn-default">
@@ -82,51 +89,50 @@
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>2</td>
-                <td>Maria</td>
-                <td>Perez</td>
-                <td>809-111-1111</td>
-                <td>Supervision</td>
-                <td class="text-center">
-                    <div class="btn-group" role="group">
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td>Maria</td>
-                <td>Perez</td>
-                <td>809-111-1111</td>
-                <td>Supervision</td>
-                <td class="text-center">
-                    <div class="btn-group" role="group">
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
 
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><a href="#">2</a></td>
+                <td><a href="#">Empleados</a></td> @* LINK IGUAL QUE EL BOTON VER *@
+                <td><a href="#">Excepteur sint occaecat cupidatat non proident.</a></td>
+                <td class="text-center">
+                    <div class="btn-group" role="group">
+                        <a href="#" class="btn btn-default">
+                            <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><a href="#">3</a></td>
+                <td><a href="#">Caja</a></td> @* LINK IGUAL QUE EL BOTON VER *@
+                <td><a href="#">Excepteur sint occaecat cupidatat non proident.</a></td>
+                <td class="text-center">
+                    <div class="btn-group" role="group">
+                        <a href="#" class="btn btn-default">
+                            <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
+                        </a>
+                        <a href="#" class="btn btn-default">
+                            <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+
+        <tfoot>
         </tfoot>
     </table>
 </div>

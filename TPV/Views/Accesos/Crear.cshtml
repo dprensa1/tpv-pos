@@ -1,7 +1,7 @@
-﻿@model TPV.Models.Rol
+﻿@model TPV.Models.Acceso   
 
 @{
-    ViewBag.Title = "Crear Rol";
+    ViewBag.Title = "Crear Acceso";
     Layout = "~/Views/Shared/_Layout3.cshtml";
 }
 
@@ -10,7 +10,7 @@
         <i class="fa fa-chevron-left" style="color:#276aa4"></i>
         Atr&aacute;s
     </button>
-    <h2>Crear Rol</h2>
+    <h2>Crear Acceso</h2>
 </div>
 
 <form class="form-horizontal">
@@ -18,22 +18,21 @@
         <div class="form-group">
             <label for="Nombre" class="col-lg-2 control-label">Nombre</label>
             <div class="col-md-3">
-                <input type="text" class="form-control" id="Nombre" placeholder="Nombre del Rol" required autofocus>
+                <input type="text" class="form-control" id="Nombre" placeholder="Nombre del Acceso" required autofocus>
             </div>
         </div>
 
         <div class="form-group">
             <label for="Descripcion" class="col-lg-2 control-label">Descripci&oacute;n</label>
             <div class="col-md-3">
-                <textarea class="form-control" rows="2" id="Descripcion" placeholder="Describa el Rol" maxlength="128"></textarea>
+                <textarea class="form-control" rows="2" id="Descripcion" placeholder="Describa el Acceso" maxlength="128"></textarea>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Funciones" class="col-lg-2 control-label">Accesos</label>
-            <div class="col-md-2">
-                @*<a href="#" class="btn btn-default">Gestion Accesos</a><span class="help-block">No hay Accesos Seleccionados</span>*@
-                @Html.Partial("~/Views/Accesos/_Index.cshtml")  
+            <label for="Funciones" class="col-lg-2 control-label">Acceso a</label>
+            <div class="col-md-8">
+
             </div>
         </div>
 
@@ -51,15 +50,15 @@
                 </div>
 
                 @*<div class="radio">
-                    <label>
-                        <input type="radio" name="Estado" id="Activo" value="Activo" required>
-                        Activo
-                    </label>
-                    <label>
-                        <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
-                        Inactivo
-                    </label>
-                </div>*@
+                        <label>
+                            <input type="radio" name="Estado" id="Activo" value="Activo" required>
+                            Activo
+                        </label>
+                        <label>
+                            <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
+                            Inactivo
+                        </label>
+                    </div>*@
             </div>
         </div>
 

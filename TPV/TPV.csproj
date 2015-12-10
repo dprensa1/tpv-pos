@@ -139,6 +139,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccesosController.cs" />
     <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Acceso.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\db_Context.cs" />
     <Compile Include="Models\Empleado.cs" />
@@ -1052,6 +1054,9 @@
     <Content Include="Views\Roles\Crear.cshtml" />
     <Content Include="Views\Clientes\Crear.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Accesos\_Index.cshtml" />
+    <Content Include="Views\Accesos\Index.cshtml" />
+    <Content Include="Views\Accesos\Crear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
