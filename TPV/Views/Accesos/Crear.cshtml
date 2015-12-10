@@ -30,9 +30,62 @@
         </div>
 
         <div class="form-group">
-            <label for="Funciones" class="col-lg-2 control-label">Acceso a</label>
-            <div class="col-md-8">
+            <label for="Seccion" class="col-lg-2 control-label">Seccion</label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    @* Cuando se seleccion un elemento
+                        * Hacer:
+                            div addClass("input-group")
+                            span removeClass("hidden")
+                        * Despues de seleccionar:
+                            muestra el elemento con las Vistas
+                    *@
+                    <select class="form-control" id="Puesto">
+                        <option>Ventas</option>
+                        <option>Productos</option>
+                        <option>Reportes</option>
+                        <option>Clientes</option>
+                        <option>Administracion</option>
+                        <option>Empleados</option>
+                        <option>Usuarios</option>
+                        <option>Puestos</option>
+                        <option>Roles</option>
+                        <option>Accesos</option>
+                    </select>
+                    <span class="input-group-addon">
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                    </span>
+                    <span class="input-group-addon hidden">
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
 
+        <div class="form-group">
+            <label for="Funciones" class="col-lg-2 control-label">Vistas</label>
+            <div class="col-md-3">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" onclick="seleccionarTodo(this)" name="Empleados" id="TodosEmpleados" value="Empleados" />Todos
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="Selec" name="VerEmpleados" id="VerEmpleados" value="VerEmpleados" />Ver
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="Selec" name="CrearEmpleados" id="CrearEmpleados" value="CrearEmpleados" />Crear
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="Selec" name="EditarEmpleados" id="EditarEmpleados" value="EditarEmpleados" />Editar
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="Selec" name="BorrarEmpleados" id="BorrarEmpleados" value="BorrarEmpleados" />Borrar
+                    </label>
+                </div>
             </div>
         </div>
 
@@ -71,3 +124,11 @@
         </div>
     </fieldset>
 </form>
+<script>
+
+    function seleccionarTodo(source) {
+        var chk = document.getElementsByClassName("Selec");
+        for (i = 0; i < chk.length; i++)  if (chk[i].type == "checkbox") chk[i].checked = source.checked
+    };
+
+</script>
