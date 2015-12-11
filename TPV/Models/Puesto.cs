@@ -11,7 +11,7 @@ namespace TPV.Models
 
         public string Descripcion { get; set; }
 
-        public virtual ICollection<Rol> Rol { get; set; }
+        public virtual ICollection<string> Funciones { get; set; }
 
         public char Estado { get; set; }
 

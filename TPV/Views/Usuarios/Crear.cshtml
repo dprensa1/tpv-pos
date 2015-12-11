@@ -48,14 +48,14 @@
         <div class="form-group">
             <label for="Clave" class="col-lg-2 control-label">Clave</label>
             <div class="col-md-4">
-                <input type="text" class="form-control" id="Clave" placeholder="Clave">
+                <input type="password" class="form-control" id="Clave" placeholder="Clave">
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Funciones" class="col-lg-2 control-label">Accesos</label>
+            <label for="Funciones" class="col-lg-2 control-label">Rol (es)</label>
             <div class="col-md-3">
-                <select multiple class="form-control" id="Funciones">
+                <select class="form-control" id="Roles">
                     <option>Seleccione...</option>
                     <option>Empleados - Todos</option>
                     <option>Productos - Ver</option>
@@ -68,16 +68,26 @@
         <div class="form-group">
             <label class="col-lg-2 control-label">Estado</label>
             <div class="col-lg-10">
-                <div class="radio">
+
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default">
+                        <input type="radio" name="Estado" id="Activo" autocomplete="on" checked required> Activo
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="Estado" id="Inactivo" autocomplete="off" required> Inactivo
+                    </label>
+                </div>
+
+                @*<div class="radio">
                     <label>
-                        <input type="radio" name="Estado" id="Activo" value="Activo">
+                        <input type="radio" name="Estado" id="Activo" value="Activo" required>
                         Activo
                     </label>
                     <label>
                         <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
                         Inactivo
                     </label>
-                </div>
+                </div>*@
             </div>
         </div>
 

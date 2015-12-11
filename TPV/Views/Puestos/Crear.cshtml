@@ -27,21 +27,28 @@
         <div class="form-group">
             <label for="Descripcion" class="col-lg-2 control-label">Descripcion</label>
             <div class="col-md-4">
-                <textarea class="form-control" rows="3" id="Descripcion" placeholder="Describa el Puesto"></textarea>
-                <span class="help-block">Breve descripción del Puesto</span>
+                <textarea class="form-control" rows="3" id="Descripcion" placeholder="Breve descripción del Puesto"></textarea>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Puesto" class="col-lg-2 control-label">Rol</label>
-            <div class="col-sm-2">
-                <select class="form-control" id="Puesto">
-                    <option>Caja</option>
-                    <option>Admin</option>
-                    <option>Supervisor</option>
-                    <option>Gerente</option>
-                    <option>Otro</option>
-                </select>
+            <label for="Puesto" class="col-lg-2 control-label">Funciones</label>
+            <div class="col-sm-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Funcion del Puesto">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button">Agregar</button>
+                    </span>
+                </div>
+                <div class="input-group">
+                    <select class="form-control" id="Puesto">
+                        <option>Hacer ....</option>
+                        <option>Otro</option>
+                    </select>
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" type="button"> Quitar  </button>
+                    </span>
+                </div>
             </div>
         </div>
         @*@Html.DropDownList("test",<test>,"Seleccione..")*@
@@ -65,7 +72,7 @@
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <button type="reset" class="btn btn-default">Limpiar</button>
-                <a href="/Puestos" class="btn btn-default">Cancelar</a>
+                <a href="/Puestos" class="btn btn-danger">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Crear Puesto</button>
             </div>
         </div>

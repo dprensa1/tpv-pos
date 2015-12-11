@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace TPV.Controllers
 {
     public class UsuariosController : Controller
     {
         // GET: Usuarios
-        [Route("Empleados/Usuarios")]
+        [Route("Usuarios")]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: Empleados/Usuarios/Create
-        [Route("Empleados/Usuarios/Crear")]
+        [Route("Usuarios/Crear")]
         public ActionResult Crear()
         {
             return View();

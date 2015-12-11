@@ -7,7 +7,7 @@ namespace TPV.Models
     {
         public int UsuarioID { get; set; }
 
-        public virtual int EmpleadoID { get; set; }
+        public int EmpleadoID { get; set; }
 
         public virtual Empleado Empleado { get; set; }
 
@@ -15,7 +15,7 @@ namespace TPV.Models
 
         public string Clave { get; set; }
 
-        public List<Rol> Accesos { get; set; }
+        public virtual ICollection<Rol> Rol { get; set; }
 
         public char Estado { get; set; }
 
