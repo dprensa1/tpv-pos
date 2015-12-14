@@ -26,9 +26,6 @@ namespace TPV.Models
         [Display(Name = "Clave/Contraseña")]
         public string Clave { get; set; }
 
-        [ForeignKey("RolUsuario_FK")]
-        public virtual ICollection<Rol> Rol { get; set; }
-
         [Required(ErrorMessage = "Estado requerido")]
         public char Estado { get; set; }
 

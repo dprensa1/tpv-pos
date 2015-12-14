@@ -15,7 +15,7 @@ namespace TPV.Models
         public string Nombre { get; set; }
 
         [Required(ErrorMessage = "Descripcion requerida")]
-        [StringLength(128, MinimumLength = 8, ErrorMessage = "El Nombre de Usuario debe tener entre 2 y 32 caracteres")]
+        [StringLength(128, MinimumLength = 8, ErrorMessage = "La Descripcion debe tener entre 8 y 128 caracteres")]
         public string Descripcion { get; set; }
 
         [Required(ErrorMessage = "Funcion/es requerida/s")]
