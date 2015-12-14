@@ -19,20 +19,33 @@
         <div class="form-group">
             <label for="Empleados" class="col-lg-2 control-label">Empleado</label>
             <div class="col-md-3">
-                <select class="form-control" id="Empleados">
-                    <option>Seleccione...</option>
-                    <option>Maria + Perez</option>
-                    <option>Maria + Perez</option>
-                    <option>Maria + Perez</option>
-                    <option>Otro</option>
-                </select>
+                <div class="input-group">
+                    @* Cuando se seleccion un elemento
+                        * Hacer:
+                            div addClass("input-group")
+                            span removeClass("hidden")
+                        * Despues de seleccionar:
+                            muestra el elemento con las Vistas
+                    *@
+                    <select class="form-control" id="Empleado" required>
+                        <option>Maria + Perez</option>
+                        <option>Maria + Perez</option>
+                        <option>Maria + Perez</option>
+                    </select>
+                    <span class="input-group-addon hidden">
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                    </span>
+                    <span class="input-group-addon">
+                        <i class="fa fa-check" style="color:palegreen"></i>
+                    </span>
+                </div>
             </div>
         </div>
 
         <div class="form-group">
             @*@Html.LabelFor(m => m.Nombre, "Nombre", new { @class="col-lg-2 control-label"})*@
             <label for="Puesto" class="col-lg-2 control-label">Puesto</label>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <input type="text" class="form-control" id="Puesto" value="PROBANDO" disabled>
             </div>
         </div>
@@ -40,22 +53,22 @@
         <div class="form-group">
             @*@Html.LabelFor(m => m.Nombre, "Nombre", new { @class="col-lg-2 control-label"})*@
             <label for="Usuario" class="col-lg-2 control-label">Usuario</label>
-            <div class="col-md-4">
-                <input type="text" class="form-control" id="Usuario" placeholder="Nombre de Usuario">
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="Usuario" placeholder="Nombre de Usuario" required>
             </div>
         </div>
 
         <div class="form-group">
             <label for="Clave" class="col-lg-2 control-label">Clave</label>
-            <div class="col-md-4">
-                <input type="password" class="form-control" id="Clave" placeholder="Clave">
+            <div class="col-md-3">
+                <input type="password" class="form-control" id="Clave" placeholder="Clave" required>
             </div>
         </div>
 
         <div class="form-group">
             <label for="Funciones" class="col-lg-2 control-label">Rol (es)</label>
             <div class="col-md-3">
-                <select class="form-control" id="Roles">
+                <select class="form-control" id="Funciones" required>
                     <option>Seleccione...</option>
                     <option>Empleados - Todos</option>
                     <option>Productos - Ver</option>
@@ -79,22 +92,22 @@
                 </div>
 
                 @*<div class="radio">
-                    <label>
-                        <input type="radio" name="Estado" id="Activo" value="Activo" required>
-                        Activo
-                    </label>
-                    <label>
-                        <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
-                        Inactivo
-                    </label>
-                </div>*@
+                        <label>
+                            <input type="radio" name="Estado" id="Activo" value="Activo" required>
+                            Activo
+                        </label>
+                        <label>
+                            <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
+                            Inactivo
+                        </label>
+                    </div>*@
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <button type="reset" class="btn btn-default">Limpiar</button>
-                <button onclick="atras()" class="btn btn-default">Cancelar</button>
+                <button onclick="atras()" class="btn btn-danger">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Crear Usuario</button>
             </div>
         </div>
