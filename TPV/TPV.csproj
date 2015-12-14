@@ -1054,7 +1054,7 @@
     <Content Include="Views\Roles\Crear.cshtml" />
     <Content Include="Views\Clientes\Crear.cshtml" />
     <Content Include="Scripts\version.json" />
-    <Content Include="Views\Accesos\_Index.cshtml" />
+    <Content Include="Views\Accesos\_ListaAccesos.cshtml" />
     <Content Include="Views\Accesos\Index.cshtml" />
     <Content Include="Views\Accesos\Crear.cshtml" />
   </ItemGroup>
