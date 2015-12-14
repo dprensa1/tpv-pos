@@ -5,20 +5,20 @@ namespace TPV.Controllers
     public class UsuariosController : Controller
     {
         // GET: Usuarios
-        [Route("Usuarios")]
+        [Route("Administracion/Usuarios")]
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Empleados/Usuarios/Create
-        [Route("Usuarios/Crear")]
+        // GET: Usuarios/Create
+        [Route("Administracion/Usuarios/Crear")]
         public ActionResult Crear()
         {
             return View();
         }
 
-        // GET: Empleados/Puestos/Create
+        // GET: Administracion/Puestos/Create
         [HttpPost]
         public ActionResult Crear(FormCollection collection)
         {

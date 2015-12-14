@@ -6,25 +6,26 @@ namespace TPV.Controllers
     public class EmpleadosController : Controller
     {
         // GET: Empleados
-        [Route("Empleados")]
+        [Route("Administracion/Empleados")]
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Empleados/Detalles/5
+        // GET: Administracion/Empleados/Detalles/5
         public ActionResult Detalles(int id)
         {
             return View();
         }
 
-        // GET: Empleados/Crear
+        // GET: Administracion/Empleados/Crear
+        [Route("Administracion/Empleados/Crear")]
         public ActionResult Crear()
         {
             return View();
         }
 
-        // POST: Empleados/Crear
+        // POST: Administracion/Empleados/Crear
         [HttpPost]
         public ActionResult Crear(FormCollection collection)
         {
@@ -40,13 +41,13 @@ namespace TPV.Controllers
             }
         }
 
-        // GET: Empleados/Editar/5
+        // GET: Administracion/Empleados/Editar/5
         public ActionResult Editar(int id)
         {
             return View();
         }
 
-        // POST: Empleados/Editar/5
+        // POST: Administracion/Empleados/Editar/5
         [HttpPost]
         public ActionResult Editar(int id, FormCollection collection)
         {
@@ -62,13 +63,13 @@ namespace TPV.Controllers
             }
         }
 
-        // GET: Empleados/Borrar/5
+        // GET: Administracion/Empleados/Borrar/5
         public ActionResult Borrar(int id)
         {
             return View();
         }
 
-        // POST: Empleados/Borrar/5
+        // POST: Administracion/Empleados/Borrar/5
         [HttpPost]
         public ActionResult Borrar(int id, FormCollection collection)
         {
