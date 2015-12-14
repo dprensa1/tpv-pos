@@ -31,14 +31,14 @@
                     <!-- Menu -->
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav">
-                            <li class="navbar‐btn"><a href="/Inicio">Inicio</a></li>
-                            <li class="navbar‐btn"><a href="/Ventas">Ventas</a></li>
-                            <li class="navbar‐btn"><a href="/Productos">Productos</a></li>
-                            <li class="navbar‐btn"><a href="/Reportes">Reportes</a></li>
-                            <li class="navbar‐btn"><a href="/Clientes">Clientes</a></li>
+                            <li class="navbar‐btn"><a class="menu" href="/Inicio">Inicio</a></li>
+                            <li class="navbar‐btn"><a class="menu" href="/Ventas">Ventas</a></li>
+                            <li class="navbar‐btn"><a class="menu" href="/Productos">Productos</a></li>
+                            <li class="navbar‐btn"><a class="menu" href="/Reportes">Reportes</a></li>
+                            <li class="navbar‐btn"><a class="menu" href="/Clientes">Clientes</a></li>
                             <li class="navbar‐btn btn-group">
-                                <a href="/Administracion">
-                                    Administracion
+                                <a class="menu" href="/Administracion">
+                                    Administraci&oacute;n
                                     <span class="dropdown-toggle fa fa-caret-down" data-toggle="dropdown"></span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -91,21 +91,20 @@
     <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
 
+
         $(function () {
-            var cambio = false;
-
-            $(".navbar‐btn a").each(function () {
-
-                if (this.href.trim() == window.location) {
+            $(".navbar‐btn a.menu").each(function () {
+                if (this.href.trim().split("/").splice(3, 4)[0] == window.location.pathname.split("/").splice(1, 1)[0])
                     $(this).parent().addClass("active");
-                    cambio = true;
-                }
             });
-
-            if (!cambio) {
-                $('.nav li:first').addClass("active");
-            }
         });
+
+        /*$(function () {
+            $(".navbar‐btn a").each(function () {
+                if (this.href.trim() == window.location)
+                    $(this).parent().addClass("active");
+            });
+        });*/
 
         function atras() {
             window.history.back();
