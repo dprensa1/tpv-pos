@@ -39,7 +39,7 @@ namespace TPV.Models
         [Index("CodigoCliente_IDX", IsUnique = true)]
         public int Codigo { get; set; }
 
-        [Required(ErrorMessage = "Estado requerido"]
+        [Required(ErrorMessage = "Estado requerido")]
         public char Estado { get; set; }
 
         /*
