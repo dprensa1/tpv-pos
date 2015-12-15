@@ -9,19 +9,9 @@ namespace TPV.Models
     {
         [Key]
         public int AccesoID { get; set; }
-
-        [Required(ErrorMessage = "Nombre requerido")]
-        [StringLength(32, MinimumLength = 4, ErrorMessage = "El Nombre de debe tener entre 4 y 32 caracteres")]
-        [Index(IsUnique = true)]
         public string Nombre { get; set; }
-
-        [Required(ErrorMessage = "URL de Acceso requerida")]
-        [MinLength(1, ErrorMessage = "Debe tener al menos 1 funcion a cargo")]
-        [MaxLength(10, ErrorMessage = "Maximo 10 funciones a cargo")]
         public virtual ICollection<string> AccesosURL { get; set; }
-
-        [Required(ErrorMessage = "Estado requerido")]
-        public char Estado { get; set; }
+        public bool Estado { get; set; }
 
         /*
         //No se muestran en el formulario

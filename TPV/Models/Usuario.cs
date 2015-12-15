@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TPV.Models
@@ -9,25 +8,11 @@ namespace TPV.Models
     {
         [Key]
         public int UsuarioID { get; set; }
-
         public int EmpleadoID { get; set; }
-
-        [ForeignKey("Puesto_FK")]
         public virtual Empleado Empleado { get; set; }
-
-        [Required(ErrorMessage = "Nombre requerido")]
-        [StringLength(10, MinimumLength =3, ErrorMessage = "El Nombre de Usuario debe tener entre 6 y 10 caracteres")]
-        [Display(Name = "Usuario")]
-        [Index(IsUnique = true)]
         public string User { get; set; }
-
-        [Required(ErrorMessage = "Contraseña obligatoria")]
-        [DataType(DataType.Password)]
-        [Display(Name = "Clave/Contraseña")]
         public string Clave { get; set; }
-
-        [Required(ErrorMessage = "Estado requerido")]
-        public char Estado { get; set; }
+        public bool Estado { get; set; }
 
         /*
         //No se muestran en el formulario
