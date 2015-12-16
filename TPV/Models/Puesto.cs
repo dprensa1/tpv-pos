@@ -9,10 +9,9 @@ namespace TPV.Models
     {
         [Key]
         public int PuestoID { get; set; }
-
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public virtual List<string> Funciones { get; set; }
+        public ICollection<string> Funciones { get; set; }
         public bool Estado { get; set; }
 
         /*

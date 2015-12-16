@@ -162,10 +162,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201512152247079_Testing.cs" />
-    <Compile Include="Migrations\201512152247079_Testing.Designer.cs">
-      <DependentUpon>201512152247079_Testing.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Acceso.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -281,15 +277,15 @@
     <Content Include="Views\Empleados\Index.cshtml" />
     <Content Include="Views\Puestos\Index.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
-    <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Empleados\Crear.cshtml" />
     <Content Include="Views\Puestos\Crear.cshtml" />
     <Content Include="Views\Usuarios\Crear.cshtml" />
-    <Content Include="Views\Roles\Crear.cshtml" />
     <Content Include="Views\Clientes\Crear.cshtml" />
     <Content Include="Views\Accesos\_ListaAccesos.cshtml" />
     <Content Include="Views\Accesos\Index.cshtml" />
     <Content Include="Views\Accesos\Crear.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,11 +298,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512152247079_Testing.resx">
-      <DependentUpon>201512152247079_Testing.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

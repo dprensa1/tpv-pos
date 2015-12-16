@@ -10,7 +10,7 @@ namespace TPV.Models
         [Key]
         public int AccesoID { get; set; }
         public string Nombre { get; set; }
-        public virtual ICollection<string> AccesosURL { get; set; }
+        public List<string> AccesosURL { get; set; }
         public bool Estado { get; set; }
 
         /*

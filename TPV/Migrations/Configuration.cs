@@ -1,61 +1,16 @@
 namespace TPV.Migrations
 {
-    using System;
-    using Models;
     using System.Data.Entity.Migrations;
-    using System.Collections.Generic;
-    internal sealed class Configuration : DbMigrationsConfiguration<Lyra>
+
+    internal sealed class Configuration : DbMigrationsConfiguration<TPV.Models.Lyra>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-
-            // Register mysql code generator
-            SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
-
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Lyra db)
+        protected override void Seed(TPV.Models.Lyra context)
         {
-            List<string> datos = new List<string>
-                (new string []{
-                    "Funcion1",
-                    "Funcion2",
-                    "Funcion3"
-                });
-
-
-            if (!db.Database.Exists())
-            {
-                // if database did not exist before - create it
-                db.Database.Create();
-            }
-
-            db.Puesto.AddOrUpdate(
-                   new Puesto
-                   {
-                       Nombre = "Gerente",
-                       Descripcion = "Ser Gerente",
-                       Funciones = datos,
-                       Estado = true
-                   });
-
-            db.Empleados.AddOrUpdate(
-                new Empleado
-                {
-                    Nombre = "Emilia",
-                    Apellido = "Marte",
-                    Cedula = "12345678901",
-                    Sexo = 'F',
-                    FechaNacimiento = new DateTime(1975, 1, 18),
-                    Telefono = "8095900000",
-                    Salario = 30.000,
-                    FechaEntrada = DateTime.Today,
-                    Estado = true
-                });
-
-            db.SaveChanges();
-
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
