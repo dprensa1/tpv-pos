@@ -10,7 +10,13 @@ namespace TPV.Models
         [Key]
         public int AccesoID { get; set; }
         public string Nombre { get; set; }
-        public List<string> AccesosURL { get; set; }
+        public string Rutas
+        {
+            get { return Rutas; }
+            set { Rutas += ";" + value.ToString(); }
+        }
+        public virtual ICollection<Rol> Roles { get; set; }
+
         public bool Estado { get; set; }
 
         /*

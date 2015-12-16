@@ -162,6 +162,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512161934032_Primera.cs" />
+    <Compile Include="Migrations\201512161934032_Primera.Designer.cs">
+      <DependentUpon>201512161934032_Primera.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Acceso.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -298,6 +302,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512161934032_Primera.resx">
+      <DependentUpon>201512161934032_Primera.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

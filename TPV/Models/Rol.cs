@@ -11,7 +11,9 @@ namespace TPV.Models
         public int RolID { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public virtual IList<Acceso> Accesos { get; set; }
+        public int AccesoID { get; set; }
+        [ForeignKey("AccesoID")]
+        public virtual ICollection<Acceso> Accesos { get; set; }
         public bool Estado { get; set; }
 
         /*
@@ -25,6 +27,5 @@ namespace TPV.Models
 
         public virtual Usuario CreadoPor { get; set; }
         */
-
     }
 }

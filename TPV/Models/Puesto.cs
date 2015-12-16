@@ -11,7 +11,12 @@ namespace TPV.Models
         public int PuestoID { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public ICollection<string> Funciones { get; set; }
+        public string Funciones
+        {
+            get { return Funciones; }
+            set { Funciones += ";" + value.ToString(); }
+        }
+        public virtual ICollection<Empleado> Empleados { get; set; }
         public bool Estado { get; set; }
 
         /*

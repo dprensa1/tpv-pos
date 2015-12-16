@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,7 +18,8 @@ namespace TPV.Models
         public string Telefono { get; set; }
         public double Salario { get; set; }
         public int PuestoID { get; set; }
-        public virtual Puesto Puesto { get; set; }
+        [ForeignKey("PuestoID")]
+        public virtual ICollection<Puesto> Puestos { get; set; }
         public int Codigo { get; set; }
         public DateTime FechaEntrada { get; set; }
         public bool Estado { get; set; }
