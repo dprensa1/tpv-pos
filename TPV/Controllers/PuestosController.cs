@@ -1,4 +1,7 @@
 ﻿using System.Web.Mvc;
+using TPV.Models;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace TPV.Controllers
 {
@@ -8,7 +11,15 @@ namespace TPV.Controllers
         [Route("Administracion/Puestos")]
         public ActionResult Index()
         {
-            return View();
+            Lyra db = new Lyra();
+
+            IEnumerable<Puesto> puestos = db.Puesto
+                .Where(where => where.Estado == true)
+                .OrderBy(order => order.PuestoID);
+
+            puestos.ToString();
+
+            return View(puestos.ToList());
         }
 
         // GET: Puestos/Crear

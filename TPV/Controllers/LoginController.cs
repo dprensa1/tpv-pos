@@ -7,26 +7,28 @@ namespace TPV.Controllers
     public class LoginController : Controller
     {        
         // GET: Login
-        public ActionResult Login()
+        public ActionResult Index()
         {
-            return View();
+            Login user = new Login();
+
+            return View(user);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult IniciarSesion([Bind(Include = "User, Clave")] Usuario usuarioL)
+        public ActionResult IniciarSesion(Login usuario)
         {
-            if (validar(usuarioL))
+            if (validar(usuario))
                 return Redirect("/Inicio");
             else
                 return View("/Login");
         }
 
-        private bool validar(Usuario usuarioL)
+        private bool validar(Login usuario)
         {
             Lyra db = new Lyra();
 
-            if (db.Usuarios.FirstOrDefault(u => u.User.Equals(usuarioL.User) && u.Clave.Equals(usuarioL.Clave.ToString())) != null)
+            if (db.Usuarios.FirstOrDefault(u => u.User.Equals(usuario.User) && u.Clave.Equals(usuario.Clave.ToString())) != null)
                 return true;
             else
                 return false;

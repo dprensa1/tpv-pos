@@ -1,4 +1,4 @@
-﻿@model TPV.Models.Usuario
+﻿@model TPV.Models.Login
 @{
     ViewBag.Title = "Inicio de Sesion";
     Layout = "~/Views/Shared/_Layout2.cshtml";
@@ -15,14 +15,14 @@
                 <div class="input-group">
                     <label class="input-group-addon"><i class="glyphicon glyphicon-user"></i></label>
                     @Html.TextBoxFor(m => m.User, new { @class = "form-control", placeholder = "Usuario" })
+                    @Html.ValidationMessageFor(m => m.User)
                 </div>
-                @Html.ValidationMessageFor(m => m.User);
                 <br>
                 <div class="input-group">
                     <label class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></label>
                     @Html.PasswordFor(m => m.Clave, new { @class = "form-control", placeholder = "Clave de Acceso" })
+                    @Html.ValidationMessageFor(m => m.Clave)
                 </div>
-                @Html.ValidationMessageFor(m => m.Clave);
                 <br>
                 <input class="btn btn-primary btn-block" name="btnIniciarSesion" type="submit" value="Iniciar Sesion" />
             }

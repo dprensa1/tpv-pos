@@ -18,7 +18,7 @@ namespace TPV.Models
             set { Funciones += ";" + value.ToString(); }
         }
         public virtual ICollection<Empleado> Empleados { get; set; }
-        [DefaultValue("1")]
+        [DefaultValue("true")]
         public bool Estado { get; set; }
 
         /*

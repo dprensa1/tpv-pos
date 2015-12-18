@@ -13,7 +13,6 @@ namespace TPV.Models
         public int EmpleadoID { get; set; }
         public virtual Empleado Empleado { get; set; }
 
-
         [Required(ErrorMessage = "Nombre requerido", AllowEmptyStrings = false)]
         [Index("UserIDX", IsUnique = true)]
         [StringLength(10, MinimumLength = 4, ErrorMessage = " El usuario deber tener entre 4 y 10 caracteres")]
