@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,10 +14,20 @@ namespace TPV.Models
         public string Rutas
         {
             get { return Rutas; }
-            set { Rutas += ";" + value.ToString(); }
+            set
+            {
+                if (value.Equals("Todas"))
+                {
+                    Rutas = "Todas";
+                }
+                else
+                {
+                    Rutas += value.ToString() + ";";
+                }
+            }
         }
         public virtual ICollection<Rol> Roles { get; set; }
-
+        [DefaultValue("true")]
         public bool Estado { get; set; }
 
         /*

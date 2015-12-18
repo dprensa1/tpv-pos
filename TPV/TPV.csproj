@@ -162,9 +162,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201512161934032_Primera.cs" />
-    <Compile Include="Migrations\201512161934032_Primera.Designer.cs">
-      <DependentUpon>201512161934032_Primera.cs</DependentUpon>
+    <Compile Include="Migrations\201512181657497_Primera.cs" />
+    <Compile Include="Migrations\201512181657497_Primera.Designer.cs">
+      <DependentUpon>201512181657497_Primera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512181719175_Primera1.cs" />
+    <Compile Include="Migrations\201512181719175_Primera1.Designer.cs">
+      <DependentUpon>201512181719175_Primera1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512181731338_Primera2.cs" />
+    <Compile Include="Migrations\201512181731338_Primera2.Designer.cs">
+      <DependentUpon>201512181731338_Primera2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512181742119_Primera3.cs" />
+    <Compile Include="Migrations\201512181742119_Primera3.Designer.cs">
+      <DependentUpon>201512181742119_Primera3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Acceso.cs" />
@@ -304,8 +316,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512161934032_Primera.resx">
-      <DependentUpon>201512161934032_Primera.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512181657497_Primera.resx">
+      <DependentUpon>201512181657497_Primera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512181719175_Primera1.resx">
+      <DependentUpon>201512181719175_Primera1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512181731338_Primera2.resx">
+      <DependentUpon>201512181731338_Primera2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512181742119_Primera3.resx">
+      <DependentUpon>201512181742119_Primera3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

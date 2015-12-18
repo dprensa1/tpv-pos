@@ -7,13 +7,13 @@ namespace TPV.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Primera : IMigrationMetadata
+    public sealed partial class Primera3 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Primera));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Primera3));
         
         string IMigrationMetadata.Id
         {
-            get { return "201512161934032_Primera"; }
+            get { return "201512181742119_Primera3"; }
         }
         
         string IMigrationMetadata.Source

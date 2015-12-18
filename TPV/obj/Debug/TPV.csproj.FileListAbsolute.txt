@@ -116,3 +116,6 @@ D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\MySql.Data.Entity.EF
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\MySql.Data.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera.resources
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.csproj.GenerateResource.Cache
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera1.resources
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera2.resources
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera3.resources

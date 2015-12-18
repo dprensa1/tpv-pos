@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,6 +14,7 @@ namespace TPV.Models
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public char Sexo { get; set; }
+        [DataType(DataType.Date)]
         public DateTime FechaNacimiento { get; set; }
         public string Cedula { get; set; }
         public string Telefono { get; set; }
@@ -20,8 +22,11 @@ namespace TPV.Models
         public int PuestoID { get; set; }
         [ForeignKey("PuestoID")]
         public virtual ICollection<Puesto> Puestos { get; set; }
+        [DefaultValue("00000")]
         public int Codigo { get; set; }
+        [DataType(DataType.Date)]
         public DateTime FechaEntrada { get; set; }
+        [DefaultValue("1")]
         public bool Estado { get; set; }
 
         /*

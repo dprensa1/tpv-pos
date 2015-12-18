@@ -13,12 +13,10 @@ namespace TPV.Models
 
         public Lyra() : base()
         {
-            Database.SetInitializer<Lyra>(new DropCreateDatabaseAlways<Lyra>());
-            
-            //Database.SetInitializer<Lyra>(new CreateDatabaseIfNotExists<Lyra>());
-            //Database.SetInitializer<Lyra>(new DropCreateDatabaseIfModelChanges<Lyra>());
             //Database.SetInitializer<Lyra>(new DropCreateDatabaseAlways<Lyra>());
-            //Database.SetInitializer<Lyra>(new SchoolDBInitializer());
+            
+            Database.SetInitializer<Lyra>(new CreateDatabaseIfNotExists<Lyra>());
+            //Database.SetInitializer<Lyra>(new DropCreateDatabaseIfModelChanges<Lyra>());
         }
     }
 }

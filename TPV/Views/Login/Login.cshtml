@@ -9,25 +9,21 @@
         <div class="col-md-4">
         </div>
         <div class="col-md-4 well">
-            @using (Html.BeginForm("Main", "Inicio", FormMethod.Post))
+            @using (Html.BeginForm("IniciarSesion", "Login", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
                 <div class="input-group">
                     <label class="input-group-addon"><i class="glyphicon glyphicon-user"></i></label>
-                    @Html.TextBoxFor(m => m.User, new { @class = "form-control inputos", placeholder = "Usuario"})
+                    @Html.TextBoxFor(m => m.User, new { @class = "form-control", placeholder = "Usuario" })
                 </div>
-
+                @Html.ValidationMessageFor(m => m.User);
                 <br>
-
                 <div class="input-group">
                     <label class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></label>
-                    @Html.PasswordFor(m => m.Clave, new { @class = "form-control inputos", placeholder = "Clave de Acceso" })
+                    @Html.PasswordFor(m => m.Clave, new { @class = "form-control", placeholder = "Clave de Acceso" })
                 </div>
-
+                @Html.ValidationMessageFor(m => m.Clave);
                 <br>
-
-                @Html.ValidationSummary()
-
                 <input class="btn btn-primary btn-block" name="btnIniciarSesion" type="submit" value="Iniciar Sesion" />
             }
         </div>

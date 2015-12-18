@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,6 +18,7 @@ namespace TPV.Models
             set { Funciones += ";" + value.ToString(); }
         }
         public virtual ICollection<Empleado> Empleados { get; set; }
+        [DefaultValue("1")]
         public bool Estado { get; set; }
 
         /*

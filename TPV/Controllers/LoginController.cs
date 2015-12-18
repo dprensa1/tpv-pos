@@ -1,13 +1,12 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using TPV.Models;
 
 namespace TPV.Controllers
 {
     public class LoginController : Controller
-    {
+    {        
         // GET: Login
-
-
         public ActionResult Login()
         {
             return View();
@@ -15,30 +14,22 @@ namespace TPV.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult IniciarSesion([Bind(Include = "User,Clave")] Usuario login)
+        public ActionResult IniciarSesion([Bind(Include = "User, Clave")] Usuario usuarioL)
         {
-            if (validar(login.User, login.Clave))
-                return Redirect("Inicio");
+            if (validar(usuarioL))
+                return Redirect("/Inicio");
             else
-                return View("Login");
+                return View("/Login");
         }
 
-        public ActionResult Main()
+        private bool validar(Usuario usuarioL)
         {
-            return View();
-        }
+            Lyra db = new Lyra();
 
-        public bool validar(string user, string Clave)
-        {
-            Models.Usuario UsuarioLogin = new Models.Usuario();
-            bool b = false;
-            UsuarioLogin.User = "emarte";
-            UsuarioLogin.Clave = "123456";
-            if (UsuarioLogin.User.Equals(user) && UsuarioLogin.Clave.Equals(Clave))
-                b = true;
+            if (db.Usuarios.FirstOrDefault(u => u.User.Equals(usuarioL.User) && u.Clave.Equals(usuarioL.Clave.ToString())) != null)
+                return true;
             else
-                b = false;
-            return b;
+                return false;
         }
     }
 }

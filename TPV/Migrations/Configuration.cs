@@ -3,33 +3,27 @@ namespace TPV.Migrations
     using System;
     using Models;
     using System.Data.Entity.Migrations;
-    using System.Collections.Generic;
+
     internal sealed class Configuration : DbMigrationsConfiguration<Lyra>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
 
-            // Register mysql code generator
             SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
         }
 
         protected override void Seed(Lyra db)
         {
-         /*   if (!db.Database.Exists())
-            {
-                // if database did not exist before - create it
-                db.Database.Create();
-            }
-
+            /*
             db.Puesto.AddOrUpdate(
-                   new Puesto
-                   {
-                       Nombre = "Gerente",
-                       Descripcion = "Ser Gerente",
-                       Funciones = "Funcion",
-                       Estado = true
-                   });
+                      new Puesto
+                      {
+                          Nombre = "Gerente",
+                          Descripcion = "Ser Gerente",
+                          Funciones = "Funcion",
+                          Estado = true
+                      });
 
             db.Empleados.AddOrUpdate(
                 new Empleado
@@ -45,7 +39,8 @@ namespace TPV.Migrations
                     Estado = true
                 });
 
-            db.SaveChanges();*/
+            db.SaveChanges();
+            */
 
             //  This method will be called after migrating to the latest version.
 
