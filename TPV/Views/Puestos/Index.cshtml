@@ -46,36 +46,33 @@
                 x++;
                 <tr>
                     <td><input type="checkbox"></td>
-
+                    @*@{Html.BeginForm("Detalles", "Puestos", FormMethod.Get); }*@
                     <td>
                         <a href="/Administracion/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
                             @Html.Encode(x)
                         </a>
                     </td>
-
                     <td>
                         <a href="/Administracion/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
                             @Html.DisplayFor(Nombre => puesto.Nombre)
                         </a>
                     </td>
-
                     <td>
                         <a href="/Administracion/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
                             @Html.DisplayFor(Nombre => puesto.Descripcion)
                         </a>
                     </td>
-
                     <td>
                         <a href="#">
                             @Html.DisplayFor(Funciones => puesto.Funciones) <span class="fa fa-chevron-circle-down"></span>
                         </a>
                     </td>
-
                     <td class="text-center">
                         <div class="btn-group" role="group">
                             <a href="/Administracion/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)" class="btn btn-default" id="">
                                 <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
                             </a>
+                            @*@{ Html.EndForm(); }*@
 
                             <a href="/Administracion/Puestos/Editar/@Html.DisplayFor(id => puesto.PuestoID)" class="btn btn-default" id="">
                                 <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>

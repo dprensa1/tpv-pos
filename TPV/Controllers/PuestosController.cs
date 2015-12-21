@@ -2,6 +2,7 @@
 using TPV.Models;
 using System.Linq;
 using System.Collections.Generic;
+using System.Net;
 
 namespace TPV.Controllers
 {
@@ -21,21 +22,39 @@ namespace TPV.Controllers
         }
 
         // GET: Administracion/Puestos/Detalles
-        [Route("Administracion/Puestos/Detalles/1")]
-        public ActionResult Detalles(int? id)
+        [HttpGet]
+        [Route("Administracion/Puestos/Detalles/{id:int}")]
+        public ActionResult Detalles(int id)
         {
-            if (id == null)
+            char[] separador = { ';' };
+
+            List<SelectListItem> funciones = new List<SelectListItem>();
+
+            if (id != 0) {
+                Puesto p = db.Puesto.Find(id);
+
+                string[] funcs = p.Funciones.Split(separador, System.StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var x in funcs)
+                {
+                    funciones.Add(new SelectListItem { Text = x, Value = x});
+                }
+
+                ViewData["funciones"] = funciones;
+
+                if (p == null)
+                {
+                    return HttpNotFound();
+                } else
+                {
+                    return View(p);
+                }
+
+            }
+            else
             {
-
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            Puesto p = db.Puesto.Find(id);
-
-            if (p == null)
-            { 
-
-            }
-            return View(p);
         }
 
         // GET: AdministracionPuestos/Crear

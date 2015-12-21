@@ -1,42 +1,55 @@
 ﻿@model TPV.Models.Puesto
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Detalles Puesto";
     Layout = "~/Views/Shared/_Layout3.cshtml";
 }
-
-<h2>Detalles</h2>
-
-<div>
-    <h4>Puesto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Funciones)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Funciones)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-    </dl>
+<div class="page-header">
+    <button onclick="atras()" class="btn btn-default pull-right">
+        <i class="fa fa-chevron-left" style="color:#276aa4"></i>
+        Atr&aacute;s
+    </button>
+    <h2>Detalles Puesto: <ins>@Html.DisplayFor(model => model.Nombre)</ins></h2>
 </div>
-<p>
-    @Html.ActionLink("Back to List", "Index", "Puestos")
-</p>
+
+<form class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+            @*<dl class="dl-horizontal">
+                <dt>Nombre</dt>
+                <dd>@Html.DisplayFor(model => model.Nombre)</dd>
+            </dl>*@
+            <label for="Nombre" class="col-lg-2 control-label">Nombre</label>
+            <div class="col-md-4">
+                <span>@Html.DisplayFor(model => model.Nombre)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descripcion, "Descripcion", new { @class = "col-lg-2 control-label" })
+            <div class="col-md-4">
+                <span>@Html.DisplayFor(model => model.Descripcion)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Funciones, "Funciones", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                @Html.DropDownList("Funciones", ViewData["funciones"] as List<SelectListItem>)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Estado, "Estado", new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                <span>@Html.DisplayFor(model => model.Estado)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                @Html.ActionLink("Editar", "/Administracion/Puestos/Editar/" + @Html.DisplayFor(model => model.PuestoID))
+            </div>
+        </div>
+    </fieldset>
+</form>
