@@ -304,6 +304,7 @@
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Puestos\Detalles.cshtml" />
+    <Content Include="Views\Puestos\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
