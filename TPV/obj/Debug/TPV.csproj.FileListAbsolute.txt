@@ -81,6 +81,8 @@ D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Antlr3.Runtime.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\EntityFramework.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\EntityFramework.SqlServer.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Microsoft.Web.Infrastructure.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\MySql.Data.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\MySql.Data.Entity.EF6.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Newtonsoft.Json.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Net.Http.Formatting.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Web.Helpers.dll
@@ -109,13 +111,11 @@ D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Web.Razor.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Web.WebPages.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Web.WebPages.Deployment.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Web.WebPages.Razor.xml
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.csprojResolveAssemblyReference.cache
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.dll
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.pdb
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\MySql.Data.Entity.EF6.dll
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\MySql.Data.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera.resources
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.csproj.GenerateResource.Cache
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera1.resources
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera2.resources
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera3.resources
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.csproj.GenerateResource.Cache
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.pdb
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.csprojResolveAssemblyReference.cache

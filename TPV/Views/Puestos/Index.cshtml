@@ -30,79 +30,68 @@
     <table class="table table-responsive table-condensed table-bordered table-hover">
         <thead>
             <tr class="bg-primary">
-                <th>
-                    <strong>
-                        <input type="checkbox">
-                    </strong>
-                </th>
-
-                <th>
-                    <strong>
-                        # <a href="#">
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                    </strong>
-                </th>
-
-                <th>
-                    <strong>
-                        Nombre
-                        <a href="#" class="active">
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                    </strong>
-                </th>
-
-                <th>
-                    <strong>
-                        Descripci&oacute;n
-                        <a href="#">
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                    </strong>
-                </th>
-
-                <th>
-                    <strong>
-                        Funciones
-                        <a href="#">
-                            <i class="fa fa-caret-down fa-flip-vertical"></i>
-                        </a>
-                    </strong>
-                </th>
-
-                <th class="text-center">
-                    <strong>
-                        Acciones
-                    </strong>
-                </th>
+                <th><strong><input type="checkbox"></strong></th>
+                <th><strong># <a href="#"><i class="fa fa-caret-down"></i></a></strong></th>
+                <th><strong>Nombre<a href="#" class="active"><i class="fa fa-caret-down"></i></a></strong> </th>
+                <th><strong>Descripci&oacute;n<a href="#"><i class="fa fa-caret-down"></i></a></strong></th>
+                <th><strong>Funciones<a href="#"><i class="fa fa-caret-down fa-flip-vertical"></i></a></strong></th>
+                <th class="text-center"><strong>Acciones</strong></th>
             </tr>
         </thead>
 
         <tbody>
-            @foreach (var p in Model)
+            @{ var x = 0; }
+            @foreach (var puesto in Model)
             {
+                x++;
                 <tr>
                     <td><input type="checkbox"></td>
-                    <td><a href="#">@Html.DisplayFor(PuestoID => p.PuestoID)</a></td>
-                    <td><a href="#">@Html.DisplayFor(Nombre => p.Nombre)</a></td> @* LINK IGUAL QUE EL BOTON VER *@
-                    <td><a href="#">@Html.DisplayFor(Descripcion => p.Descripcion)</a></td>
+
                     <td>
-                        <a href="#">
-                            @Html.DisplayFor(Funciones => p.Funciones) <span class="fa fa-chevron-circle-down"></span>
+                        <a href="/Administracion/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
+                            @Html.Encode(x)
                         </a>
                     </td>
+
+                    <td>
+                        <a href="/Administracion/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
+                            @Html.DisplayFor(Nombre => puesto.Nombre)
+                        </a>
+                    </td>
+
+                    <td>
+                        <a href="/Administracion/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
+                            @Html.DisplayFor(Nombre => puesto.Descripcion)
+                        </a>
+                    </td>
+
+                    <td>
+                        <a href="#">
+                            @Html.DisplayFor(Funciones => puesto.Funciones) <span class="fa fa-chevron-circle-down"></span>
+                        </a>
+                    </td>
+
                     <td class="text-center">
                         <div class="btn-group" role="group">
-                            <a href="#" class="btn btn-default">
+                            <a href="/Administracion/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)" class="btn btn-default" id="">
                                 <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
                             </a>
-                            <a href="#" class="btn btn-default">
+
+                            <a href="/Administracion/Puestos/Editar/@Html.DisplayFor(id => puesto.PuestoID)" class="btn btn-default" id="">
                                 <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
                             </a>
-                            <a href="#" class="btn btn-default">
+
+                            <a href="/Administracion/Puestos/Borrar/@Html.DisplayFor(id => puesto.PuestoID)" class="btn btn-default" id="">
                                 <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
                             </a>
+
+                            @*@Html.ActionLink(
+                            " Ver", "Ver", new
+                            {
+                                @class = "btn btn-default fa fa-eye fa-lg",
+                                style = "color:#276aa4",
+                                id = puesto.PuestoID
+                            })*@
                         </div>
                     </td>
                 </tr>

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,20 +8,26 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace TPV.Models
 {
     [Table("Puestos")]
-    public class Puesto
+    public class Puesto : IEnumerable<Puesto>
     {
         [Key]
         public int PuestoID { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public string Funciones
-        {
-            get { return Funciones; }
-            set { Funciones += ";" + value.ToString(); }
-        }
+        public string Funciones { get; set; }
         public virtual ICollection<Empleado> Empleados { get; set; }
         [DefaultValue("true")]
         public bool Estado { get; set; }
+
+        public IEnumerator<Puesto> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
 
         /*
         //No se muestran en el formulario
