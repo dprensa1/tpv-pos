@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Net;
 using System.Data.Entity;
+using System;
 
 namespace TPV.Controllers
 {
@@ -30,18 +31,24 @@ namespace TPV.Controllers
         }
 
         [HttpPost]
-        public ActionResult Crear(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Crear([Bind(Include = "Nombre, Descripcion, Funciones, Estado")]Puesto puesto)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Puesto.Add(puesto);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            catch
+            catch (Exception e /* dex */)
             {
-                return View();
+                //Log the error (uncomment dex variable name and add a line here to write a log.)
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
             }
+            return View();
         }
 
         [HttpGet]

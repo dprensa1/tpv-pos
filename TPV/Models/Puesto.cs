@@ -18,12 +18,12 @@ namespace TPV.Models
         public virtual ICollection<Empleado> Empleados { get; set; }
         [DefaultValue("true")]
         public bool Estado { get; set; }
-
+        
         public IEnumerator<Puesto> GetEnumerator()
         {
             return GetEnumerator();
         }
-
+        
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

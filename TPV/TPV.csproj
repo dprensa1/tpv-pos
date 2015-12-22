@@ -295,7 +295,7 @@
     <Content Include="Views\Puestos\Index.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Empleados\Crear.cshtml" />
-    <Content Include="Views\Puestos\Crear.cshtml" />
+    <Content Include="Views\Crear.cshtml" />
     <Content Include="Views\Usuarios\Crear.cshtml" />
     <Content Include="Views\Clientes\Crear.cshtml" />
     <Content Include="Views\Accesos\_ListaAccesos.cshtml" />
@@ -305,6 +305,7 @@
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Puestos\Detalles.cshtml" />
     <Content Include="Views\Puestos\Editar.cshtml" />
+    <Content Include="Views\Puestos\Crear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
