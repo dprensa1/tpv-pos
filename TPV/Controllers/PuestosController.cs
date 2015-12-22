@@ -31,7 +31,7 @@ namespace TPV.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Crear([Bind(Include = "Nombre, Descripcion, Funciones, Estado")]Puesto puesto)
         {
             try

@@ -1,7 +1,7 @@
 ﻿@model TPV.Models.Puesto
 
 @{
-    ViewBag.Title = "Crear Puesto";
+    ViewBag.Title = "Crear";
     Layout = "~/Views/Shared/_Layout3.cshtml";
 }
 
@@ -13,39 +13,37 @@
     <h2>Crear Puesto</h2>
 </div>
 
-@using (Html.BeginForm())
-{
+<form name="CrearPuesto" action="/Administracion/Puestos/Crear" method="post" class="form-horizontal">
     @Html.AntiForgeryToken()
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "col-lg-2 control-label"})
+        <label for="Nombre" class="col-lg-2 control-label">Nombre</label>
         <div class="col-md-4">
-            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", id = "Nombre", placeholder = "Nombre del Puesto"}})
-            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger"})
+            <input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Nombre del Puesto" required />
+            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "col-lg-2 control-label"})
+        <label for="Descripcion" class="col-lg-2 control-label">Descripcion</label>
         <div class="col-md-4">
-            @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", id = "Descripcion", placeholder = "Breve descripción del Puesto"}})
-            @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            <textarea name="Descripcion" rows="3" maxlength="160" class="form-control" id="Descripcion" placeholder="Breve descripción del Puesto" required></textarea>
+            @Html.AntiForgeryToken()
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Funciones, htmlAttributes: new { @class = "col-lg-2 control-label" })
+        <label for="Funciones" class="col-lg-2 control-label">Funciones</label>
         <div class="col-sm-3">
             <div class="input-group">
-                <input type="text" name="Funcion" class = "form-control" placeholder = "Funcion del Puesto" id = "TxtFuncion" />
+                <input type="text" name="Funcion" class="form-control" placeholder="Funcion del Puesto" id="TxtFuncion" />
                 <span class="input-group-btn">
                     <input class="btn btn-primary" type="button" onclick="AddFuncion()" id="BtnAddFuncion" value="Agregar">
                 </span>
             </div>
             <div class="input-group">
-                @Html.DropDownListFor(m => m.Funciones, new SelectList(Model.Funciones, "ID", "Nombre"), htmlAttributes: new { id = "Funciones" })
-                @*<select class="form-control" id="Funciones" required></select>*@
+                <select name="Funciones" id="Funciones" class="form-control" required></select>
                 <span class="input-group-btn">
                     <input class="btn btn-danger" type="button" onclick="DelFuncion()" id="DelAddFuncion" value=" Quitar  ">
                 </span>
@@ -54,7 +52,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "col-lg-2 control-label" })
+        <label for="Estado" class="col-lg-2 control-label">Estado</label>
         <div class="col-lg-10">
             <div class="radio">
                 <label>
@@ -71,20 +69,24 @@
 
     <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
-            <button type="reset" class="btn btn-default">Limpiar</button>
+            <input type="reset" class="btn btn-default" value="Limpiar">
             <a href="/Puestos" class="btn btn-danger">Cancelar</a>
-            <button type="submit" class="btn btn-primary">Crear Puesto</button>
+            <input type="submit" class="btn btn-primary" value="Crear Puesto">
         </div>
     </div>
-
+    </form>
     <script>
         function AddFuncion() {
             var option = document.createElement("option");
-            option.value = $("#Funcion").val();
-            option.text = $("#Funcion").val();
-            document.getElementById("Funciones").add(option);
-            document.getElementById("Funciones").focus();
-            $("#Funcion").val("");
+            if ($("#TxtFuncion").val() == "" || $("#TxtFuncion").val() == null) {
+                alert("MODAL:   La funcion no puede estar en blanco");
+            } else {
+                option.value = $("#TxtFuncion").val();
+                option.text = $("#TxtFuncion").val();
+                document.getElementById("Funciones").add(option);
+                document.getElementById("Funciones").focus();
+                $("#TxtFuncion").val("");
+            }
         }
 
         function DelFuncion() {
