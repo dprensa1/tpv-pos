@@ -1,62 +1,95 @@
 ﻿@model TPV.Models.Puesto
 
 @{
-    ViewBag.Title = "Crear";
+    ViewBag.Title = "Crear Puesto";
     Layout = "~/Views/Shared/_Layout3.cshtml";
 }
 
-<h2>Crear</h2>
+<div class="page-header">
+    <button onclick="atras()" class="btn btn-default pull-right">
+        <i class="fa fa-chevron-left" style="color:#276aa4"></i>
+        Atr&aacute;s
+    </button>
+    <h2>Crear Puesto</h2>
+</div>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Puesto</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "col-lg-2 control-label" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
-            </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "col-lg-2 control-label"})
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", id = "Nombre", placeholder = "Nombre del Puesto"}})
+            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger"})
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Funciones, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Funciones, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Funciones, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "col-lg-2 control-label"})
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", id = "Descripcion", placeholder = "Breve descripción del Puesto"}})
+            @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Estado)
-                    @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
-                </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Funciones, htmlAttributes: new { @class = "col-lg-2 control-label" })
+        <div class="col-sm-3">
+            <div class="input-group">
+                <input type="text" name="Funcion" class = "form-control" placeholder = "Funcion del Puesto" id = "TxtFuncion" />
+                <span class="input-group-btn">
+                    <input class="btn btn-primary" type="button" onclick="AddFuncion()" id="BtnAddFuncion" value="Agregar">
+                </span>
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="input-group">
+                @Html.DropDownListFor(m => m.Funciones, new SelectList(Model.Funciones, "ID", "Nombre"), htmlAttributes: new { id = "Funciones" })
+                @*<select class="form-control" id="Funciones" required></select>*@
+                <span class="input-group-btn">
+                    <input class="btn btn-danger" type="button" onclick="DelFuncion()" id="DelAddFuncion" value=" Quitar  ">
+                </span>
             </div>
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "col-lg-2 control-label" })
+        <div class="col-lg-10">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Estado" id="Activo" value="Activo">
+                    Activo
+                </label>
+                <label>
+                    <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
+                    Inactivo
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+            <button type="reset" class="btn btn-default">Limpiar</button>
+            <a href="/Puestos" class="btn btn-danger">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Crear Puesto</button>
+        </div>
+    </div>
+
+    <script>
+        function AddFuncion() {
+            var option = document.createElement("option");
+            option.value = $("#Funcion").val();
+            option.text = $("#Funcion").val();
+            document.getElementById("Funciones").add(option);
+            document.getElementById("Funciones").focus();
+            $("#Funcion").val("");
+        }
+
+        function DelFuncion() {
+            var x = document.getElementById("Funciones");
+            x.remove(x.selectedIndex);
+            document.getElementById("Funciones").focus();
+        }
+    </script>
