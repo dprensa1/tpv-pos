@@ -119,3 +119,4 @@ D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.csproj.Gen
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.pdb
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.csprojResolveAssemblyReference.cache
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera4.resources

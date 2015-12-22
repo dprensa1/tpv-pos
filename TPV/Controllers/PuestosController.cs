@@ -66,19 +66,18 @@ namespace TPV.Controllers
 
                 foreach (var x in funcs)
                 {
-                    funciones.Add(new SelectListItem { Text = x, Value = x});
+                    funciones.Add(new SelectListItem { Text = x, Value = x });
                 }
-
                 ViewData["funciones"] = funciones;
 
                 if (p == null)
                 {
                     return HttpNotFound();
-                } else
+                }
+                else
                 {
                     return View(p);
                 }
-
             }
             else
             {
