@@ -120,3 +120,11 @@ D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.pdb
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.csprojResolveAssemblyReference.cache
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera4.resources
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera5.resources
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera6.resources
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera7.resources
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.Mvc.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.xml
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.Mvc.xml
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Primera8.resources

@@ -65,6 +65,14 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -182,6 +190,26 @@
     <Compile Include="Migrations\201512222252046_Primera4.Designer.cs">
       <DependentUpon>201512222252046_Primera4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512231617417_Primera5.cs" />
+    <Compile Include="Migrations\201512231617417_Primera5.Designer.cs">
+      <DependentUpon>201512231617417_Primera5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512231629476_Primera6.cs" />
+    <Compile Include="Migrations\201512231629476_Primera6.Designer.cs">
+      <DependentUpon>201512231629476_Primera6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512231641278_Primera7.cs" />
+    <Compile Include="Migrations\201512231641278_Primera7.Designer.cs">
+      <DependentUpon>201512231641278_Primera7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512231829326_Primera8.cs" />
+    <Compile Include="Migrations\201512231829326_Primera8.Designer.cs">
+      <DependentUpon>201512231829326_Primera8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512231924461_Primera9.cs" />
+    <Compile Include="Migrations\201512231924461_Primera9.Designer.cs">
+      <DependentUpon>201512231924461_Primera9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Acceso.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -205,6 +233,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -338,6 +367,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512222252046_Primera4.resx">
       <DependentUpon>201512222252046_Primera4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512231617417_Primera5.resx">
+      <DependentUpon>201512231617417_Primera5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512231629476_Primera6.resx">
+      <DependentUpon>201512231629476_Primera6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512231641278_Primera7.resx">
+      <DependentUpon>201512231641278_Primera7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512231829326_Primera8.resx">
+      <DependentUpon>201512231829326_Primera8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512231924461_Primera9.resx">
+      <DependentUpon>201512231924461_Primera9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

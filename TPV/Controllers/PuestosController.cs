@@ -13,7 +13,6 @@ namespace TPV.Controllers
         private Lyra db = new Lyra();
 
         [HttpGet]
-        [Route("Administracion/Puestos")]
         public ViewResult Index()
         {
             IEnumerable<Puesto> puestos = db.Puesto
@@ -24,23 +23,47 @@ namespace TPV.Controllers
         }
 
         [HttpGet]
-        [Route("Administracion/Puestos/Crear")]
         public ActionResult Crear()
         {
+
+            List<SelectListItem> funciones = new List<SelectListItem>();
+
+            ViewData["Funciones"] = funciones;
+
             return View();
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Crear([Bind(Include = "Nombre, Descripcion, Funciones, Estado")]Puesto puesto)
+        [ValidateAntiForgeryToken]
+        public ActionResult Crear(Puesto puesto)
         {
+            ViewBag.Funciones = new SelectList(new List<string>(), "");
+            //ViewBag.InstructorID = new SelectList(db.Instructors, "ID", "FullName");
+            /*foreach (var x in ViewData["Funciones"])
+            {
+                puesto.Funciones = x;
+            }*/
             try
             {
+                string[] text =
+                {
+                    puesto.PuestoID.ToString(),
+                    puesto.Nombre,
+                    puesto.Descripcion,
+                    puesto.Funciones,
+                    puesto.Estado.ToString()
+                };
+                
+
                 if (ModelState.IsValid)
                 {
                     db.Puesto.Add(puesto);
                     db.SaveChanges();
                     return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(puesto);
                 }
             }
             catch (Exception e /* dex */)
@@ -52,10 +75,11 @@ namespace TPV.Controllers
         }
 
         [HttpGet]
-        [Route("Administracion/Puestos/Detalles/{id:int}")]
+        //[Route("Administracion/Puestos/Detalles/{id:int}")]
         public ActionResult Detalles(int id)
         {
-            char[] separador = { ';' };
+            char[] separador = { '\u000A' };
+            //char[] separador = { ';' };
 
             List<SelectListItem> funciones = new List<SelectListItem>();
 
@@ -63,10 +87,11 @@ namespace TPV.Controllers
                 Puesto p = db.Puesto.Find(id);
 
                 string[] funcs = p.Funciones.Split(separador, System.StringSplitOptions.RemoveEmptyEntries);
-
+                var i = 1;
                 foreach (var x in funcs)
                 {
-                    funciones.Add(new SelectListItem { Text = x, Value = x });
+                    funciones.Add(new SelectListItem { Value = i.ToString(), Text = x});
+                    i++;
                 }
                 ViewData["funciones"] = funciones;
 
@@ -86,7 +111,7 @@ namespace TPV.Controllers
         }
 
         [HttpGet]
-        [Route("Administracion/Puestos/Editar/{id:int}")]
+        //[Route("Administracion/Puestos/Editar/{id:int}")]
         public ActionResult Editar(int id)
         {
             char[] separador = { ';' };
@@ -124,7 +149,7 @@ namespace TPV.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar([Bind(Include = "Nombre,Descripcion,Funciones,Estado")] Puesto puesto)
+        public ActionResult Editar(Puesto puesto)
         {
             if (ModelState.IsValid)
             {
@@ -135,5 +160,16 @@ namespace TPV.Controllers
             return View(puesto);
         }
 
+        private string PonerSaltos(string cadena)
+        {
+            string NuevaCadena = "";
+
+            foreach (var x in cadena)
+            {
+                if (x.Equals(@"\n")) { NuevaCadena += x + ";"; }
+                else { NuevaCadena += x; }
+            }
+            return NuevaCadena;
+        }
     }
 }
