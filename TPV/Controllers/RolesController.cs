@@ -5,14 +5,12 @@ namespace TPV.Controllers
     public class RolesController : Controller
     {
         // GET: Roles
-        [Route("Administracion/Roles")]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: Roles/Crear
-        [Route("Administracion/Roles/Crear")]
         public ActionResult Crear()
         {
             return View();

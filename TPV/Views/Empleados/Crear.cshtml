@@ -14,26 +14,22 @@
 </div>
 
 <form class="form-horizontal">
-    <fieldset>
-        @*<legend>
-            </legend>*@
         <div class="form-group">
-            @*@Html.LabelFor(m => m.Nombre, "Nombre", new { @class="col-lg-2 control-label"})*@
-            <label for="Nombre" class="col-lg-2 control-label">Nombre</label>
+            @Html.LabelFor(model => model.Nombre, "Nombre", new { @class="col-lg-2 control-label"})
             <div class="col-md-4">
-                <input type="text" class="form-control" id="Nombre" placeholder="Nombre">
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", id = "Nombre", placeholder = "Nombre" })
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Apellido" class="col-lg-2 control-label">Apellido</label>
+            @Html.LabelFor(model => model.Apellido, "Nombre", new { @class = "col-lg-2 control-label" })
             <div class="col-md-4">
-                <input type="text" class="form-control" id="Apellido" placeholder="Apellido">
+                @Html.TextBoxFor(model => model.Apellido, new { @class = "form-control", id = "Apellido", placeholder = "Apellido" })
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-2 control-label">Sexo</label>
+            @Html.LabelFor(model => model.Sexo, "Nombre", new { @class = "col-lg-2 control-label" })
             <div class="col-lg-10">
                 <div class="radio">
                     <label>
@@ -49,77 +45,61 @@
         </div>
 
         <div class="form-group">
-            <label for="Cedula" class="col-lg-2 control-label">Fecha de Nacimiento</label>
+            @Html.LabelFor(model => model.FechaNacimiento, "Nombre", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-2">
-                <input type="date" class="form-control" id="FechaNacimiento">
+                <input type="date" name="FechaNacimiento" id="FechaNacimiento" class="form-control">
             </div>
         </div>
 
 
         <div class="form-group">
-            <label for="Cedula" class="col-lg-2 control-label">Cedula</label>
+            @Html.LabelFor(model => model.Cedula, "Cedula", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-2">
-                <input type="text" class="form-control" id="Cedula" placeholder=" 000-0000000-0">
+                @Html.TextBoxFor(model => model.Cedula, new { @class = "form-control", id = "Cedula", placeholder = "000-0000000-0" })
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Telefono" class="col-lg-2 control-label">Telefono</label>
+            @Html.LabelFor(model => model.Telefono, "Telefono", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-2">
-                <input type="text" class="form-control" id="Telefono" placeholder=" 000-000-0000">
+                @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control", id = "Telefono", placeholder = "000-000-0000" })
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Salario" class="col-lg-2 control-label">Salario</label>
-
+            @Html.LabelFor(model => model.Salario, "Salario", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-2">
-                <input type="text" class="form-control" id="Salario" placeholder="000,000.00">
+                @Html.TextBoxFor(model => model.Salario, new { @class = "form-control", id = "Salario", placeholder = "000,000.00" })
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Puesto" class="col-lg-2 control-label">Puesto</label>
+            @Html.LabelFor(model => model.PuestoID, "PuestoID", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-2">
-                <select class="form-control" id="Puesto">
-                    <option>Cajera</option>
-                    <option>Supervisor</option>
-                    <option>Gerente</option>
-                    <option>Administrador</option>
-                    <option>Otro</option>
-                </select>
+                @Html.DropDownList("PuestoID", null, new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-2 control-label">Fecha de Entrada</label>
+            @Html.LabelFor(model => model.FechaEntrada, "FechaEntrada", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-2">
                 <input type="date" class="form-control" id="FechaEntrada">
             </div>
         </div>
         
-        <div class="form-group">
-            <label class="col-lg-2 control-label">Estado</label>
-            <div class="col-lg-10">
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="Estado" id="Activo" value="A">
-                        Activo
-                    </label>
-                    <label>
-                        <input type="radio" name="Estado" id="Inactivo" value="I">
-                        Inactivo
-                    </label>
-                </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Activo, new { @class = "control-label col-lg-2" })
+        <div class="col-lg-10">
+            <div class="radio">
+                @Html.CheckBoxFor(model => model.Activo)
             </div>
         </div>
+    </div>
 
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                <button type="reset" class="btn btn-default">Limpiar</button>
                 <button onclick="atras()" class="btn btn-danger">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Crear Usuario</button>
             </div>
         </div>
-    </fieldset>
 </form>

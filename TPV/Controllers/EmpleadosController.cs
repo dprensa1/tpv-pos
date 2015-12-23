@@ -1,15 +1,26 @@
 ﻿using System.Web.Mvc;
+using TPV.Models;
+using System.Linq;
+using System.Collections.Generic;
+using System.Net;
+using System.Data.Entity;
+using System;
+using System.Collections;
+using System.Threading.Tasks;
 
 namespace TPV.Controllers
 {
-    //[RoutePrefix("~/Empleados")]
     public class EmpleadosController : Controller
     {
-        // GET: Empleados
-        [Route("Administracion/Empleados")]
+        private Lyra db = new Lyra();
+
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Empleado> empleados = db.Empleado
+                .OrderBy(order => order.PuestoID);
+
+            return View(empleados.ToList());
         }
 
         // GET: Administracion/Empleados/Detalles/5
@@ -19,9 +30,10 @@ namespace TPV.Controllers
         }
 
         // GET: Administracion/Empleados/Crear
-        [Route("Administracion/Empleados/Crear")]
         public ActionResult Crear()
         {
+            ViewBag.PuestoID = new SelectList(db.Puesto, "PuestoID", "Nombre");
+
             return View();
         }
 

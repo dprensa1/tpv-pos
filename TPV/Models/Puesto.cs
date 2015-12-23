@@ -21,19 +21,20 @@ namespace TPV.Models
         [Required(ErrorMessage = "Descripcion requerida")]
         [StringLength(128, MinimumLength = 8, ErrorMessage = "La Descripcion debe tener entre 8 y 128 caracteres")]
         public string Descripcion { get; set; }
-
+        
+        [NotMapped]
         private string funciones;
 
         [Required(ErrorMessage = "Funcion/es requerida/s")]
-        [MinLength(2, ErrorMessage = "Debe tener al menos 1 funcion a cargo")]
+        [MinLength(2, ErrorMessage = "Debe tener al menos {0} funcion a cargo")]
         public string Funciones
         {
             get { return PonerSaltos(funciones); }
             set { QuitarSaltos(value); }
         }
+
         public virtual ICollection<Empleado> Empleados { get; set; }
 
-        [Required(ErrorMessage = "Estado requerido")]
         [DefaultValue("true")]        
         public bool Activo { get; set; }
         

@@ -210,6 +210,22 @@
     <Compile Include="Migrations\201512231924461_Primera9.Designer.cs">
       <DependentUpon>201512231924461_Primera9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512232038232_Primera10.cs" />
+    <Compile Include="Migrations\201512232038232_Primera10.Designer.cs">
+      <DependentUpon>201512232038232_Primera10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512232145474_Primera11.cs" />
+    <Compile Include="Migrations\201512232145474_Primera11.Designer.cs">
+      <DependentUpon>201512232145474_Primera11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512232230139_Primera12.cs" />
+    <Compile Include="Migrations\201512232230139_Primera12.Designer.cs">
+      <DependentUpon>201512232230139_Primera12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512232247162_Primera13.cs" />
+    <Compile Include="Migrations\201512232247162_Primera13.Designer.cs">
+      <DependentUpon>201512232247162_Primera13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Acceso.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -382,6 +398,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512231924461_Primera9.resx">
       <DependentUpon>201512231924461_Primera9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512232038232_Primera10.resx">
+      <DependentUpon>201512232038232_Primera10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512232145474_Primera11.resx">
+      <DependentUpon>201512232145474_Primera11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512232230139_Primera12.resx">
+      <DependentUpon>201512232230139_Primera12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512232247162_Primera13.resx">
+      <DependentUpon>201512232247162_Primera13.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

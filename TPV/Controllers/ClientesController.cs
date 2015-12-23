@@ -5,14 +5,12 @@ namespace TPV.Controllers
     public class ClientesController : Controller
     {
         // GET: Clientes
-        [Route("Clientes")]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: Clientes/Create
-        [Route("Clientes/Crear")]
         public ActionResult Crear()
         {
             return View();

@@ -35,20 +35,20 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Funciones, "Funciones", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
-                @Html.DropDownList("Funciones", ViewData["funciones"] as List<SelectListItem>)
+                <span>@Html.DisplayFor(model => model.Funciones)</span>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Estado, "Estado", new { @class = "col-lg-2 control-label" })
+            @Html.LabelFor(model => model.Activo, "Estado", new { @class = "col-lg-2 control-label" })
             <div class="col-lg-10">
-                <span>@Html.DisplayFor(model => model.Estado)</span>
+                <span>@Html.DisplayFor(model => model.Activo)</span>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                @Html.ActionLink("Editar", "/Administracion/Puestos/Editar/" + @Html.DisplayFor(model => model.PuestoID))
+                @Html.ActionLink("Editar", "Editar/" + @Html.DisplayFor(model => model.PuestoID),"Puestos", new {@class="btn btn-default" })
             </div>
         </div>
     </fieldset>

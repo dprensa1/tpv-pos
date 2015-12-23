@@ -16,7 +16,7 @@ namespace TPV.Controllers
         public ViewResult Index()
         {
             IEnumerable<Puesto> puestos = db.Puesto
-                .Where(where => where.Activo == true)
+                //.Where(where => where.Activo == true)
                 .OrderBy(order => order.PuestoID);
 
             return View(puestos.ToList());
@@ -46,8 +46,7 @@ namespace TPV.Controllers
                     puesto.Descripcion,
                     puesto.Funciones,
                     puesto.Activo.ToString()
-                };
-                
+                };                
 
                 if (ModelState.IsValid)
                 {
@@ -72,36 +71,13 @@ namespace TPV.Controllers
         //[Route("Administracion/Puestos/Detalles/{id:int}")]
         public ActionResult Detalles(int id)
         {
-            char[] separador = { '\u000A' };
-            //char[] separador = { ';' };
-
-            List<SelectListItem> funciones = new List<SelectListItem>();
-
             if (id != 0) {
-                Puesto p = db.Puesto.Find(id);
-
-                string[] funcs = p.Funciones.Split(separador, System.StringSplitOptions.RemoveEmptyEntries);
-                var i = 1;
-                foreach (var x in funcs)
-                {
-                    funciones.Add(new SelectListItem { Value = i.ToString(), Text = x});
-                    i++;
-                }
-                ViewData["funciones"] = funciones;
-
-                if (p == null)
-                {
-                    return HttpNotFound();
-                }
-                else
-                {
-                    return View(p);
-                }
+                Puesto puesto = db.Puesto.Find(id);
+                if (puesto == null)
+                { return HttpNotFound(); }
+                else { return View(puesto); }
             }
-            else
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            else { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
         }
 
         [HttpGet]

@@ -9,7 +9,6 @@ namespace TPV.Controllers
     public class VentasController : Controller
     {
         // GET: Ventas
-        [Route("Ventas")]
         public ActionResult Index()
         {
             return View();

@@ -5,7 +5,7 @@ namespace TPV.Models
     public class Lyra : DbContext
     {
         public DbSet<Puesto> Puesto { get; set; }
-        public DbSet<Empleado> Empleados { get; set; }
+        public DbSet<Empleado> Empleado { get; set; }
         public DbSet<Acceso> Accesos { get; set; }
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }

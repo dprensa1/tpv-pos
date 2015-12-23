@@ -12,70 +12,51 @@
     <h2>Editar Puesto: <ins>@Html.DisplayFor(model => model.Nombre)</ins></h2>
 </div>
 
-<form class="form-horizontal">
-    <fieldset>
-        @*<legend>
-            </legend>*@
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.PuestoID)
+    <div class="form-horizontal">
         <div class="form-group">
-            @*@Html.LabelFor(m => m.Nombre, "Nombre", new { @class="col-lg-2 control-label"})*@
-            <label for="Nombre" class="col-lg-2 control-label">Nombre</label>
+            @Html.LabelFor(model => model.Nombre, new { @class = "control-label col-lg-2" })
             <div class="col-md-4">
-                <input type="text" class="form-control" id="Nombre" placeholder="Nombre del Puesto">
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", id = "Nombre", placeholder = "Nombre del Puesto" })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Descripcion" class="col-lg-2 control-label">Descripcion</label>
+            @Html.LabelFor(model => model.Descripcion, new { @class = "control-label col-md-2" })
             <div class="col-md-4">
-                <textarea class="form-control" rows="3" maxlength="160" id="Descripcion" placeholder="Breve descripción del Puesto"></textarea>
+                @Html.TextAreaFor(model => model.Descripcion, new { @class = "form-control", id = "Descripcion", placeholder = "Breve descripción del Puesto", maxlength = "128" })
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Puesto" class="col-lg-2 control-label">Funciones</label>
-            <div class="col-sm-3">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Funcion del Puesto">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">Agregar</button>
-                    </span>
-                </div>
-                <div class="input-group">
-                    <select class="form-control" id="Puesto">
-                        <option>Hacer ....</option>
-                        <option>Otro</option>
-                    </select>
-                    <span class="input-group-btn">
-                        <button class="btn btn-danger" type="button"> Quitar  </button>
-                    </span>
-                </div>
+            @Html.LabelFor(model => model.Funciones, new { @class = "control-label col-lg-2" })
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.Funciones, new { @class = "form-control", id = "Funciones", placeholder = "Funciones del Puesto", maxlength = "128" })
+                @Html.ValidationMessageFor(model => model.Funciones, "", new { @class = "text-danger" })
             </div>
         </div>
-        @*@Html.DropDownList("test",<test>,"Seleccione..")*@
 
         <div class="form-group">
-            <label class="col-lg-2 control-label">Estado</label>
+            @Html.LabelFor(model => model.Activo, new { @class = "control-label col-lg-2" })
             <div class="col-lg-10">
                 <div class="radio">
-                    <label>
-                        <input type="radio" name="Estado" id="Activo" value="Activo">
-                        Activo
-                    </label>
-                    <label>
-                        <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
-                        Inactivo
-                    </label>
+                    @Html.CheckBoxFor(model => model.Activo)
                 </div>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                <button type="reset" class="btn btn-default">Limpiar</button>
                 <a href="/Puestos" class="btn btn-danger">Cancelar</a>
-                <button type="submit" class="btn btn-primary">Crear Puesto</button>
+                <input type="submit" class="btn btn-primary" value="Actualizar Puesto">
             </div>
         </div>
-    </fieldset>
-</form>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    </div>
+}
 
