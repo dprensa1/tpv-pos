@@ -35,7 +35,7 @@ namespace TPV.Models
 
         [Required(ErrorMessage = "Estado requerido")]
         [DefaultValue("true")]        
-        public bool Estado { get; set; }
+        public bool Activo { get; set; }
         
         private string PonerSaltos(string cadena)
         {

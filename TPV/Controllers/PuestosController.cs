@@ -16,7 +16,7 @@ namespace TPV.Controllers
         public ViewResult Index()
         {
             IEnumerable<Puesto> puestos = db.Puesto
-                .Where(where => where.Estado == true)
+                .Where(where => where.Activo == true)
                 .OrderBy(order => order.PuestoID);
 
             return View(puestos.ToList());
@@ -37,12 +37,6 @@ namespace TPV.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Crear(Puesto puesto)
         {
-            ViewBag.Funciones = new SelectList(new List<string>(), "");
-            //ViewBag.InstructorID = new SelectList(db.Instructors, "ID", "FullName");
-            /*foreach (var x in ViewData["Funciones"])
-            {
-                puesto.Funciones = x;
-            }*/
             try
             {
                 string[] text =
@@ -51,7 +45,7 @@ namespace TPV.Controllers
                     puesto.Nombre,
                     puesto.Descripcion,
                     puesto.Funciones,
-                    puesto.Estado.ToString()
+                    puesto.Activo.ToString()
                 };
                 
 
