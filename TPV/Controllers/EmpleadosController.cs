@@ -24,9 +24,17 @@ namespace TPV.Controllers
         }
 
         // GET: Administracion/Empleados/Detalles/5
+        [HttpGet]
         public ActionResult Detalles(int id)
         {
-            return View();
+            if (id != 0)
+            {
+                Empleado empleado = db.Empleado.Find(id);
+                if (empleado == null)
+                { return HttpNotFound(); }
+                else { return View(empleado); }
+            }
+            else { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
         }
 
         // GET: Administracion/Empleados/Crear

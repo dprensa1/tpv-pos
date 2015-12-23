@@ -355,6 +355,7 @@
     <Content Include="Views\Puestos\Detalles.cshtml" />
     <Content Include="Views\Puestos\Editar.cshtml" />
     <Content Include="Views\Puestos\__Crear.cshtml" />
+    <Content Include="Views\Empleados\Detalles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

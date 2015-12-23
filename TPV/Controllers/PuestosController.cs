@@ -67,8 +67,8 @@ namespace TPV.Controllers
             return View();
         }
 
-        [HttpGet]
         //[Route("Administracion/Puestos/Detalles/{id:int}")]
+        [HttpGet]
         public ActionResult Detalles(int id)
         {
             if (id != 0) {
