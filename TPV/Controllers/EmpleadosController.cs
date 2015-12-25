@@ -30,8 +30,7 @@ namespace TPV.Controllers
             if (id != 0)
             {
                 Empleado empleado = db.Empleado.Find(id);
-                if (empleado == null)
-                { return HttpNotFound(); }
+                if (empleado == null) { return HttpNotFound(); }
                 else { return View(empleado); }
             }
             else { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }

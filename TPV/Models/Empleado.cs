@@ -12,20 +12,37 @@ namespace TPV.Models
         [Key]
         public int EmpleadoID { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Nombre requerido")]
+        [RegularExpression(@"/([a-z])\w/gi", ErrorMessage = "Solo puede contener letras")]
+        [StringLength(30, MinimumLength = 2, ErrorMessage = "Deber tener entre 2 y 30 caracteres")]
+        [DataType(DataType.Text)]
         public string Nombre { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Apellido requerido")]
+        [RegularExpression(@"/([a-z])\w/gi", ErrorMessage = "Solo puede contener letras")]
+        [StringLength(30, MinimumLength = 2, ErrorMessage = "Deber tener entre 2 y 30 caracteres")]
+        [DataType(DataType.Text)]
         public string Apellido { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Sexo requerido")]
         public char Sexo { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime FechaNacimiento { get; set; }
 
+        [RegularExpression(@"/([0-9])/gi", ErrorMessage = "Solo puede contener numeros")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = ("{0:###-#######-#}"))]
         public string Cedula { get; set; }
 
+        [Required(AllowEmptyStrings=false, ErrorMessage ="Numero de telefono o celular requerido")]
+        [RegularExpression(@"/([0-9])/gi", ErrorMessage = "Solo puede contener numeros")]
+        [DisplayName("Telefono / Celular")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString =("{0:(###)-###-####}"))]
         public string Telefono { get; set; }
 
+        [DataType(DataType.Currency, ErrorMessage = "Solo puede contener numeros")]
+        [RegularExpression(@"/([0-9])/gi", ErrorMessage = "Solo puede contener numeros")]
         public double Salario { get; set; }
 
         public int PuestoID { get; set; }
