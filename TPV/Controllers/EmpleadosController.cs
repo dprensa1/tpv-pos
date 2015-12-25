@@ -39,25 +39,53 @@ namespace TPV.Controllers
         // GET: Administracion/Empleados/Crear
         public ActionResult Crear()
         {
-            ViewBag.PuestoID = new SelectList(db.Puesto, "PuestoID", "Nombre");
+            //ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre") as IEnumerable<SelectList>;
+            ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre");
 
             return View();
         }
 
         // POST: Administracion/Empleados/Crear
         [HttpPost]
-        public ActionResult Crear(FormCollection collection)
+        public ActionResult Crear(Empleado empleado)
         {
+            ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre");
+
             try
             {
-                // TODO: Add insert logic here
+                string[] text =
+                {
+                    empleado.EmpleadoID.ToString(),
+                    empleado.Nombre,
+                    empleado.Apellido,
+                    empleado.Sexo.ToString(),
+                    empleado.FechaNacimiento.ToString(),
+                    empleado.Cedula,
+                    empleado.Telefono,
+                    empleado.Salario.ToString(),
+                    empleado.PuestoID.ToString(),
+                    empleado.Codigo.ToString(),
+                    empleado.FechaEntrada.ToString(),
+                    empleado.Activo.ToString()
+                };
 
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Empleado.Add(empleado);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(empleado);
+                }
             }
-            catch
+            catch (Exception e /* dex */)
             {
-                return View();
+                //Log the error (uncomment dex variable name and add a line here to write a log.)
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
             }
+            return View();
         }
 
         // GET: Administracion/Empleados/Editar/5

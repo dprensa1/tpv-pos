@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201512251938326_Primera14.Designer.cs">
       <DependentUpon>201512251938326_Primera14.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512251956383_Primera15.cs" />
+    <Compile Include="Migrations\201512251956383_Primera15.Designer.cs">
+      <DependentUpon>201512251956383_Primera15.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Acceso.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -418,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512251938326_Primera14.resx">
       <DependentUpon>201512251938326_Primera14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512251956383_Primera15.resx">
+      <DependentUpon>201512251956383_Primera15.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
