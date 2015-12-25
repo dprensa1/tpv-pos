@@ -47,6 +47,7 @@ namespace TPV.Controllers
 
         // POST: Administracion/Empleados/Crear
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Crear(Empleado empleado)
         {
             ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre");

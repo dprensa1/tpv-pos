@@ -234,6 +234,22 @@
     <Compile Include="Migrations\201512251956383_Primera15.Designer.cs">
       <DependentUpon>201512251956383_Primera15.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512252141188_Primera16.cs" />
+    <Compile Include="Migrations\201512252141188_Primera16.Designer.cs">
+      <DependentUpon>201512252141188_Primera16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512252156157_Primera17.cs" />
+    <Compile Include="Migrations\201512252156157_Primera17.Designer.cs">
+      <DependentUpon>201512252156157_Primera17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512252311214_Primera18.cs" />
+    <Compile Include="Migrations\201512252311214_Primera18.Designer.cs">
+      <DependentUpon>201512252311214_Primera18.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512252335439_Primera19.cs" />
+    <Compile Include="Migrations\201512252335439_Primera19.Designer.cs">
+      <DependentUpon>201512252335439_Primera19.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Acceso.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -425,6 +441,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512251956383_Primera15.resx">
       <DependentUpon>201512251956383_Primera15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512252141188_Primera16.resx">
+      <DependentUpon>201512252141188_Primera16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512252156157_Primera17.resx">
+      <DependentUpon>201512252156157_Primera17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512252311214_Primera18.resx">
+      <DependentUpon>201512252311214_Primera18.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512252335439_Primera19.resx">
+      <DependentUpon>201512252335439_Primera19.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
