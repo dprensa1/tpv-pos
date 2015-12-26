@@ -13,13 +13,13 @@ namespace TPV.Models
         public int EmpleadoID { get; set; }
 
         [Required(/*AllowEmptyStrings = false, */ErrorMessage = "Nombre requerido.")]
-        [RegularExpression(@"/([a-z])\w/gi", ErrorMessage = "Solo puede contener letras.")]
+        [RegularExpression(@"^[a-zA-Z ]+\w$", ErrorMessage = "Solo puede contener letras.")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "Deber tener entre 2 y 30 caracteres.")]
         [DataType(DataType.Text)]
         public string Nombre { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Apellido requerido.")]
-        [RegularExpression(@"/([a-z])\w/gi", ErrorMessage = "Solo puede contener letras.")]
+        [RegularExpression(@"^[a-zA-Z ]+\w$", ErrorMessage = "Solo puede contener letras.")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "Deber tener entre 2 y 30 caracteres.")]
         [DataType(DataType.Text)]
         public string Apellido { get; set; }

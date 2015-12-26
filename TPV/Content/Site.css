@@ -1,50 +1,110 @@
-﻿body {
-    font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
+﻿/*
+    ** SUB MENU CUSTOM
+*/
+
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+    display:block;
+}
+.dropdown-submenu>a:after {
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
+}
+.dropdown-submenu:hover>a:after {
+    border-left-color:#ffffff;
+}
+.dropdown-submenu.pull-left {
+    float:none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:6px 0 6px 6px;
+    -moz-border-radius:6px 0 6px 6px;
+    border-radius:6px 0 6px 6px;
 }
 
-header, footer, nav, section {
-    display: block;
+/*
+
+    ** END SUB MENU COSTUM
+*/
+
+strong a i{
+    color:#AAAAAA;
+}
+strong a i:hover{
+    color:white;
+}
+strong a.active i{
+    color:black;
 }
 
-
-/* Styles for basic forms
------------------------------------------------------------*/
-fieldset {
-    border: 1px solid #ddd;
-    padding: 0 1.4em 1.4em 1.4em;
-    margin: 0 0 1.5em 0;
+ul.dropdown-menu li a i{
+ color:#276aa4;
 }
 
-legend {
-    font-size: 1.2em;
-    font-weight: bold;
+ul.dropdown-menu li.active a i{
+    color:#ffffff;
+}
+ 
+div ul li a:hover {
+    background: #f2f2f2;
+}
+@media (min-width: 1280px){
+    div ul li:hover ul.dropdown-menu {
+        display: block;
+    }
+    .nova{
+        display:none;
+    }
+    div ul li ul.dropdown{
+        background: #f2f2f2;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+    }
 }
 
-textarea {
-    min-height: 75px;
-}
+input:focus:required:invalid { background-color: pink; color: white; }
+input:focus:required:valid { background-color: white; color: palegreen; }
 
-.editor-label {
-    margin: 1em 0 0 0;
-}
+textarea:focus:required:invalid { background-color: pink; color: white; }
+textarea:focus:required:valid { background-color: white; color: palegreen; }
 
-.editor-field {
-    margin: 0.5em 0 0 0;
-}
-
+select:focus:required:invalid { background-color: pink; color: white; }
+select:focus:required:valid { background-color: white; color: palegreen; }
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/
 .field-validation-error {
-    color: #f00;
+    color: #fff;
 }
 
 .field-validation-valid {
     display: none;
-}
+    background-color: white;
+    color: palegreen; }
 
 .input-validation-error {
     border: 1px solid #f00;
@@ -53,7 +113,7 @@ textarea {
 
 .validation-summary-errors {
     font-weight: bold;
-    color: #f00;
+    color: #000;
 }
 
 .validation-summary-valid {
