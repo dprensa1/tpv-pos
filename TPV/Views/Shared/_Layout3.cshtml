@@ -86,10 +86,15 @@
 
         @RenderBody()
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/angular")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/jqueryval")
+                @Scripts.Render("~/bundles/bootstrap")
+                    @Scripts.Render("~/bundles/jqueryformvalidator")
+                    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="/bundles/jqueryval"></script>
     <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jqueryformvalidator.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.mask.min.js"></script>
     <script type="text/javascript">
 
 

@@ -25,7 +25,7 @@
                 @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", id = "Nombre", placeholder = "Nombre" } })
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = " label label-danger text-info", pattern = "/[[:alpha:]]/+gi"})
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = " label label-danger text-info", pattern = "/[[:alpha:]]/+gi" })
             </div>
         </div>
 
@@ -35,7 +35,7 @@
                 @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control", id = "Apellido", placeholder = "Apellido" } })
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "label label-danger text-info"})
+                @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "label label-danger text-info" })
             </div>
         </div>
 
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "label label-danger text-info"})
+                @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "label label-danger text-info" })
             </div>
         </div>
 
@@ -65,17 +65,18 @@
                 <input type="date" name="FechaNacimiento" id="FechaNacimiento" class="form-control">
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "label label-danger text-info"})
+                @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "label label-danger text-info" })
             </div>
         </div>
-
+        @*has-success has-feedback*@
         <div class="form-group">
             @Html.LabelFor(model => model.Cedula, "Cedula", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
                 @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control", id = "Cedula", placeholder = "000-0000000-0" } })
+                <span class="text-muted">Sin Guiones.</span>
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "label label-danger text-info"})
+                @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "label label-danger text-info" })
             </div>
         </div>
 
@@ -83,9 +84,10 @@
             @Html.LabelFor(model => model.Telefono, "Telefono", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
                 @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control", id = "Telefono", placeholder = "000-000-0000" } })
+                <span class="text-muted">Sin Guiones.</span>
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "label label-danger text-info"})
+                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "label label-danger text-info" })
             </div>
         </div>
 
@@ -93,9 +95,10 @@
             @Html.LabelFor(model => model.Salario, "Salario", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
                 @Html.EditorFor(model => model.Salario, new { htmlAttributes = new { @class = "form-control", id = "Salario", placeholder = "000,000.00" } })
+                <span class="text-muted">Sin Comas (,) ni Puntos (.).</span>
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.Salario, "", new { @class = "label label-danger text-info"})
+                @Html.ValidationMessageFor(model => model.Salario, "", new { @class = "label label-danger text-info" })
             </div>
         </div>
 
@@ -105,7 +108,7 @@
                 @Html.DropDownListFor(model => model.PuestoID, (IEnumerable<SelectListItem>)ViewBag.Puestos, "Seleccione..", new { @class = "form-control" })
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.PuestoID, "", new { @class = "label label-danger text-info"})
+                @Html.ValidationMessageFor(model => model.PuestoID, "", new { @class = "label label-danger text-info" })
             </div>
         </div>
 
@@ -117,7 +120,7 @@
                 <input type="date" class="form-control" id="FechaEntrada">
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.FechaEntrada, "", new { @class = "label label-danger text-info"})
+                @Html.ValidationMessageFor(model => model.FechaEntrada, "", new { @class = "label label-danger text-info" })
             </div>
         </div>
 
@@ -129,7 +132,7 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "label label-danger text-info"})
+                @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "label label-danger text-info" })
             </div>
         </div>
 
@@ -141,3 +144,17 @@
         </div>
     </div>
 }
+
+<script language="text/javascript">
+    $(function () {
+        var settings = $.data($('form')[0], 'validator').settings;
+        settings.onfocusout = function (element) { $(element).valid(); };
+    });
+
+    $('input, select, textarea').keypress(function (event) {
+        if (event.keyCode == 10 || event.keyCode == 13) {
+            $(this).closest('div').next('div').find(':first-child').focus();
+            event.preventDefault();
+        }
+    });
+</script>

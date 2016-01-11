@@ -170,85 +170,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201512181657497_Primera.cs" />
-    <Compile Include="Migrations\201512181657497_Primera.Designer.cs">
-      <DependentUpon>201512181657497_Primera.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512181719175_Primera1.cs" />
-    <Compile Include="Migrations\201512181719175_Primera1.Designer.cs">
-      <DependentUpon>201512181719175_Primera1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512181731338_Primera2.cs" />
-    <Compile Include="Migrations\201512181731338_Primera2.Designer.cs">
-      <DependentUpon>201512181731338_Primera2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512181742119_Primera3.cs" />
-    <Compile Include="Migrations\201512181742119_Primera3.Designer.cs">
-      <DependentUpon>201512181742119_Primera3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512222252046_Primera4.cs" />
-    <Compile Include="Migrations\201512222252046_Primera4.Designer.cs">
-      <DependentUpon>201512222252046_Primera4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512231617417_Primera5.cs" />
-    <Compile Include="Migrations\201512231617417_Primera5.Designer.cs">
-      <DependentUpon>201512231617417_Primera5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512231629476_Primera6.cs" />
-    <Compile Include="Migrations\201512231629476_Primera6.Designer.cs">
-      <DependentUpon>201512231629476_Primera6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512231641278_Primera7.cs" />
-    <Compile Include="Migrations\201512231641278_Primera7.Designer.cs">
-      <DependentUpon>201512231641278_Primera7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512231829326_Primera8.cs" />
-    <Compile Include="Migrations\201512231829326_Primera8.Designer.cs">
-      <DependentUpon>201512231829326_Primera8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512231924461_Primera9.cs" />
-    <Compile Include="Migrations\201512231924461_Primera9.Designer.cs">
-      <DependentUpon>201512231924461_Primera9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512232038232_Primera10.cs" />
-    <Compile Include="Migrations\201512232038232_Primera10.Designer.cs">
-      <DependentUpon>201512232038232_Primera10.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512232145474_Primera11.cs" />
-    <Compile Include="Migrations\201512232145474_Primera11.Designer.cs">
-      <DependentUpon>201512232145474_Primera11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512232230139_Primera12.cs" />
-    <Compile Include="Migrations\201512232230139_Primera12.Designer.cs">
-      <DependentUpon>201512232230139_Primera12.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512232247162_Primera13.cs" />
-    <Compile Include="Migrations\201512232247162_Primera13.Designer.cs">
-      <DependentUpon>201512232247162_Primera13.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512251938326_Primera14.cs" />
-    <Compile Include="Migrations\201512251938326_Primera14.Designer.cs">
-      <DependentUpon>201512251938326_Primera14.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512251956383_Primera15.cs" />
-    <Compile Include="Migrations\201512251956383_Primera15.Designer.cs">
-      <DependentUpon>201512251956383_Primera15.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512252141188_Primera16.cs" />
-    <Compile Include="Migrations\201512252141188_Primera16.Designer.cs">
-      <DependentUpon>201512252141188_Primera16.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512252156157_Primera17.cs" />
-    <Compile Include="Migrations\201512252156157_Primera17.Designer.cs">
-      <DependentUpon>201512252156157_Primera17.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512252311214_Primera18.cs" />
-    <Compile Include="Migrations\201512252311214_Primera18.Designer.cs">
-      <DependentUpon>201512252311214_Primera18.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512252335439_Primera19.cs" />
-    <Compile Include="Migrations\201512252335439_Primera19.Designer.cs">
-      <DependentUpon>201512252335439_Primera19.cs</DependentUpon>
+    <Compile Include="Migrations\201601082307583_InitDB.cs" />
+    <Compile Include="Migrations\201601082307583_InitDB.Designer.cs">
+      <DependentUpon>201601082307583_InitDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Acceso.cs" />
@@ -274,39 +198,6 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Content\themes\base\accordion.css" />
-    <Content Include="Content\themes\base\all.css" />
-    <Content Include="Content\themes\base\autocomplete.css" />
-    <Content Include="Content\themes\base\base.css" />
-    <Content Include="Content\themes\base\button.css" />
-    <Content Include="Content\themes\base\core.css" />
-    <Content Include="Content\themes\base\datepicker.css" />
-    <Content Include="Content\themes\base\dialog.css" />
-    <Content Include="Content\themes\base\draggable.css" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\menu.css" />
-    <Content Include="Content\themes\base\progressbar.css" />
-    <Content Include="Content\themes\base\resizable.css" />
-    <Content Include="Content\themes\base\selectable.css" />
-    <Content Include="Content\themes\base\selectmenu.css" />
-    <Content Include="Content\themes\base\slider.css" />
-    <Content Include="Content\themes\base\sortable.css" />
-    <Content Include="Content\themes\base\spinner.css" />
-    <Content Include="Content\themes\base\tabs.css" />
-    <Content Include="Content\themes\base\theme.css" />
-    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -314,33 +205,31 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Icon.png" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
-    <Content Include="Scripts\jquery-ui-1.11.4.js" />
-    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.mask.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\knockout-3.3.0.debug.js" />
-    <Content Include="Scripts\knockout-3.3.0.js" />
+    <Content Include="Scripts\jqueryformvalidator.min.js" />
+    <Content Include="Scripts\jqueryformvalidator.js" />
+    <Content Include="Scripts\jquery.mask.js" />
+    <Content Include="Scripts\knockout-3.4.0.debug.js" />
+    <Content Include="Scripts\knockout-3.4.0.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\a script.js" />
-    <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -394,65 +283,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512181657497_Primera.resx">
-      <DependentUpon>201512181657497_Primera.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512181719175_Primera1.resx">
-      <DependentUpon>201512181719175_Primera1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512181731338_Primera2.resx">
-      <DependentUpon>201512181731338_Primera2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512181742119_Primera3.resx">
-      <DependentUpon>201512181742119_Primera3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512222252046_Primera4.resx">
-      <DependentUpon>201512222252046_Primera4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512231617417_Primera5.resx">
-      <DependentUpon>201512231617417_Primera5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512231629476_Primera6.resx">
-      <DependentUpon>201512231629476_Primera6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512231641278_Primera7.resx">
-      <DependentUpon>201512231641278_Primera7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512231829326_Primera8.resx">
-      <DependentUpon>201512231829326_Primera8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512231924461_Primera9.resx">
-      <DependentUpon>201512231924461_Primera9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512232038232_Primera10.resx">
-      <DependentUpon>201512232038232_Primera10.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512232145474_Primera11.resx">
-      <DependentUpon>201512232145474_Primera11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512232230139_Primera12.resx">
-      <DependentUpon>201512232230139_Primera12.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512232247162_Primera13.resx">
-      <DependentUpon>201512232247162_Primera13.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512251938326_Primera14.resx">
-      <DependentUpon>201512251938326_Primera14.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512251956383_Primera15.resx">
-      <DependentUpon>201512251956383_Primera15.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512252141188_Primera16.resx">
-      <DependentUpon>201512252141188_Primera16.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512252156157_Primera17.resx">
-      <DependentUpon>201512252156157_Primera17.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512252311214_Primera18.resx">
-      <DependentUpon>201512252311214_Primera18.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512252335439_Primera19.resx">
-      <DependentUpon>201512252335439_Primera19.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601082307583_InitDB.resx">
+      <DependentUpon>201601082307583_InitDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
