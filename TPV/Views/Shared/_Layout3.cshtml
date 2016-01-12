@@ -95,12 +95,6 @@
 
     <script type="text/javascript">
 
-        $('document').ready(function () {
-            $('.Cedula').mask("000-0000000-0", { placeholder: "___-_______-_" });
-            $('.Telefono').mask("000-000-0000", { placeholder: "___-___-____" });
-            $('.Salario').mask("000,000.00", { placeholder: "___,___.__" });
-        });
-
         $(function () {
             $(".navbar‐btn a.menu").each(function () {
                 if (this.href.trim().split("/").splice(3, 4)[0] == window.location.pathname.split("/").splice(1, 1)[0])

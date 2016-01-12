@@ -82,7 +82,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Telefono, "Telefono / Celular", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
-                @Html.TextBoxFor(model => model.Telefono, true, htmlAttributes: new { @class = "form-control Telefono", id = "Telefono", placeholder = "000-000-0000" })
+                @Html.TextBoxFor(model => model.Telefono, true, htmlAttributes: new { @class = "form-control Telefono", id = "Telefono", placeholder = "8092223344" })
                 <span class="text-muted">Sin Guiones.</span>
             </div>
             <div class="col-sm-4">
@@ -93,8 +93,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Salario, "Salario", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
-                @Html.TextBoxFor(model => model.Salario, true, htmlAttributes: new { @class = "form-control Salario", id = "Salario", placeholder = "000,000.00"})
-                <span class="text-muted">Sin Comas (,) ni Puntos (.).</span>
+                @Html.TextBoxFor(model => model.Salario, true, htmlAttributes: new { @class = "form-control Salario", id = "Salario", placeholder = "123,456.78"})
             </div>
             <div class="col-sm-4">
                 @Html.ValidationMessageFor(model => model.Salario, "", new { @class = "label label-danger text-info" })
@@ -148,6 +147,14 @@
     $('document').ready(function () {
         $("#Nombre").focus();
     });
+
+    /*
+    $('document').ready(function () {
+        $('.Cedula').mask("000-0000000-0", { placeholder: "___-_______-_" });
+        $('.Telefono').mask("000-000-0000", { placeholder: "___-___-____" });
+        $('.Salario').mask("000,000.00", { placeholder: "___,___.__" });
+    });
+    */
 
     $('input, select, textarea').keypress(function (event) {
         if (event.keyCode == 10 || event.keyCode == 13) {

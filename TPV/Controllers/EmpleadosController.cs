@@ -89,7 +89,23 @@ namespace TPV.Controllers
         // GET: Administracion/Empleados/Editar/5
         public ActionResult Editar(int id)
         {
-            return View();
+            if (id > 0)
+            {
+                Empleado e = db.Empleado.Find(id);
+
+                if (e == null)
+                {
+                    return HttpNotFound();
+                }
+                else
+                {
+                    return View(e);
+                }
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
         }
 
         // POST: Administracion/Empleados/Editar/5

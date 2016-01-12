@@ -84,7 +84,7 @@ namespace TPV.Controllers
 
             List<SelectListItem> funciones = new List<SelectListItem>();
 
-            if (id != 0)
+            if (id > 0)
             {
                 Puesto p = db.Puesto.Find(id);
 
