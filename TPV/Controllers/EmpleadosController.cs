@@ -3,10 +3,7 @@ using TPV.Models;
 using System.Linq;
 using System.Collections.Generic;
 using System.Net;
-using System.Data.Entity;
 using System;
-using System.Collections;
-using System.Threading.Tasks;
 
 namespace TPV.Controllers
 {
@@ -23,7 +20,7 @@ namespace TPV.Controllers
             return View(empleados.ToList());
         }
 
-        // GET: Administracion/Empleados/Detalles/5
+        // GET: Empleados/Detalles/5
         [HttpGet]
         public ActionResult Detalles(int id)
         {
@@ -36,7 +33,7 @@ namespace TPV.Controllers
             else { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
         }
 
-        // GET: Administracion/Empleados/Crear
+        // GET: Empleados/Crear
         public ActionResult Crear()
         {
             //ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre") as IEnumerable<SelectList>;
@@ -45,7 +42,7 @@ namespace TPV.Controllers
             return View();
         }
 
-        // POST: Administracion/Empleados/Crear
+        // POST: Empleados/Crear
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Crear(Empleado empleado)

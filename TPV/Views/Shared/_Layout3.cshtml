@@ -86,17 +86,20 @@
 
         @RenderBody()
     </div>
-        @Scripts.Render("~/bundles/jquery")
-            @Scripts.Render("~/bundles/jqueryval")
-                @Scripts.Render("~/bundles/bootstrap")
-                    @Scripts.Render("~/bundles/jqueryformvalidator")
-                    @Scripts.Render("~/bundles/jquery")
-    <script type="text/javascript" src="/bundles/jqueryval"></script>
-    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/jqueryformvalidator.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/jquery.mask.min.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryMask")
+
     <script type="text/javascript">
 
+        $('document').ready(function () {
+            $('.Cedula').mask("000-0000000-0", { placeholder: "___-_______-_" });
+            $('.Telefono').mask("000-000-0000", { placeholder: "___-___-____" });
+            $('.Salario').mask("000,000.00", { placeholder: "___,___.__" });
+        });
 
         $(function () {
             $(".navbar‐btn a.menu").each(function () {
@@ -104,6 +107,9 @@
                     $(this).parent().addClass("active");
             });
         });
+
+
+        //$("form").validate();
 
         /*$(function () {
             $(".navbar‐btn a").each(function () {

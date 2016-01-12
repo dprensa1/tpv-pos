@@ -7,13 +7,13 @@ namespace TPV.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitDB : IMigrationMetadata
+    public sealed partial class Initz : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initz));
         
         string IMigrationMetadata.Id
         {
-            get { return "201601082307583_InitDB"; }
+            get { return "201601111744347_Initz"; }
         }
         
         string IMigrationMetadata.Source

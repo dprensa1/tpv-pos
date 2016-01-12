@@ -3,7 +3,7 @@ namespace TPV.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitDB : DbMigration
+    public partial class Initz : DbMigration
     {
         public override void Up()
         {
@@ -25,7 +25,7 @@ namespace TPV.Migrations
                         RolID = c.Int(nullable: false, identity: true),
                         Nombre = c.String(unicode: false),
                         Descripcion = c.String(unicode: false),
-                        AccesoID = c.Int(nullable: false),
+                        AccesoID = c.Int(),
                         Estado = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.RolID);
@@ -35,14 +35,14 @@ namespace TPV.Migrations
                 c => new
                     {
                         UsuarioID = c.Int(nullable: false, identity: true),
-                        EmpleadoID = c.Int(nullable: false),
+                        EmpleadoID = c.Int(),
                         User = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
                         Clave = c.String(nullable: false, maxLength: 16, storeType: "nvarchar"),
-                        RolID = c.Int(nullable: false),
+                        RolID = c.Int(),
                         Estado = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.UsuarioID)
-                .ForeignKey("dbo.Empleados", t => t.EmpleadoID, cascadeDelete: true)
+                .ForeignKey("dbo.Empleados", t => t.EmpleadoID)
                 .Index(t => t.EmpleadoID)
                 .Index(t => t.User, unique: true, name: "UserIDX");
             
@@ -56,9 +56,9 @@ namespace TPV.Migrations
                         FechaNacimiento = c.DateTime(nullable: false, precision: 0),
                         Cedula = c.String(nullable: false, maxLength: 11, storeType: "nvarchar"),
                         Telefono = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
-                        Salario = c.Double(nullable: false),
+                        Salario = c.Double(),
                         PuestoID = c.Int(nullable: false),
-                        Codigo = c.Int(nullable: false),
+                        Codigo = c.Int(),
                         FechaEntrada = c.DateTime(nullable: false, precision: 0),
                         Activo = c.Boolean(nullable: false),
                     })
@@ -88,7 +88,7 @@ namespace TPV.Migrations
                         Contacto = c.String(unicode: false),
                         Telefono_Contacto = c.String(unicode: false),
                         Extension_Telefono_Contacto = c.String(unicode: false),
-                        Codigo = c.Int(nullable: false),
+                        Codigo = c.Int(),
                         Estado = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ClienteID);

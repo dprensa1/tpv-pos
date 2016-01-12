@@ -21,8 +21,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Nombre, new { @class = "control-label col-lg-2" })
             <div class="col-md-4">
-                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", id = "Nombre", placeholder = "Nombre del Puesto" })
-                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.Nombre, true, htmlAttributes: new { @class = "form-control", id = "Nombre", placeholder = "Nombre del Puesto" })
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = " label label-danger text-info" })
             </div>
         </div>
 
@@ -30,7 +32,9 @@
             @Html.LabelFor(model => model.Descripcion, new { @class = "control-label col-md-2" })
             <div class="col-md-4">
                 @Html.TextAreaFor(model => model.Descripcion, new { @class = "form-control", id = "Descripcion", placeholder = "Breve descripción del Puesto", maxlength = "128" })
-                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = " label label-danger text-info" })
             </div>
         </div>
 
@@ -38,7 +42,9 @@
             @Html.LabelFor(model => model.Funciones, new { @class = "control-label col-lg-2" })
             <div class="col-md-4">
                 @Html.TextAreaFor(model => model.Funciones, new { @class = "form-control", id = "Funciones", placeholder = "Funciones del Puesto", maxlength = "128" })
-                @Html.ValidationMessageFor(model => model.Funciones, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.Funciones, "", new { @class = " label label-danger text-info" })
             </div>
         </div>
 
@@ -46,7 +52,7 @@
             @Html.LabelFor(model => model.Activo, new { @class = "control-label col-lg-2" })
             <div class="col-lg-10">
                 <div class="radio">
-                    @Html.CheckBoxFor(model => model.Activo)
+                    @Html.CheckBoxFor(model => model.Activo, new { Checked = "checked" })
                 </div>
             </div>
         </div>

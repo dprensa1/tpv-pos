@@ -18,18 +18,14 @@ namespace TPV.Controllers
             IEnumerable<Puesto> puestos = db.Puesto
                 //.Where(where => where.Activo == true)
                 .OrderBy(order => order.PuestoID);
-
             return View(puestos.ToList());
         }
 
         [HttpGet]
         public ActionResult Crear()
         {
-
             List<SelectListItem> funciones = new List<SelectListItem>();
-
             ViewData["Funciones"] = funciones;
-
             return View();
         }
 
@@ -62,7 +58,7 @@ namespace TPV.Controllers
             catch (Exception e /* dex */)
             {
                 //Log the error (uncomment dex variable name and add a line here to write a log.)
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator."+e.GetBaseException().ToString());
             }
             return View();
         }

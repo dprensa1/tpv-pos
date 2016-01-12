@@ -9,8 +9,8 @@ namespace TPV.Models
     public class Usuario
     {
         [Key]
-        public int UsuarioID { get; set; }
-        public int EmpleadoID { get; set; }
+        public int? UsuarioID { get; set; }
+        public int? EmpleadoID { get; set; }
         public virtual Empleado Empleado { get; set; }
 
         [Required(ErrorMessage = "Nombre requerido", AllowEmptyStrings = false)]
@@ -22,7 +22,7 @@ namespace TPV.Models
         [StringLength(16, MinimumLength = 4, ErrorMessage = " La contraseña deber tener entre 6 y 16 caracteres")]
         public string Clave { get; set; }
 
-        public int RolID { get; set; }
+        public int? RolID { get; set; }
 
         [ForeignKey("RolID")]
         public virtual ICollection<Rol> Roles { get; set; }

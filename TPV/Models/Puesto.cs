@@ -12,7 +12,7 @@ namespace TPV.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int PuestoID { get; set; }
+        public int? PuestoID { get; set; }
 
         [Required(ErrorMessage = "Nombre requerido")]
         [StringLength(32, MinimumLength = 2, ErrorMessage = "El Nombre debe tener entre 2 y 32 caracteres")]

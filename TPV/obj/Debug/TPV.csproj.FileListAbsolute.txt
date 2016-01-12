@@ -118,5 +118,6 @@ D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.Mvc.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.Mvc.xml
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.InitDB.resources
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.Initz.resources
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.csproj.GenerateResource.Cache
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\jQuery.Validation.Unobtrusive.Native.dll

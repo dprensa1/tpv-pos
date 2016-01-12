@@ -7,7 +7,7 @@ namespace TPV.Models
     public class Cliente
     {
         [Key]
-        public int ClienteID { get; set; }
+        public int? ClienteID { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Identificacion { get; set; }
@@ -15,7 +15,7 @@ namespace TPV.Models
         public string Contacto { get; set; }
         public string Telefono_Contacto { get; set; }
         public string Extension_Telefono_Contacto { get; set; }
-        public int Codigo { get; set; }
+        public int? Codigo { get; set; }
         public bool Estado { get; set; }
 
         /*

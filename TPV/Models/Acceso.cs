@@ -9,7 +9,7 @@ namespace TPV.Models
     public class Acceso
     {
         [Key]
-        public int AccesoID { get; set; }
+        public int? AccesoID { get; set; }
 
         [StringLength(16, MinimumLength = 4, ErrorMessage ="Debe tener entre 4 y 16 letras.")]
         [Required]

@@ -9,10 +9,10 @@ namespace TPV.Models
     public class Rol
     {
         [Key]
-        public int RolID { get; set; }
+        public int? RolID { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public int AccesoID { get; set; }
+        public int? AccesoID { get; set; }
         [ForeignKey("AccesoID")]
         public virtual ICollection<Acceso> Accesos { get; set; }
         [ForeignKey("UsuarioID")]
