@@ -45,25 +45,21 @@ namespace TPV.Models
         [StringLength(10, MinimumLength = 10, ErrorMessage = "Deber tener 10 numeros sin guiones")]
         public string Telefono { get; set; }
 
-        decimal? _Salario;
+        [NotMapped]
+        decimal _Salario;
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         //[RegularExpression(@"\d+(\,|\.\d{1,2})?", ErrorMessage = "Solo numeros.")]
         //[Range(0.00, 150000.00)]
         [RegularExpression(@"[0-9]{1,2}([,.][0-9]{1,2})?", ErrorMessage = "Solo numeros.")]
-        public decimal? Salario {
+        public decimal Salario {
             get
             {
-                if (_Salario.HasValue)
-                    return _Salario;
-                else return 00;
+                return _Salario;
             }
             set
             {
-                if (value <= 0)
-                    _Salario = 00   ;
-                else
-                    _Salario = value;
+                _Salario = value;
             }
         }
 
