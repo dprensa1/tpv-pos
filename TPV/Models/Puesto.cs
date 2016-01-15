@@ -29,8 +29,10 @@ namespace TPV.Models
         [MinLength(2, ErrorMessage = "Debe tener al menos {0} funcion a cargo")]
         public string Funciones
         {
-            get { return PonerSaltos(funciones); }
-            set { QuitarSaltos(value); }
+            get { return funciones; }
+            set { funciones = value; }
+            //get { return PonerSaltos(funciones); }
+            //set { funciones = QuitarSaltos(value); }
         }
 
         public virtual ICollection<Empleado> Empleados { get; set; }
@@ -38,50 +40,31 @@ namespace TPV.Models
         [DefaultValue("true")]        
         public bool Activo { get; set; }
         
-        private string PonerSaltos(string cadena)
-        {
-            string ViejaCadena = cadena != null ? cadena : "N/A";
-            string NuevaCadena =  "";
-
-            if (ViejaCadena.Equals("N/A"))
-            {
-                return ViejaCadena;
-            }
-            else
-            {
-                foreach (var x in ViejaCadena)
-                {
-                    if (x.Equals(';')) { NuevaCadena += x + @"\n"; }
-                    else { NuevaCadena += x; }
-                }
-                return NuevaCadena;
-            }
-        }
-
-        private void QuitarSaltos(string cadena)
+        private string PonerSaltos(string cadena = "N/A")
         {
             string NuevaCadena = "";
-            bool tieneSalto = false;
+            
+            if(cadena.Equals(""))
+                NuevaCadena = cadena != null ? cadena : "N/A";
+            else
+                NuevaCadena = cadena.Replace(";", "\n");
 
-            if (cadena.Equals("")) { funciones = (cadena + ";"); }
+            return NuevaCadena;
+        }
+
+        private string QuitarSaltos(string cadena = "N/A")
+        {
+            string NuevaCadena = "";
+
+            if (cadena.Equals(""))
+                NuevaCadena = cadena != null ? cadena : "N/A";
             else
             {
-                if (cadena.Equals("N/A")) { funciones = (cadena + ";"); }
-                else
-                {
-                    foreach (var x in cadena)
-                    {
-                        if (x.Equals(@"\n"))
-                        {
-                            NuevaCadena += x + ";";
-                            tieneSalto = true;
-                        }
-                        else { NuevaCadena += x; }
-                    }
-                    if(tieneSalto) { funciones += (NuevaCadena + ";"); }
-                    else { funciones += NuevaCadena; }
-                }
+                NuevaCadena = cadena.Replace("\r", ";");
+                NuevaCadena = cadena.Replace("\n", ";");
             }
+
+            return NuevaCadena;
         }
         
         /*

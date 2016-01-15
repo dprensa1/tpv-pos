@@ -40,11 +40,17 @@
         </thead>
 
         <tbody>
-            @{ var x = 0; }
+            @{
+                var x = 0;
+                var activoSeleccion = "";
+            }
+            @Html.AntiForgeryToken()
             @foreach (var puesto in Model)
             {
+                activoSeleccion = (ViewBag.activoSeleccion == puesto.PuestoID) ? "bg-success" : "";
                 x++;
-                <tr>
+
+                <tr class="@activoSeleccion.ToString()">
                     <td><input type="checkbox"></td>
                     <td>
                         <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
@@ -80,9 +86,16 @@
                         </div>
                     </td>
                 </tr>
+                activoSeleccion = "";
             }
         </tbody>
         <tfoot>
         </tfoot>
     </table>
 </div>
+
+<script type="text/javascript">
+    window.setTimeout(function () {
+        $("tr").removeClass("bg-success");
+    }, 1500)
+</script>

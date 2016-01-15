@@ -13,11 +13,15 @@ namespace TPV.Controllers
         private Lyra db = new Lyra();
 
         [HttpGet]
-        public ViewResult Index()
+        public ViewResult Index(int PuestoID = 0)
         {
             IEnumerable<Puesto> puestos = db.Puesto
                 //.Where(where => where.Activo == true)
                 .OrderBy(order => order.PuestoID);
+
+            if (PuestoID >= 1)
+                ViewBag.activoSeleccion = PuestoID;
+
             return View(puestos.ToList());
         }
 
@@ -42,24 +46,26 @@ namespace TPV.Controllers
                     puesto.Descripcion,
                     puesto.Funciones,
                     puesto.Activo.ToString()
-                };                
+                };
 
                 if (ModelState.IsValid)
                 {
                     db.Puesto.Add(puesto);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", new {puesto.PuestoID});
                 }
                 else
                 {
+                    ModelState.AddModelError("", "No se puede guardar.");
                     return View(puesto);
                 }
             }
             catch (Exception e /* dex */)
             {
                 //Log the error (uncomment dex variable name and add a line here to write a log.)
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator."+e.GetBaseException().ToString());
+                ModelState.AddModelError("", "No se puede guardar." + e.GetBaseException());
             }
+            ViewBag.activoSeleccion = puesto.PuestoID;
             return View();
         }
 
@@ -121,21 +127,27 @@ namespace TPV.Controllers
             {
                 db.Entry(puesto).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { puesto.PuestoID });
             }
             return View(puesto);
         }
-
-        private string PonerSaltos(string cadena)
+        
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Borrar(int id)
         {
-            string NuevaCadena = "";
-
-            foreach (var x in cadena)
+            if (id > 0)
             {
-                if (x.Equals(@"\n")) { NuevaCadena += x + ";"; }
-                else { NuevaCadena += x; }
+                Puesto puesto = db.Puesto.Find(id);
+                db.Puesto.Remove(puesto);
+                db.SaveChanges();
             }
-            return NuevaCadena;
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

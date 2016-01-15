@@ -67,11 +67,16 @@
         </thead>
 
         <tbody>
-            @{ var x = 0; }
+            @{
+                var x = 0;
+                var activoSeleccion = "";
+            }
             @foreach (var empleado in Model)
             {
                 x++;
-                <tr>
+                activoSeleccion = (ViewBag.activoSeleccion == empleado.EmpleadoID) ? "bg-success" : "";
+
+                <tr class="@activoSeleccion.ToString()">
                     <td><input type="checkbox"></td>
                     <td>
                         <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
@@ -107,8 +112,10 @@
                         </div>
                     </td>
                 </tr>
+                activoSeleccion = "";
             }
         </tbody>
+
         <tfoot>
 
         </tfoot>

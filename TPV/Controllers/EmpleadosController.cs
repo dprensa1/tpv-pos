@@ -12,10 +12,13 @@ namespace TPV.Controllers
         private Lyra db = new Lyra();
 
         [HttpGet]
-        public ActionResult Index()
+        public ViewResult Index(int PuestoID = 0)
         {
             IEnumerable<Empleado> empleados = db.Empleado
                 .OrderBy(order => order.PuestoID);
+
+            if (PuestoID >= 1)
+                ViewBag.activoSeleccion = PuestoID;
 
             return View(empleados.ToList());
         }
@@ -71,22 +74,22 @@ namespace TPV.Controllers
                 {
                     db.Empleado.Add(empleado);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", new { empleado.EmpleadoID });
                 }
                 else
                 {
                     return View(empleado);
                 }
             }
-            catch (Exception e /* dex */)
+            catch (Exception e)
             {
-                //Log the error (uncomment dex variable name and add a line here to write a log.)
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                ModelState.AddModelError("", "No se puede guardar.");
             }
+
             return View();
         }
 
-        // GET: Administracion/Empleados/Editar/5
+        // GET: Empleados/Editar/5
         public ActionResult Editar(int id)
         {
             if (id > 0)
@@ -108,7 +111,7 @@ namespace TPV.Controllers
             }
         }
 
-        // POST: Administracion/Empleados/Editar/5
+        // POST: Empleados/Editar/5
         [HttpPost]
         public ActionResult Editar(int id, FormCollection collection)
         {
@@ -116,7 +119,7 @@ namespace TPV.Controllers
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"/*, new { empleado.EmpleadoID }*/);
             }
             catch
             {
@@ -124,13 +127,13 @@ namespace TPV.Controllers
             }
         }
 
-        // GET: Administracion/Empleados/Borrar/5
+        // GET: Empleados/Borrar/5
         public ActionResult Borrar(int id)
         {
             return View();
         }
 
-        // POST: Administracion/Empleados/Borrar/5
+        // POST: Empleados/Borrar/5
         [HttpPost]
         public ActionResult Borrar(int id, FormCollection collection)
         {
