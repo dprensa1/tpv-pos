@@ -9,7 +9,9 @@ namespace TPV.Models
     public class Usuario
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? UsuarioID { get; set; }
+
         public int? EmpleadoID { get; set; }
         public virtual Empleado Empleado { get; set; }
 

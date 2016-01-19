@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.RegularExpressions;
 
 namespace TPV.Models
 {
@@ -12,7 +11,7 @@ namespace TPV.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int EmpleadoID { get; set; }
+        public int? EmpleadoID { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         [RegularExpression(@"^[a-zA-Z ]+\w$", ErrorMessage = "Solo letras.")]
@@ -37,6 +36,7 @@ namespace TPV.Models
         [RegularExpression(@"^([0-9])+\w$", ErrorMessage = "Solo numeros.")]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "Deber tener 11 numeros sin guiones")]
         [Required(ErrorMessage = "Requerida.")]
+        [DataType(DataType.Text)]
         public string Cedula { get; set; }
 
         [Required(AllowEmptyStrings=false, ErrorMessage = "Requerido.")]
@@ -49,39 +49,32 @@ namespace TPV.Models
         decimal _Salario;
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        //[RegularExpression(@"\d+(\,|\.\d{1,2})?", ErrorMessage = "Solo numeros.")]
-        //[Range(0.00, 150000.00)]
-        [RegularExpression(@"[0-9]{1,2}([,.][0-9]{1,2})?", ErrorMessage = "Solo numeros.")]
+        [Range(0.00, 150000.00, ErrorMessage ="Debe estar entre 0 y 150,000.00")]
+        [RegularExpression(@"^([0-9])+\w$", ErrorMessage = "Solo numeros.")]
         public decimal Salario {
             get
-            {
-                return _Salario;
-            }
+            { return _Salario; }
             set
-            {
-                _Salario = value;
-            }
+            { _Salario = value; }
         }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         public int PuestoID { get; set; }
 
         [ForeignKey("PuestoID")]
-        public virtual ICollection<Puesto> Puesto { get; set; }
+        public virtual Puesto Puesto { get; set; }
 
+        [NotMapped]
         private int _Codigo;
 
         [Range(0, int.MaxValue)]
-        public int Codigo
+        [Index("CodigoIDX", IsUnique =true)]
+        public int? Codigo
         {
             get
-            {
-                return _Codigo;
-            }
+            { return _Codigo; }
             set
-            {
-                _Codigo++;
-            }
+            { _Codigo++; }
         }
 
         [DataType(DataType.Date)]
@@ -91,7 +84,7 @@ namespace TPV.Models
         [DefaultValue("1")]
         public bool Activo { get; set; }
 
-        public decimal? quitarComa(double? Salario = 00.00)
+        public decimal quitarComa(double? Salario = 00.00)
         {
             string aux = Salario.ToString();
             string salida = "";
@@ -103,6 +96,15 @@ namespace TPV.Models
             return decimal.Parse(salida);
         }
         /*
+
+        CREATE DEFINER = CURRENT_USER TRIGGER `lyra`.`empleados_BEFORE_INSERT` BEFORE INSERT ON `empleados`
+        FOR EACH ROW
+        BEGIN
+            SET NEW.Codigo = (SELECT `EmpleadoID` FROM `empleados` ORDER BY `EmpleadoID` DESC LIMIT 1) + 1;
+        END
+
+
+
         //No se muestran en el formulario
         public char Estatus { get; set; }
 

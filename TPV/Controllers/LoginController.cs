@@ -28,7 +28,7 @@ namespace TPV.Controllers
         {
             Lyra db = new Lyra();
 
-            if (db.Usuarios.FirstOrDefault(u => u.User.Equals(usuario.User) && u.Clave.Equals(usuario.Clave.ToString())) != null)
+            if (db.Usuario.FirstOrDefault(u => u.User.Equals(usuario.User) && u.Clave.Equals(usuario.Clave.ToString())) != null)
                 return true;
             else
                 return false;

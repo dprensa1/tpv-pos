@@ -9,6 +9,7 @@ namespace TPV.Models
     public class Acceso
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? AccesoID { get; set; }
 
         [StringLength(16, MinimumLength = 4, ErrorMessage ="Debe tener entre 4 y 16 letras.")]
@@ -23,13 +24,9 @@ namespace TPV.Models
             set
             {
                 if (value.Equals("Todas"))
-                {
                     Rutas = "Todas";
-                }
                 else
-                {
                     Rutas += value.ToString() + ";";
-                }
             }
         }
         public virtual ICollection<Rol> Roles { get; set; }

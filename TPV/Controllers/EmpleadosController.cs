@@ -50,26 +50,25 @@ namespace TPV.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Crear(Empleado empleado)
         {
-            ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre");
 
+            ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre");
+            //string[] text =
+            //    {
+            //        empleado.EmpleadoID.ToString(),
+            //        empleado.Nombre,
+            //        empleado.Apellido,
+            //        empleado.Sexo.ToString(),
+            //        empleado.FechaNacimiento.ToString(),
+            //        empleado.Cedula,
+            //        empleado.Telefono,
+            //        empleado.Salario.ToString(),
+            //        empleado.PuestoID.ToString(),
+            //        empleado.Codigo.ToString(),
+            //        empleado.FechaEntrada.ToString(),
+            //        empleado.Activo.ToString()
+            //    };
             try
             {
-                string[] text =
-                {
-                    empleado.EmpleadoID.ToString(),
-                    empleado.Nombre,
-                    empleado.Apellido,
-                    empleado.Sexo.ToString(),
-                    empleado.FechaNacimiento.ToString(),
-                    empleado.Cedula,
-                    empleado.Telefono,
-                    empleado.Salario.ToString(),
-                    empleado.PuestoID.ToString(),
-                    empleado.Codigo.ToString(),
-                    empleado.FechaEntrada.ToString(),
-                    empleado.Activo.ToString()
-                };
-
                 if (ModelState.IsValid)
                 {
                     db.Empleado.Add(empleado);
@@ -78,6 +77,7 @@ namespace TPV.Controllers
                 }
                 else
                 {
+                    ModelState.AddModelError("", "No se puede guardar.");
                     return View(empleado);
                 }
             }

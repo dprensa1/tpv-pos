@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,19 +12,19 @@ namespace TPV.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? PuestoID { get; set; }
 
-        [Required(ErrorMessage = "Nombre requerido")]
+        [Required(ErrorMessage = "Requerido")]
         [StringLength(32, MinimumLength = 2, ErrorMessage = "El Nombre debe tener entre 2 y 32 caracteres")]
         public string Nombre { get; set; }
 
-        [Required(ErrorMessage = "Descripcion requerida")]
+        [Required(ErrorMessage = "Requerida")]
         [StringLength(128, MinimumLength = 8, ErrorMessage = "La Descripcion debe tener entre 8 y 128 caracteres")]
         public string Descripcion { get; set; }
         
         [NotMapped]
         private string funciones;
 
-        [Required(ErrorMessage = "Funcion/es requerida/s")]
-        [MinLength(2, ErrorMessage = "Debe tener al menos {0} funcion a cargo")]
+        [Required(ErrorMessage = "Requerida")]
+        [MinLength(2, ErrorMessage = "Debe tener al menos una funcion.")]
         public string Funciones
         {
             get { return funciones; }
@@ -37,8 +35,8 @@ namespace TPV.Models
 
         public virtual ICollection<Empleado> Empleados { get; set; }
 
-        [DefaultValue("true")]        
-        public bool Activo { get; set; }
+        [DefaultValue("1")]        
+        public bool Estado { get; set; }
         
         private string PonerSaltos(string cadena = "N/A")
         {

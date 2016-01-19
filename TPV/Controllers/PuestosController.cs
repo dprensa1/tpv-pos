@@ -45,7 +45,7 @@ namespace TPV.Controllers
                     puesto.Nombre,
                     puesto.Descripcion,
                     puesto.Funciones,
-                    puesto.Activo.ToString()
+                    puesto.Estado.ToString()
                 };
 
                 if (ModelState.IsValid)

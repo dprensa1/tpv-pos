@@ -1,99 +1,98 @@
 ﻿@model TPV.Models.Empleado
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Detalles Empleado";
     Layout = "~/Views/Shared/_Layout3.cshtml";
 }
-
-<h2>View</h2>
-
-<div>
-    <h4>Empleado</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Apellido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Apellido)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaNacimiento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaNacimiento)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cedula)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cedula)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Salario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Salario)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PuestoID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PuestoID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Codigo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Codigo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaEntrada)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaEntrada)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Activo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Activo)
-        </dd>
-
-    </dl>
+<div class="page-header">
+    <button onclick="atras()" class="btn btn-default pull-right">
+        <i class="fa fa-chevron-left" style="color:#276aa4"></i>
+        Atr&aacute;s
+    </button>
+    <h2>Detalles Empleado: <ins>@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellido)</ins></h2>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EmpleadoID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<form class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+            @*<dl class="dl-horizontal">
+                    <dt>Nombre</dt>
+                    <dd>@Html.DisplayFor(model => model.Nombre)</dd>
+                </dl>*@
+            @Html.LabelFor(model => model.Nombre, "Nombre", new { @class = "col-lg-2 control-label" })
+            <div class="col-md-4">
+                <span class="btn btn-link">@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellido)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FechaNacimiento, "Fecha de Nacimiento", new { @class = "col-lg-2 control-label" })
+            <div class="col-md-4">
+                <span class="btn btn-link">@Html.DisplayFor(model => model.FechaNacimiento)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cedula, "Cedula", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                <span class="btn btn-link">@Html.DisplayFor(model => model.Cedula)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefono, "Telefono", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                <span class="btn btn-link">@Html.DisplayFor(model => model.Telefono)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Salario, "Salario", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                <span class="btn btn-link">@Html.DisplayFor(model => model.Salario)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Puesto, "Puesto", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                <span>
+                    <a href="/Puestos/Detalles/@Html.DisplayFor(model => model.Puesto.PuestoID)" class="btn btn-info">
+                        @Html.DisplayFor(model => model.Puesto.Nombre)
+                        <i class="fa fa-share"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Codigo, "Codigo", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                <span class="btn btn-link">@Html.DisplayFor(model => model.Codigo)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FechaEntrada, "Fecha de Entrada", new { @class = "col-lg-2 control-label" })
+            <div class="col-md-4">
+                <span class="btn btn-link">@Html.DisplayFor(model => model.FechaEntrada)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Activo, "Estado", new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                <span class="btn btn-link">@Html.DisplayFor(model => model.Activo)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <a class="btn btn-info" href="/Empleados/Editar/@Html.DisplayFor(model => model.PuestoID)">
+                    Editar
+                    <i class="fa fa-pencil"></i>
+                </a>
+            </div>
+        </div>
+    </fieldset>
+</form>

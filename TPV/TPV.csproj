@@ -160,7 +160,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccesosController.cs" />
-    <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
@@ -174,9 +173,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201601122018203_Initz.cs" />
-    <Compile Include="Migrations\201601122018203_Initz.Designer.cs">
-      <DependentUpon>201601122018203_Initz.cs</DependentUpon>
+    <Compile Include="Migrations\201601191615480_InitDB.cs" />
+    <Compile Include="Migrations\201601191615480_InitDB.Designer.cs">
+      <DependentUpon>201601191615480_InitDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Acceso.cs" />
@@ -255,7 +254,6 @@
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Inicio\Main.cshtml" />
-    <Content Include="Views\Administracion\Index.cshtml" />
     <Content Include="Views\Shared\_Layout3.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Reportes\Index.cshtml" />
@@ -291,8 +289,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601122018203_Initz.resx">
-      <DependentUpon>201601122018203_Initz.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601191615480_InitDB.resx">
+      <DependentUpon>201601191615480_InitDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

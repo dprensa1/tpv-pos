@@ -14,12 +14,12 @@
         </a>
 
         <a href="/Empleados/Crear" class="btn btn-default">
-            <i class="glyphicon glyphicon-plus" style="color:#276aa4"></i>
+            <i class="fa fa-plus fa-lg" style="color:#276aa4"></i>
             Nuevo
         </a>
 
         <button onclick="atras()" class="btn btn-default">
-            <i class="fa fa-chevron-left" style="color:#276aa4"></i>
+            <i class="fa fa-chevron-left fa-lg" style="color:#276aa4"></i>
             Atr&aacute;s
         </button>
     </div>
@@ -84,29 +84,29 @@
                         </a>
                     </td>
                     <td>
-                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.PuestoID)">
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
                             @Html.DisplayFor(Nombre => empleado.Nombre)
                         </a>
                     </td>
                     <td>
-                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.PuestoID)">
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
                             @Html.DisplayFor(Nombre => empleado.Apellido)
                         </a>
                     </td>
                     <td>
-                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.PuestoID)">
-                            @Html.DisplayFor(Nombre => empleado.Puesto)
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
+                            @Html.DisplayFor(Nombre => empleado.Puesto.Nombre)
                         </a>
                     </td>
                     <td class="text-center">
                         <div class="btn-group" role="group">
-                            <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.PuestoID)" class="btn btn-default" id="">
+                            <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)" class="btn btn-default" id="">
                                 <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
                             </a>
-                            <a href="/Empleados/Editar/@Html.DisplayFor(id => empleado.PuestoID)" class="btn btn-default" id="">
+                            <a href="/Empleados/Editar/@Html.DisplayFor(id => empleado.EmpleadoID)" class="btn btn-default" id="">
                                 <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
                             </a>
-                            <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.PuestoID)" class="btn btn-default" id="">
+                            <a href="/Empleados/Borrar/@Html.DisplayFor(id => empleado.EmpleadoID)" class="btn btn-default" id="">
                                 <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
                             </a>
                         </div>

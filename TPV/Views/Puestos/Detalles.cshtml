@@ -48,7 +48,10 @@
 
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                @Html.ActionLink("Editar", "Editar/" + @Html.DisplayFor(model => model.PuestoID),"Puestos", new {@class="btn btn-info" })
+                <a class="btn btn-info" href="/Puestos/Editar/@Html.DisplayFor(model => model.PuestoID)">
+                    Editar
+                    <i class="fa fa-pencil-square-o"></i>
+                </a>
             </div>
         </div>
     </fieldset>

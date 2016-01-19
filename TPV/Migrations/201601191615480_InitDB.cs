@@ -3,7 +3,7 @@ namespace TPV.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initz : DbMigration
+    public partial class InitDB : DbMigration
     {
         public override void Up()
         {
@@ -56,13 +56,16 @@ namespace TPV.Migrations
                         FechaNacimiento = c.DateTime(nullable: false, precision: 0),
                         Cedula = c.String(nullable: false, maxLength: 11, storeType: "nvarchar"),
                         Telefono = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
-                        Salario = c.Double(),
+                        Salario = c.Decimal(nullable: false, precision: 18, scale: 2),
                         PuestoID = c.Int(nullable: false),
                         Codigo = c.Int(),
                         FechaEntrada = c.DateTime(nullable: false, precision: 0),
                         Activo = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.EmpleadoID);
+                .PrimaryKey(t => t.EmpleadoID)
+                .ForeignKey("dbo.Puestos", t => t.PuestoID, cascadeDelete: true)
+                .Index(t => t.PuestoID)
+                .Index(t => t.Codigo, unique: true, name: "CodigoIDX");
             
             CreateTable(
                 "dbo.Puestos",
@@ -94,7 +97,7 @@ namespace TPV.Migrations
                 .PrimaryKey(t => t.ClienteID);
             
             CreateTable(
-                "dbo.RolAccesos",
+                "dbo.RolAcceso",
                 c => new
                     {
                         Rol_RolID = c.Int(nullable: false),
@@ -107,20 +110,7 @@ namespace TPV.Migrations
                 .Index(t => t.Acceso_AccesoID);
             
             CreateTable(
-                "dbo.PuestoEmpleados",
-                c => new
-                    {
-                        Puesto_PuestoID = c.Int(nullable: false),
-                        Empleado_EmpleadoID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.Puesto_PuestoID, t.Empleado_EmpleadoID })
-                .ForeignKey("dbo.Puestos", t => t.Puesto_PuestoID, cascadeDelete: true)
-                .ForeignKey("dbo.Empleados", t => t.Empleado_EmpleadoID, cascadeDelete: true)
-                .Index(t => t.Puesto_PuestoID)
-                .Index(t => t.Empleado_EmpleadoID);
-            
-            CreateTable(
-                "dbo.UsuarioRoles",
+                "dbo.UsuarioRol",
                 c => new
                     {
                         Usuario_UsuarioID = c.Int(nullable: false),
@@ -136,24 +126,22 @@ namespace TPV.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.UsuarioRoles", "Rol_RolID", "dbo.Roles");
-            DropForeignKey("dbo.UsuarioRoles", "Usuario_UsuarioID", "dbo.Usuarios");
+            DropForeignKey("dbo.UsuarioRol", "Rol_RolID", "dbo.Roles");
+            DropForeignKey("dbo.UsuarioRol", "Usuario_UsuarioID", "dbo.Usuarios");
             DropForeignKey("dbo.Usuarios", "EmpleadoID", "dbo.Empleados");
-            DropForeignKey("dbo.PuestoEmpleados", "Empleado_EmpleadoID", "dbo.Empleados");
-            DropForeignKey("dbo.PuestoEmpleados", "Puesto_PuestoID", "dbo.Puestos");
-            DropForeignKey("dbo.RolAccesos", "Acceso_AccesoID", "dbo.Accesos");
-            DropForeignKey("dbo.RolAccesos", "Rol_RolID", "dbo.Roles");
-            DropIndex("dbo.UsuarioRoles", new[] { "Rol_RolID" });
-            DropIndex("dbo.UsuarioRoles", new[] { "Usuario_UsuarioID" });
-            DropIndex("dbo.PuestoEmpleados", new[] { "Empleado_EmpleadoID" });
-            DropIndex("dbo.PuestoEmpleados", new[] { "Puesto_PuestoID" });
-            DropIndex("dbo.RolAccesos", new[] { "Acceso_AccesoID" });
-            DropIndex("dbo.RolAccesos", new[] { "Rol_RolID" });
+            DropForeignKey("dbo.Empleados", "PuestoID", "dbo.Puestos");
+            DropForeignKey("dbo.RolAcceso", "Acceso_AccesoID", "dbo.Accesos");
+            DropForeignKey("dbo.RolAcceso", "Rol_RolID", "dbo.Roles");
+            DropIndex("dbo.UsuarioRol", new[] { "Rol_RolID" });
+            DropIndex("dbo.UsuarioRol", new[] { "Usuario_UsuarioID" });
+            DropIndex("dbo.RolAcceso", new[] { "Acceso_AccesoID" });
+            DropIndex("dbo.RolAcceso", new[] { "Rol_RolID" });
+            DropIndex("dbo.Empleados", "CodigoIDX");
+            DropIndex("dbo.Empleados", new[] { "PuestoID" });
             DropIndex("dbo.Usuarios", "UserIDX");
             DropIndex("dbo.Usuarios", new[] { "EmpleadoID" });
-            DropTable("dbo.UsuarioRoles");
-            DropTable("dbo.PuestoEmpleados");
-            DropTable("dbo.RolAccesos");
+            DropTable("dbo.UsuarioRol");
+            DropTable("dbo.RolAcceso");
             DropTable("dbo.Clientes");
             DropTable("dbo.Puestos");
             DropTable("dbo.Empleados");
