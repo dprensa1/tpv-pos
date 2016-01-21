@@ -13,7 +13,7 @@ namespace TPV.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201601191615480_InitDB"; }
+            get { return "201601202128525_InitDB"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -28,8 +27,8 @@ namespace TPV.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         public char Sexo { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
+        [Column(TypeName = "Date")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerida.")]
         public DateTime FechaNacimiento { get; set; }
 
@@ -66,23 +65,23 @@ namespace TPV.Models
 
         [NotMapped]
         private int _Codigo;
-
-        [Range(0, int.MaxValue)]
+        
         [Index("CodigoIDX", IsUnique =true)]
-        public int? Codigo
+        public int Codigo
         {
             get
             { return _Codigo; }
             set
-            { _Codigo++; }
+            { _Codigo = value; }
         }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
+        [Column(TypeName = "Date")]
+        [DefaultValue("2016/01/01")]
         public DateTime FechaEntrada { get; set; }
 
         [DefaultValue("1")]
-        public bool Activo { get; set; }
+        public bool Estado { get; set; }
 
         public decimal quitarComa(double? Salario = 00.00)
         {
@@ -96,24 +95,12 @@ namespace TPV.Models
             return decimal.Parse(salida);
         }
         /*
-
-        CREATE DEFINER = CURRENT_USER TRIGGER `lyra`.`empleados_BEFORE_INSERT` BEFORE INSERT ON `empleados`
+        CREATE DEFINER = CURRENT_USER TRIGGER `lyra`.`empleados_BEFORE_INSERT`
+        BEFORE INSERT ON `empleados`
         FOR EACH ROW
         BEGIN
             SET NEW.Codigo = (SELECT `EmpleadoID` FROM `empleados` ORDER BY `EmpleadoID` DESC LIMIT 1) + 1;
         END
-
-
-
-        //No se muestran en el formulario
-        public char Estatus { get; set; }
-
-        [DatabaseGenerated(DatabaseGenerationOption.Computed)] 
-        public DateTime FechaCreacion { get; set; }
-
-        public int UsuarioID { get; set; }
-
-        public virtual Usuario CreadoPor { get; set; }
         */
     }
 }

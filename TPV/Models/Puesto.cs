@@ -21,14 +21,14 @@ namespace TPV.Models
         public string Descripcion { get; set; }
         
         [NotMapped]
-        private string funciones;
+        private string _funciones;
 
         [Required(ErrorMessage = "Requerida")]
         [MinLength(2, ErrorMessage = "Debe tener al menos una funcion.")]
         public string Funciones
         {
-            get { return funciones; }
-            set { funciones = value; }
+            get { return _funciones; }
+            set { _funciones = value; }
             //get { return PonerSaltos(funciones); }
             //set { funciones = QuitarSaltos(value); }
         }

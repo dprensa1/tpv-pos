@@ -56,6 +56,12 @@
                 </th>
                 <th>
                     <strong>
+                        ID Empleado
+                        <a href="#"><i class="fa fa-caret-down"></i></a>
+                    </strong>
+                </th>
+                <th>
+                    <strong>
                         Puesto
                         <a href="#"><i class="fa fa-caret-down"></i></a>
                     </strong>
@@ -90,12 +96,17 @@
                     </td>
                     <td>
                         <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
-                            @Html.DisplayFor(Nombre => empleado.Apellido)
+                            @Html.DisplayFor(Apellido => empleado.Apellido)
                         </a>
                     </td>
                     <td>
                         <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
-                            @Html.DisplayFor(Nombre => empleado.Puesto.Nombre)
+                            @Html.DisplayFor(EmpleadoCodigo => empleado.Codigo)
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
+                            @Html.DisplayFor(EmpleadoPuesto => empleado.Puesto.Nombre)
                         </a>
                     </td>
                     <td class="text-center">

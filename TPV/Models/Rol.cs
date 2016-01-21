@@ -11,26 +11,20 @@ namespace TPV.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? RolID { get; set; }
+
         public string Nombre { get; set; }
+
         public string Descripcion { get; set; }
+
         public int? AccesoID { get; set; }
+
         [ForeignKey("AccesoID")]
         public virtual ICollection<Acceso> Accesos { get; set; }
+
         [ForeignKey("UsuarioID")]
         public virtual ICollection<Usuario> Usuarios { get; set; }
+
         [DefaultValue("1")]
         public bool Estado { get; set; }
-
-        /*
-        //No se muestran en el formulario
-        public char Estatus { get; set; }
-
-        [DatabaseGenerated(DatabaseGenerationOption.Computed)] 
-        public DateTime FechaCreacion { get; set; }
-
-        public int UsuarioID { get; set; }
-
-        public virtual Usuario CreadoPor { get; set; }
-        */
     }
 }

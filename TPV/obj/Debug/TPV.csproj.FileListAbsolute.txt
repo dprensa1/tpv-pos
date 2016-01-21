@@ -80,10 +80,13 @@ D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\TPV.pdb
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Antlr3.Runtime.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\EntityFramework.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\EntityFramework.SqlServer.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\jQuery.Validation.Unobtrusive.Native.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Microsoft.Web.Infrastructure.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\MySql.Data.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\MySql.Data.Entity.EF6.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Newtonsoft.Json.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.Mvc.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Net.Http.Formatting.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Web.Helpers.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Web.Http.dll
@@ -100,6 +103,8 @@ D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Antlr3.Runtime.pdb
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\EntityFramework.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\EntityFramework.SqlServer.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Newtonsoft.Json.xml
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.xml
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.Mvc.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Net.Http.Formatting.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Web.Helpers.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Web.Http.xml
@@ -114,10 +119,5 @@ D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\System.Web.WebPages.
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.pdb
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.csprojResolveAssemblyReference.cache
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.dll
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.Mvc.dll
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.xml
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\PagedList.Mvc.xml
-D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\jQuery.Validation.Unobtrusive.Native.dll
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.Migrations.InitDB.resources
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\obj\Debug\TPV.csproj.GenerateResource.Cache

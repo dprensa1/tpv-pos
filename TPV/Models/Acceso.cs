@@ -33,17 +33,5 @@ namespace TPV.Models
 
         [DefaultValue("true")]
         public bool Estado { get; set; }
-
-        /*
-        //No se muestran en el formulario
-        public char Estatus { get; set; }
-
-        [DatabaseGenerated(DatabaseGenerationOption.Computed)] 
-        public DateTime FechaCreacion { get; set; }
-
-        public int UsuarioID { get; set; }
-
-        public virtual Usuario CreadoPor { get; set; }
-        */
     }
 }

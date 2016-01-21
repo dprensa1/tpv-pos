@@ -1,8 +1,142 @@
-﻿
+﻿@model TPV.Models.Empleado
+
 @{
-    ViewBag.Title = "Editar Empleado";
+    ViewBag.Title = "Editar";
     Layout = "~/Views/Shared/_Layout3.cshtml";
 }
+<div class="page-header">
+    <button onclick="atras()" class="btn btn-default pull-right">
+        <i class="fa fa-chevron-left" style="color:#276aa4"></i>
+        Atr&aacute;s
+    </button>
+    <h2>Editar Empleado: <ins>@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellido)</ins></h2>
+</div>
 
-<h2>Editar Empleado</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.EmpleadoID)
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombre, new { @class = "control-label col-lg-2" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", id = "Nombre", placeholder = "Nombre del Empleado" })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.Apellido, new { @class = "control-label col-lg-2" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.Apellido, new { @class = "form-control", id = "Apellido", placeholder = "Apellido del Empleado" })
+                @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sexo, "Sexo", new { @class = "col-lg-2 control-label" })
+            <div class="col-md-4">
+                <div class="radio">
+                    <label>
+                        @Html.RadioButtonFor(model => model.Sexo, "F") Femenino
+
+                        @*<input type="radio" name="Sexo" id="Femenino" value="F" data-msg-required="Requerido." data-rule-required="true" aria-required="true" aria-describedby="Sexo-error" aria-invalid="true" required> Femenino*@
+                    </label>
+                    <label>
+                        @Html.RadioButtonFor(model => model.Sexo, "M") Masculino
+
+                        @*<input type="radio" name="Sexo" id="Masculino" value="M" data-msg-required="Requerido." data-rule-required="true" aria-required="true" aria-describedby="Sexo-error" aria-invalid="true" required> Masculino*@
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FechaNacimiento, "Fecha de Nacimiento", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                @Html.TextBoxFor(model => model.FechaNacimiento, new { type = "date", @class = "form-control Fecha" })
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
+
+        @*has-success has-feedback*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cedula, "Cedula", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                @Html.TextBoxFor(model => model.Cedula, true, htmlAttributes: new { @class = "form-control Cedula", id = "Cedula", placeholder = "000-0000000-0" })
+                <span class="text-muted">Sin Guiones.</span>
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefono, "Telefono / Celular", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                @Html.TextBoxFor(model => model.Telefono, true, htmlAttributes: new { @class = "form-control Telefono", id = "Telefono", placeholder = "8092223344" })
+                <span class="text-muted">Sin Guiones.</span>
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Salario, "Salario", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                @Html.TextBoxFor(model => model.Salario, true, htmlAttributes: new { @class = "form-control Salario", id = "Salario", placeholder = "123,456.78" })
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.Salario, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PuestoID, "Puesto", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                @Html.DropDownListFor(model => model.PuestoID, (IEnumerable<SelectListItem>)ViewBag.Puestos, "Seleccione..", new { @class = "form-control" })
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.PuestoID, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.Codigo)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FechaEntrada, "Fecha de Entrada", new { @class = "col-lg-2 control-label" })
+            <div class="col-sm-3">
+                <input type="date" class="form-control" id="FechaEntrada" max="@DateTime.Now.ToString("yyyy-MM-dd")">
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.FechaEntrada, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Estado, new { @class = "control-label col-lg-2" })
+            <div class="col-sm-3">
+                <div class="radio">
+                    @Html.CheckBoxFor(model => model.Estado, new { Checked = "checked" })
+                </div>
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <a href="/Empleados" class="btn btn-danger">Cancelar</a>
+                <input type="submit" class="btn btn-primary" value="Actualizar Empleado">
+            </div>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "label label-danger text-info" })
+    </div>
+}

@@ -77,13 +77,13 @@ namespace TPV.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "No se puede guardar.");
+                    ModelState.AddModelError(string.Empty, "No se puede guardar.");
                     return View(empleado);
                 }
             }
             catch (Exception e)
             {
-                ModelState.AddModelError("", "No se puede guardar.");
+                ModelState.AddModelError("unError", e.InnerException.InnerException.Message);
             }
 
             return View();
@@ -94,15 +94,16 @@ namespace TPV.Controllers
         {
             if (id > 0)
             {
-                Empleado e = db.Empleado.Find(id);
+                Empleado Empleado = db.Empleado.Find(id);
 
-                if (e == null)
+                if (Empleado == null)
                 {
                     return HttpNotFound();
                 }
                 else
                 {
-                    return View(e);
+                    ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre");
+                    return View(Empleado);
                 }
             }
             else

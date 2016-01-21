@@ -28,8 +28,17 @@ namespace TPV.Controllers
         [HttpGet]
         public ActionResult Crear()
         {
-            List<SelectListItem> funciones = new List<SelectListItem>();
-            ViewData["Funciones"] = funciones;
+            try
+            {
+                List<SelectListItem> funciones = new List<SelectListItem>();
+                ViewData["Funciones"] = funciones;
+
+            }
+            catch (Exception)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             return View();
         }
 

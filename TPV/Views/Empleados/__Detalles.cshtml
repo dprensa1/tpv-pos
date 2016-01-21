@@ -1,17 +1,5 @@
 ﻿@model TPV.Models.Empleado
 
-@{
-    ViewBag.Title = "Detalles Empleado";
-    Layout = "~/Views/Shared/_Layout3.cshtml";
-}
-<div class="page-header">
-    <button onclick="atras()" class="btn btn-default pull-right">
-        <i class="fa fa-chevron-left" style="color:#276aa4"></i>
-        Atr&aacute;s
-    </button>
-    <h2>Detalles Empleado: <ins>@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellido)</ins></h2>
-</div>
-
 <div class="form-horizontal">
     <div class="form-group">
         @*<dl class="dl-horizontal">
@@ -79,15 +67,15 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Estado, "Estado", new { @class = "col-lg-2 control-label" })
+        @Html.LabelFor(model => model.Activo, "Estado", new { @class = "col-lg-2 control-label" })
         <div class="col-lg-10">
-            <span class="btn btn-link">@Html.DisplayFor(model => model.Estado)</span>
+            <span class="btn btn-link">@Html.DisplayFor(model => model.Activo)</span>
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
-            <a class="btn btn-info" href="/Empleados/Editar/@Html.DisplayFor(model => model.EmpleadoID)">
+            <a class="btn btn-info" href="/Empleados/Editar/@Html.DisplayFor(model => model.PuestoID)">
                 Editar
                 <i class="fa fa-pencil"></i>
             </a>
