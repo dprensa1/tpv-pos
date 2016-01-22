@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Net;
 using System;
+using System.Data.Entity;
 
 namespace TPV.Controllers
 {
@@ -15,7 +16,7 @@ namespace TPV.Controllers
         public ViewResult Index(int PuestoID = 0)
         {
             IEnumerable<Empleado> empleados = db.Empleado
-                .OrderBy(order => order.PuestoID);
+                .OrderBy(order => order.EmpleadoID);
 
             if (PuestoID >= 1)
                 ViewBag.activoSeleccion = PuestoID;
@@ -27,11 +28,31 @@ namespace TPV.Controllers
         [HttpGet]
         public ActionResult Detalles(int id)
         {
-            if (id != 0)
+            if (id >= 1)
             {
                 Empleado empleado = db.Empleado.Find(id);
-                if (empleado == null) { return HttpNotFound(); }
-                else { return View(empleado); }
+
+                if (empleado == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+                }
+                else
+                {
+                    if (empleado.Sexo.Equals("F") | empleado.Sexo.Equals("f"))
+                    {
+                        empleado.Sexo = "Femenino";
+                    }
+                    else if (empleado.Sexo.Equals("M") | empleado.Sexo.Equals("m"))
+                    {
+                        empleado.Sexo = "Masculino";
+                    }
+                    else
+                    {
+                        empleado.Sexo = "No especificado";
+                    }
+
+                    return View(empleado);
+                }
             }
             else { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
         }
@@ -114,31 +135,40 @@ namespace TPV.Controllers
 
         // POST: Empleados/Editar/5
         [HttpPost]
-        public ActionResult Editar(int id, FormCollection collection)
+        public ActionResult Editar(Empleado empleado)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index"/*, new { empleado.EmpleadoID }*/);
+                db.Entry(empleado).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index", new { empleado.EmpleadoID });
             }
-            catch
-            {
-                return View();
-            }
+            return View(empleado);
         }
 
-        // GET: Empleados/Borrar/5
+        /*/ GET: Empleados/Borrar/5
         public ActionResult Borrar(int id)
         {
             return View();
-        }
+        }*/
 
         // POST: Empleados/Borrar/5
-        [HttpPost]
-        public ActionResult Borrar(int id, FormCollection collection)
+        public ActionResult Borrar(int id)
         {
-            try
+            if (id > 0)
+            {
+                Empleado empleado = db.Empleado.Find(id);
+                db.Empleado.Remove(empleado);
+                db.SaveChanges();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            return RedirectToAction("Index");
+
+            /*try
             {
                 // TODO: Add delete logic here
 
@@ -147,7 +177,7 @@ namespace TPV.Controllers
             catch
             {
                 return View();
-            }
+            }*/
         }
     }
 }

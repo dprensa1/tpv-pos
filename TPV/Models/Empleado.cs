@@ -25,7 +25,9 @@ namespace TPV.Models
         public string Apellido { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        public char Sexo { get; set; }
+        [StringLength(1, MinimumLength = 1)]
+        [DefaultValue('N')]
+        public string Sexo { get; set; }
 
         [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]
         [Column(TypeName = "Date")]
@@ -64,15 +66,19 @@ namespace TPV.Models
         public virtual Puesto Puesto { get; set; }
 
         [NotMapped]
-        private int _Codigo;
+        private int? _Codigo;
         
         [Index("CodigoIDX", IsUnique =true)]
-        public int Codigo
+        [DefaultValue(0)]
+        public int? Codigo
         {
             get
             { return _Codigo; }
             set
-            { _Codigo = value; }
+            {
+                _Codigo = value;
+            }
+            //{ _Codigo = (value == null) ? 0 : value; }
         }
 
         [DataType(DataType.Date, ErrorMessage = "Debe ser una fecha del modo: Mes/Dia/Año")]

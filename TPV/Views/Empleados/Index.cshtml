@@ -111,13 +111,17 @@
                     </td>
                     <td class="text-center">
                         <div class="btn-group" role="group">
-                            <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)" class="btn btn-default" id="">
+                            <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)" class="btn btn-default" name=@Html.DisplayFor(id => empleado.EmpleadoID)>
                                 <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
                             </a>
-                            <a href="/Empleados/Editar/@Html.DisplayFor(id => empleado.EmpleadoID)" class="btn btn-default" id="">
+                            <a href="/Empleados/Editar/@Html.DisplayFor(id => empleado.EmpleadoID)" class="btn btn-default" name=@Html.DisplayFor(id => empleado.EmpleadoID)>
                                 <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
                             </a>
-                            <a href="/Empleados/Borrar/@Html.DisplayFor(id => empleado.EmpleadoID)" class="btn btn-default" id="">
+                            <a href="#"
+                            @*<a href="/Empleados/Borrar/@Html.DisplayFor(id => empleado.EmpleadoID)"*@
+                               class="btn btn-default borrar"
+                               name=@string.Concat(empleado.Nombre, '-', empleado.Apellido)
+                               onclick="ValidarBorrar(this, event, @Html.DisplayFor(id => empleado.EmpleadoID))">
                                 <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
                             </a>
                         </div>
@@ -132,3 +136,88 @@
         </tfoot>
     </table>
 </div>
+
+<script>
+
+    function ValidarBorrar(source, event, id) {
+        var nombre = source.name.replace("-", " ");
+        var borrado = false;
+
+        event.preventDefault();
+        swal(
+        {
+            title: "¿Borrar: " + nombre + "?",
+            text: "Confirme antes de borrar",
+            type: "warning",
+            allowOutsideClick: true,
+            showCancelButton: true,
+            confirmButtonColor: "#d9534f",
+            confirmButtonText: "Si, borrar!",
+            cancelButtonText: "No, cancelar!",
+            closeOnConfirm: false,
+            closeOnCancel: true,
+            showLoaderOnConfirm: true,
+        }, function () {
+            setTimeout(function () {
+                $.ajax({
+                    url: '@Url.Action("Borrar", "Empleados")',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (result) { borrado = true; }
+                });
+                swal({
+                    title: "Fue borrado con exito",
+                    type: "success"
+                }, function () {
+                    borrado = false;
+                    location.reload();
+                });
+            }, 2000);
+        });
+    }
+
+    @*function ValidarBorrar(source, event, id) {
+        var nombre = source.name.replace("-", " ");
+        var borrado = false;
+
+        event.preventDefault();
+
+        swal({
+            title: "¿Borrar: " + nombre + "?",
+            text: "Confirme antes de borrar",
+            type: "warning",
+            allowOutsideClick: true,
+            showCancelButton: true,
+            confirmButtonColor: "#d9534f",
+            confirmButtonText: "Si, borrar!",
+            cancelButtonText: "No, cancelar!",
+            closeOnConfirm: false,
+            closeOnCancel: true,
+        },
+        function (isConfirm) {
+            if (isConfirm) {
+                $.ajax({
+                    url: '@Url.Action("Borrar", "Empleados")',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (result) {}
+                }).done(function (data) {
+                    swal({
+                        title: nombre,
+                        text: "Fue borrado con exito",
+                        type: "success"
+                    }, function () {
+                        location.reload();
+                    });
+
+                }).error(function (data) {
+                    swal(
+                        "Cancelado",
+                        "No pudimos conectar con el servidor",
+                        "error"
+                        );
+                });
+            }
+        });
+    }*@
+</script>

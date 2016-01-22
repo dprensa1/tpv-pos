@@ -15,6 +15,7 @@
 
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary()
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.EmpleadoID)
     <div class="form-horizontal">
@@ -120,7 +121,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FechaEntrada, "Fecha de Entrada", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
-                <input type="date" class="form-control" id="FechaEntrada" max="@DateTime.Today.ToString("yyyy/MM/dd")" value="@DateTime.Today.ToString("yyyy/MM/dd")">
+                <input type="date" class="form-control" id="FechaEntrada" max="@DateTime.Today.ToString("yyyy-MM-dd")" value="@DateTime.Today.ToString("yyyy-MM-dd")">
             </div>
             <div class="col-sm-4">
                 @Html.ValidationMessageFor(model => model.FechaEntrada, "", new { @class = "label label-danger text-info" })
@@ -153,6 +154,7 @@
         $("#Nombre").focus();
     });
 
+    
     /*
     $('document').ready(function () {
         $('.Cedula').mask("000-0000000-0", { placeholder: "___-_______-_" });

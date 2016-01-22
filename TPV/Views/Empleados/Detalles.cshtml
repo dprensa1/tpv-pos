@@ -25,6 +25,13 @@
     </div>
 
     <div class="form-group">
+        @Html.LabelFor(model => model.Sexo, "Sexo", new { @class = "col-lg-2 control-label" })
+        <div class="col-md-4">
+            <span class="btn btn-link">@Html.DisplayFor(model => model.Sexo)</span>
+        </div>
+    </div>
+
+    <div class="form-group">
         @Html.LabelFor(model => model.FechaNacimiento, "Fecha de Nacimiento", new { @class = "col-lg-2 control-label" })
         <div class="col-md-4">
             <span class="btn btn-link">@Html.DisplayFor(model => model.FechaNacimiento)</span>
