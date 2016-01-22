@@ -57,7 +57,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FechaNacimiento, "Fecha de Nacimiento", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
-                @Html.TextBoxFor(model => model.FechaNacimiento, new { type = "date", @class = "form-control Fecha" })
+                @Html.TextBoxFor(model => model.FechaNacimiento, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control Fecha"})
             </div>
             <div class="col-sm-4">
                 @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "label label-danger text-info" })
@@ -112,7 +112,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FechaEntrada, "Fecha de Entrada", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
-                <input type="date" class="form-control" id="FechaEntrada" max="@DateTime.Now.ToString("yyyy-MM-dd")">
+                @Html.TextBoxFor(model => model.FechaEntrada, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control Fecha", max = DateTime.Now.ToString("yyyy-MM-dd") })
             </div>
             <div class="col-sm-4">
                 @Html.ValidationMessageFor(model => model.FechaEntrada, "", new { @class = "label label-danger text-info" })

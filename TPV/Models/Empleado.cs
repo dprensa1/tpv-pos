@@ -50,11 +50,11 @@ namespace TPV.Models
         decimal _Salario;
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        [Range(0.00, 150000.00, ErrorMessage ="Debe estar entre 0 y 150,000.00")]
+        [Range(0.00, 200000.00, ErrorMessage ="Debe estar entre 0 y 200,000.00")]
         [RegularExpression(@"^([0-9])+\w$", ErrorMessage = "Solo numeros.")]
         public decimal Salario {
             get
-            { return _Salario; }
+            { return quitarComa(_Salario); }
             set
             { _Salario = value; }
         }
@@ -89,13 +89,21 @@ namespace TPV.Models
         [DefaultValue("1")]
         public bool Estado { get; set; }
 
-        public decimal quitarComa(double? Salario = 00.00)
+        public decimal quitarComa(decimal Salario = 00)
         {
-            string aux = Salario.ToString();
+            char [] aux = Salario.ToString().ToCharArray();
             string salida = "";
             foreach (char x in aux)
             {
                 if (x.Equals(','))
+                    if (x.Equals('0'))
+                        if (x.Equals('0'))
+                            break;
+                        else
+                            break;
+                    else
+                        break;
+                else
                     salida += x;
             }
             return decimal.Parse(salida);

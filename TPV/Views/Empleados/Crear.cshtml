@@ -20,12 +20,12 @@
     @Html.HiddenFor(model => model.EmpleadoID)
     <div class="form-horizontal">
         <div class="form-group">
-            @Html.LabelFor(model => model.Nombre, "Nombres", new { @class = "col-lg-2 control-label"})
+            @Html.LabelFor(model => model.Nombre, "Nombres", new { @class = "col-lg-2 control-label" })
             <div class="col-md-4">
-                @Html.TextBoxFor(model => model.Nombre, true, htmlAttributes: new { @class = "form-control", id = "Nombre", placeholder = "Nombres"})
+                @Html.TextBoxFor(model => model.Nombre, true, htmlAttributes: new { @class = "form-control", id = "Nombre", placeholder = "Nombres" })
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = " label label-danger text-info"})
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = " label label-danger text-info" })
             </div>
         </div>
 
@@ -47,13 +47,13 @@
                         @Html.RadioButtonFor(model => model.Sexo, "F") Femenino
 
                         @*<input type="radio" name="Sexo" id="Femenino" value="F" data-msg-required="Requerido." data-rule-required="true" aria-required="true" aria-describedby="Sexo-error" aria-invalid="true" required>
-            Femenino*@
+                            Femenino*@
                     </label>
                     <label>
                         @Html.RadioButtonFor(model => model.Sexo, "M") Masculino
 
                         @*<input type="radio" name="Sexo" id="Masculino" value="M" data-msg-required="Requerido." data-rule-required="true" aria-required="true" aria-describedby="Sexo-error" aria-invalid="true" required>
-            Masculino*@
+                            Masculino*@
                     </label>
                 </div>
             </div>
@@ -65,7 +65,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FechaNacimiento, "Fecha de Nacimiento", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
-                @Html.TextBoxFor(model => model.FechaNacimiento, new { type = "date", @class = "form-control Fecha"})
+                @Html.TextBoxFor(model => model.FechaNacimiento, new { type = "date", @class = "form-control Fecha" })
                 @*<input type="date" name="FechaNacimiento" id="FechaNacimiento" class="form-control Fecha" data-msg-required="Requerida." data-msg-pattern="Solo puede contener numeros." data-rule-pattern="^([0-9])+\w$" data-rule-required="true" aria-required="true" aria-describedby="FechaNacimiento-error" aria-invalid="true" value="@DateTime.Today.ToString("yyyy-MM-dd")" required >*@
             </div>
             <div class="col-sm-4">
@@ -99,7 +99,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Salario, "Salario", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
-                @Html.TextBoxFor(model => model.Salario, true, htmlAttributes: new { @class = "form-control Salario", id = "Salario", placeholder = "123,456.78"})
+                @Html.TextBoxFor(model => model.Salario, true, htmlAttributes: new { @class = "form-control Salario", id = "Salario", placeholder = "123,456.78" })
             </div>
             <div class="col-sm-4">
                 @Html.ValidationMessageFor(model => model.Salario, "", new { @class = "label label-danger text-info" })
@@ -121,7 +121,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FechaEntrada, "Fecha de Entrada", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
-                <input type="date" class="form-control" id="FechaEntrada" max="@DateTime.Today.ToString("yyyy-MM-dd")" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                @Html.TextBoxFor(model => model.FechaEntrada, "{0:yyyy-MM-dd}",
+                new
+                {
+                    type = "date",
+                    @class = "form-control Fecha",
+                    @Value = DateTime.Now.ToString("yyyy-MM-dd").ToString(),
+                    max = DateTime.Now.ToString("yyyy-MM-dd")
+                })
             </div>
             <div class="col-sm-4">
                 @Html.ValidationMessageFor(model => model.FechaEntrada, "", new { @class = "label label-danger text-info" })
@@ -132,7 +139,7 @@
             @Html.LabelFor(model => model.Estado, new { @class = "control-label col-lg-2" })
             <div class="col-sm-3">
                 <div class="radio">
-                    @Html.CheckBoxFor(model => model.Estado , new { Checked = "checked" })
+                    @Html.CheckBoxFor(model => model.Estado, new { Checked = "checked" })
                 </div>
             </div>
             <div class="col-sm-4">
@@ -154,7 +161,7 @@
         $("#Nombre").focus();
     });
 
-    
+
     /*
     $('document').ready(function () {
         $('.Cedula').mask("000-0000000-0", { placeholder: "___-_______-_" });

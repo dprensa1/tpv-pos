@@ -115,16 +115,16 @@ namespace TPV.Controllers
         {
             if (id > 0)
             {
-                Empleado Empleado = db.Empleado.Find(id);
+                Empleado empleado = db.Empleado.Find(id);
 
-                if (Empleado == null)
+                if (empleado == null)
                 {
                     return HttpNotFound();
                 }
                 else
                 {
                     ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre");
-                    return View(Empleado);
+                    return View(empleado);
                 }
             }
             else

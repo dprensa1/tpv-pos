@@ -16,7 +16,7 @@ namespace TPV
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Scripts/bootstrap.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            bundles.Add(new ScriptBundle("~/bundles/sweetalert").Include(
                         "~/Scripts/sweetalert.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -49,7 +49,8 @@ namespace TPV
                         "~/Content/PagedList.css"));
 
             bundles.Add(new StyleBundle("~/Content/sweetalert").Include(
-                        "~/Content/sweetalert.css"));
+                        "~/Content/sweetalert.css"/*,
+                        "~/Content/theme-swal.css"*/));
 
         }
     }

@@ -200,7 +200,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\google-theme.css" />
+    <Content Include="Content\theme-swal.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\sweetalert.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -269,7 +269,7 @@
     <Content Include="Views\Puestos\Crear.cshtml" />
     <Content Include="Views\Usuarios\Crear.cshtml" />
     <Content Include="Views\Clientes\Crear.cshtml" />
-    <Content Include="Views\Accesos\_ListaAccesos.cshtml" />
+    <Content Include="Views\Roles\_ListaAccesos.cshtml" />
     <Content Include="Views\Accesos\Index.cshtml" />
     <Content Include="Views\Accesos\Crear.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />

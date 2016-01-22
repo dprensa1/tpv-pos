@@ -141,38 +141,35 @@
 
     function ValidarBorrar(source, event, id) {
         var nombre = source.name.replace("-", " ");
-        var borrado = false;
-
         event.preventDefault();
         swal(
         {
             title: "¿Borrar: " + nombre + "?",
             text: "Confirme antes de borrar",
-            type: "warning",
+            type: "info",
             allowOutsideClick: true,
             showCancelButton: true,
+            showLoaderOnConfirm: true,
             confirmButtonColor: "#d9534f",
             confirmButtonText: "Si, borrar!",
             cancelButtonText: "No, cancelar!",
             closeOnConfirm: false,
             closeOnCancel: true,
-            showLoaderOnConfirm: true,
         }, function () {
             setTimeout(function () {
                 $.ajax({
                     url: '@Url.Action("Borrar", "Empleados")',
                     type: 'POST',
                     data: { id: id },
-                    success: function (result) { borrado = true; }
-                });
+                    success: function (result) {}
+                })
                 swal({
-                    title: "Fue borrado con exito",
+                    title: nombre + " fue borrado con exito",
                     type: "success"
                 }, function () {
-                    borrado = false;
                     location.reload();
-                });
-            }, 2000);
+                });                
+            }, 800);
         });
     }
 

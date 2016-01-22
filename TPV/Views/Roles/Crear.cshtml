@@ -33,7 +33,7 @@
             <label for="Funciones" class="col-lg-2 control-label">Accesos</label>
             <div class="col-md-2">
                 @*<a href="#" class="btn btn-default">Gestion Accesos</a><span class="help-block">No hay Accesos Seleccionados</span>*@
-                @Html.Partial("~/Views/Accesos/_ListaAccesos.cshtml")
+                @Html.Partial("~/Views/Roles/_ListaAccesos.cshtml")
             </div>
         </div>
 
@@ -72,3 +72,12 @@
         </div>
     </fieldset>
 </form>
+
+<script>
+
+    function seleccionarTodo(source) {
+        var chk = document.getElementsByClassName("Selec");
+        for (i = 0; i < chk.length; i++)  if (chk[i].type == "checkbox") chk[i].checked = source.checked
+    };
+
+</script>
