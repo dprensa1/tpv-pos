@@ -9,7 +9,7 @@
         <div class="col-md-4">
         </div>
         <div class="col-md-4 well">
-            @using (Html.BeginForm("IniciarSesion", "Login", FormMethod.Post))
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
                 <div class="input-group">
@@ -24,7 +24,7 @@
                     @Html.ValidationMessageFor(m => m.Clave)
                 </div>
                 <br>
-                <input class="btn btn-primary btn-block" name="btnIniciarSesion" type="submit" value="Iniciar Sesion" />
+                <input class="btn btn-primary btn-block" name="btnLogin" type="submit" value="Iniciar Sesion" />
             }
         </div>
         <div class="col-md-4">

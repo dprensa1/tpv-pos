@@ -18,20 +18,14 @@ namespace TPV.Models
 
         [StringLength(128)]
         [Required]
-        public string Rutas
-        {
-            get { return Rutas; }
-            set
-            {
-                if (value.Equals("Todas"))
-                    Rutas = "Todas";
-                else
-                    Rutas += value.ToString() + ";";
-            }
-        }
+        public string Descripcion { get; set; }
+        
+        [Required]
+        public ICollection<string> Rutas { get; set; }
+
         public virtual ICollection<Rol> Roles { get; set; }
 
-        [DefaultValue("true")]
+        [DefaultValue("1")]
         public bool Estado { get; set; }
     }
 }

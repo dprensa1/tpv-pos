@@ -2,7 +2,7 @@ namespace TPV.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<TPV.Models.Lyra>
+    internal sealed class Configuration : DbMigrationsConfiguration<TPV.Models.LyraContext>
     {
         public Configuration()
         {
@@ -12,7 +12,7 @@ namespace TPV.Migrations
             //SetSqlGenerator("System.Data.Sqlclient", new System.Data.Entity.Migrations.MigrationSqlGenerator());
         }
 
-        protected override void Seed(TPV.Models.Lyra context)
+        protected override void Seed(TPV.Models.LyraContext context)
         {
             //  This method will be called after migrating to the latest version.
 

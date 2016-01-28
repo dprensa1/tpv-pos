@@ -1,4 +1,4 @@
-﻿@model TPV.Models.Acceso
+﻿@model IEnumerable<TPV.Models.Acceso>
 
 @{
     ViewBag.Title = "Accesos";
@@ -11,7 +11,7 @@
             Eliminar Seleccionados
         </a>
 
-        <a href="/Administracion/Accesos/Crear" class="btn btn-default">
+        <a href="/Accesos/Crear" class="btn btn-default">
             <i class="glyphicon glyphicon-plus" style="color:#276aa4"></i>
             Nuevo
         </a>
@@ -70,67 +70,49 @@
         </thead>
 
         <tbody>
-            <tr class="active">
-                <td><input type="checkbox"></td>
-                <td><a href="#">1</a></td>
-                <td><a href="#">Usuarios</a></td> @* LINK IGUAL QUE EL BOTON VER *@
-                <td><a href="#">Excepteur sint occaecat cupidatat non proident.</a></td>
-                <td class="text-center">
-                    <div class="btn-group" role="group">
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
+            @{
+                var x = 0;
 
-            <tr>
-                <td><input type="checkbox"></td>
-                <td><a href="#">2</a></td>
-                <td><a href="#">Empleados</a></td> @* LINK IGUAL QUE EL BOTON VER *@
-                <td><a href="#">Excepteur sint occaecat cupidatat non proident.</a></td>
-                <td class="text-center">
-                    <div class="btn-group" role="group">
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
+            }
+            @foreach (var acceso in Model)
+            {
+                x++;
 
-            <tr>
-                <td><input type="checkbox"></td>
-                <td><a href="#">3</a></td>
-                <td><a href="#">Caja</a></td> @* LINK IGUAL QUE EL BOTON VER *@
-                <td><a href="#">Excepteur sint occaecat cupidatat non proident.</a></td>
-                <td class="text-center">
-                    <div class="btn-group" role="group">
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <a href="/Accesos/Detalles/@Html.DisplayFor(id => acceso.AccesoID)">
+                            @Html.Encode(x)
                         </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
+                    </td>
+                    <td>
+                        <a href="/Accesos/Detalles/@Html.DisplayFor(id => acceso.AccesoID)">
+                            @Html.DisplayFor(nombre => acceso.Nombre)
                         </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
+                    </td>
+                    <td>
+                        <a href="/Accesos/Detalles/@Html.DisplayFor(id => acceso.AccesoID)">
+                            @Html.DisplayFor(nombre => acceso.Nombre)
                         </a>
-                    </div>
-                </td>
-            </tr>
-
+                    </td>
+                    <td class="text-center">
+                        <div class="btn-group" role="group">
+                            <a href="#" class="btn btn-default">
+                                <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
+                            </a>
+                            <a href="#" class="btn btn-default">
+                                <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
+                            </a>
+                            <a href="#" class="btn btn-default">
+                                <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
         </tbody>
+
+
 
         <tfoot>
         </tfoot>

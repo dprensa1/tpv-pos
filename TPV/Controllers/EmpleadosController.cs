@@ -10,7 +10,7 @@ namespace TPV.Controllers
 {
     public class EmpleadosController : Controller
     {
-        private Lyra db = new Lyra();
+        private LyraContext db = new LyraContext();
 
         [HttpGet]
         public ViewResult Index(int PuestoID = 0)

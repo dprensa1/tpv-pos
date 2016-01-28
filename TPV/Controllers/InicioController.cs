@@ -6,6 +6,7 @@ namespace TPV.Controllers
     {
         // GET: Inicio
         [Route("Inicio")]
+        [Authorize]
         public ActionResult Main()
         {
             return View();

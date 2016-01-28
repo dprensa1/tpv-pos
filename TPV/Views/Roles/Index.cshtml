@@ -1,4 +1,4 @@
-﻿@model TPV.Models.Rol
+﻿@model IEnumerable<TPV.Models.Rol>
 
 @{
     ViewBag.Title = "Roles";
@@ -34,7 +34,6 @@
                         <input type="checkbox">
                     </strong>
                 </th>
-
                 <th>
                     <strong>
                         # <a href="#">
@@ -42,7 +41,6 @@
                         </a>
                     </strong>
                 </th>
-
                 <th>
                     <strong>
                         Nombre
@@ -51,7 +49,6 @@
                         </a>
                     </strong>
                 </th>
-
                 <th>
                     <strong>
                         Descripci&oacute;n 
@@ -79,81 +76,50 @@
         </thead>
 
         <tbody>
-            <tr class="active">
-                <td><input type="checkbox"></td>
-                <td><a href="#">1</a></td>
-                <td><a href="#">Administrador</a></td> @* LINK IGUAL QUE EL BOTON VER *@
-                <td><a href="#">Excepteur sint occaecat cupidatat non proident.</a></td>
-                <td>
-                    <a href="#">
-                        Todos <span class="fa fa-chevron-circle-down"></span>
-                    </a>
-                </td>
-                <td class="text-center">
-                    <div class="btn-group" role="group">
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
+            @{
+                var x = 0;
+            }
+            @foreach (var rol in Model)
+            {
+                x++;
 
-            <tr>
-                <td><input type="checkbox"></td>
-                <td><a href="#">2</a></td>
-                <td><a href="#">Gerente</a></td> @* LINK IGUAL QUE EL BOTON VER *@
-                <td><a href="#">Excepteur sint occaecat cupidatat non proident.</a></td>
-                <td>
-                    <a href="#">
-                        Todos <span class="fa fa-chevron-circle-down"></span>
-                    </a>
-                </td>
-                <td class="text-center">
-                    <div class="btn-group" role="group">
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => rol.RolID)">
+                            @Html.Encode(x)
                         </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
+                    </td>
+                    <td>
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => rol.RolID)">
+                            @Html.DisplayFor(Nombre => rol.Nombre)
                         </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
+                    </td>
+                    <td>
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => rol.RolID)">
+                            @Html.DisplayFor(Descripcion => rol.Descripcion)
                         </a>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td><input type="checkbox"></td>
-                <td><a href="#">3</a></td>
-                <td><a href="#">Supervisor</a></td> @* LINK IGUAL QUE EL BOTON VER *@
-                <td><a href="#">Excepteur sint occaecat cupidatat non proident.</a></td>
-                <td>
-                    <a href="#">
-                        Todos <span class="fa fa-chevron-circle-down"></span>
-                    </a>
-                </td>
-                <td class="text-center">
-                    <div class="btn-group" role="group">
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
+                    </td>
+                    <td>
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => rol.RolID)">
+                            Todos DROPDOWN<span class="fa fa-chevron-circle-down"></span>
                         </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
-                        </a>
-                        <a href="#" class="btn btn-default">
-                            <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-
+                    </td>
+                    <td class="text-center">
+                        <div class="btn-group" Role="group">
+                            <a href="/Roles/Detalles/@Html.DisplayFor(id => rol.RolID)" class="btn btn-default" name=@Html.DisplayFor(id => rol.RolID)>
+                                <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
+                            </a>
+                            <a href="/Roles/Editar/@Html.DisplayFor(id => rol.RolID)" class="btn btn-default" name=@Html.DisplayFor(id => rol.RolID)>
+                                <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
+                            </a>
+                            <a href="/Roles/Borrar/@Html.DisplayFor(id => rol.RolID)" class="btn btn-default" name=@Html.DisplayFor(id => rol.RolID)>
+                                <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
         </tbody>
 
         <tfoot>

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using System.Web.Security;
 using TPV.Models;
 
 namespace TPV.Controllers
@@ -15,18 +16,40 @@ namespace TPV.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult IniciarSesion(Login usuario)
+        public ActionResult Login(Login usuario, string returnUrl)
         {
-            if (validar(usuario))
-                return Redirect("/Inicio");
+            if (ModelState.IsValid) { 
+                if (validar(usuario))
+                {
+                    FormsAuthentication.SetAuthCookie(usuario.User.ToString(), true);
+
+                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 
+                        && returnUrl.StartsWith("/") && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return Redirect("/Inicio");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Su Usuario o Contraseña estan incorrectos");
+                    return View(usuario);
+                }
+            }
             else
-                return View("/Login");
+            {
+                return View(usuario);
+            }
         }
 
         private bool validar(Login usuario)
         {
-            Lyra db = new Lyra();
+            LyraContext db = new LyraContext();
 
             if (db.Usuario.FirstOrDefault(u => u.User.Equals(usuario.User) && u.Clave.Equals(usuario.Clave.ToString())) != null)
                 return true;

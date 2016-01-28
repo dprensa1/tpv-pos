@@ -8,7 +8,7 @@ namespace TPV.Controllers
 {
     public class VentasController : Controller
     {
-        // GET: Ventas
+        [Authorize(Roles = "Administrator, KingOnRails")]
         public ActionResult Index()
         {
             return View();
