@@ -225,7 +225,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Seguridad\ProvedorUsuarioMembresia.cs" />
+    <Compile Include="Seguridad\PrincipalCustom.cs" />
+    <Compile Include="Seguridad\ProveedorAuth.cs" />
+    <Compile Include="Seguridad\UsuarioProveedorIdentidad.cs" />
+    <Compile Include="Seguridad\ProveedorIdentidad.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

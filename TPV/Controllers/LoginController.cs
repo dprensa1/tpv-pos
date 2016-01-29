@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using System.Web.Security;
 using TPV.Models;
@@ -10,17 +11,29 @@ namespace TPV.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            Login user = new Login();
 
-            return View(user);
+            return View(new Login());
         }
 
         [HttpPost]
-        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Login(Login usuario, string returnUrl)
         {
-            if (ModelState.IsValid) { 
+
+            if (ModelState.IsValid)
+            {
+                if (Membership.ValidateUser(usuario.User, usuario.Clave))
+                {
+                    FormsAuthentication.SetAuthCookie(usuario.User, true);
+                    FormsAuthentication.RedirectFromLoginPage(usuario.User, false);
+                    return Redirect("~/Inicio");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Su Usuario o Contraseña estan incorrectos");
+                    return Redirect("~/Login");
+                }
+                /*
                 if (validar(usuario))
                 {
                     FormsAuthentication.SetAuthCookie(usuario.User.ToString(), true);
@@ -39,12 +52,20 @@ namespace TPV.Controllers
                 {
                     ModelState.AddModelError("", "Su Usuario o Contraseña estan incorrectos");
                     return View(usuario);
-                }
+                }*/
             }
             else
             {
+                ModelState.AddModelError("", "Su Usuario o Contraseña estan incorrectos");
                 return View(usuario);
             }
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+
+            return Redirect("~/Login");
         }
 
         private bool validar(Login usuario)
