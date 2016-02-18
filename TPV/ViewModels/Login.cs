@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TPV.Models
+namespace TPV.ViewModels
 {
     [NotMapped]
     public class Login

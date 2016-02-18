@@ -1,27 +1,22 @@
 ﻿using System.Web.Mvc;
-using TPV.Models;
-using System.Linq;
-using System.Collections.Generic;
 using System.Net;
 using System;
-using System.Data.Entity;
+using TPV.Models;
+using TPV.Models.Repositorios;
 
 namespace TPV.Controllers
 {
     public class EmpleadosController : Controller
     {
-        private LyraContext db = new LyraContext();
+        EmpleadoRepositorio _EmpleadoRepositorio = new EmpleadoRepositorio();
 
         [HttpGet]
         public ViewResult Index(int PuestoID = 0)
         {
-            IEnumerable<Empleado> empleados = db.Empleado
-                .OrderBy(order => order.EmpleadoID);
-
             if (PuestoID >= 1)
                 ViewBag.activoSeleccion = PuestoID;
 
-            return View(empleados.ToList());
+            return View(_EmpleadoRepositorio.List);
         }
 
         // GET: Empleados/Detalles/5
@@ -30,25 +25,25 @@ namespace TPV.Controllers
         {
             if (id >= 1)
             {
-                Empleado empleado = db.Empleado.Find(id);
-
+                Empleado empleado = _EmpleadoRepositorio.FindById(id);
+                empleado.Sexo = empleado.Sexo.ToUpper();
                 if (empleado == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.NotFound);
                 }
                 else
                 {
-                    if (empleado.Sexo.Equals("F") | empleado.Sexo.Equals("f"))
+                    switch (empleado.Sexo)
                     {
-                        empleado.Sexo = "Femenino";
-                    }
-                    else if (empleado.Sexo.Equals("M") | empleado.Sexo.Equals("m"))
-                    {
-                        empleado.Sexo = "Masculino";
-                    }
-                    else
-                    {
-                        empleado.Sexo = "No especificado";
+                        case "F":
+                            empleado.Sexo = "Femenino";
+                            break;
+                        case "M":
+                            empleado.Sexo = "Masculino";
+                            break;
+                        default:
+                            empleado.Sexo = "No especificado";
+                            break;
                     }
 
                     return View(empleado);
@@ -61,7 +56,7 @@ namespace TPV.Controllers
         public ActionResult Crear()
         {
             //ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre") as IEnumerable<SelectList>;
-            ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre");
+            ViewBag.Puestos = new SelectList(new Puesto().List, "PuestoID", "Nombre");
 
             return View();
         }
@@ -71,8 +66,7 @@ namespace TPV.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Crear(Empleado empleado)
         {
-
-            ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre");
+            ViewBag.Puestos = new SelectList(new Puesto().List, "PuestoID", "Nombre");
             //string[] text =
             //    {
             //        empleado.EmpleadoID.ToString(),
@@ -92,8 +86,7 @@ namespace TPV.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.Empleado.Add(empleado);
-                    db.SaveChanges();
+                    _EmpleadoRepositorio.Add(empleado);
                     return RedirectToAction("Index", new { empleado.EmpleadoID });
                 }
                 else
@@ -115,7 +108,7 @@ namespace TPV.Controllers
         {
             if (id > 0)
             {
-                Empleado empleado = db.Empleado.Find(id);
+                Empleado empleado = _EmpleadoRepositorio.FindById(id);
 
                 if (empleado == null)
                 {
@@ -123,7 +116,7 @@ namespace TPV.Controllers
                 }
                 else
                 {
-                    ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre");
+                    ViewBag.Puestos = new SelectList(new Puesto().List, "PuestoID", "Nombre");
                     return View(empleado);
                 }
             }
@@ -139,8 +132,7 @@ namespace TPV.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(empleado).State = EntityState.Modified;
-                db.SaveChanges();
+                _EmpleadoRepositorio.Update(empleado);
                 return RedirectToAction("Index", new { empleado.EmpleadoID });
             }
             return View(empleado);
@@ -157,9 +149,7 @@ namespace TPV.Controllers
         {
             if (id > 0)
             {
-                Empleado empleado = db.Empleado.Find(id);
-                db.Empleado.Remove(empleado);
-                db.SaveChanges();
+                _EmpleadoRepositorio.Delete(id);
             }
             else
             {

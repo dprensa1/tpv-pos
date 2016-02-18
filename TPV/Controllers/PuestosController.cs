@@ -1,28 +1,25 @@
 ﻿using System.Web.Mvc;
-using TPV.Models;
-using System.Linq;
 using System.Collections.Generic;
 using System.Net;
-using System.Data.Entity;
 using System;
+using TPV.Models;
+using TPV.Models.Repositorios;
 
 namespace TPV.Controllers
 {
     public class PuestosController : Controller
     {
+        PuestoRepositorio _PuestoRepositorio = new PuestoRepositorio();
+
         private LyraContext db = new LyraContext();
 
         [HttpGet]
         public ViewResult Index(int PuestoID = 0)
         {
-            IEnumerable<Puesto> puestos = db.Puesto
-                //.Where(where => where.Activo == true)
-                .OrderBy(order => order.PuestoID);
-
             if (PuestoID >= 1)
                 ViewBag.activoSeleccion = PuestoID;
 
-            return View(puestos.ToList());
+            return View(_PuestoRepositorio.List);
         }
 
         [HttpGet]
@@ -30,9 +27,8 @@ namespace TPV.Controllers
         {
             try
             {
-                List<SelectListItem> funciones = new List<SelectListItem>();
-                ViewData["Funciones"] = funciones;
-
+                //List<SelectListItem> funciones = new List<SelectListItem>();
+                ViewData["Funciones"] = /*funciones;*/ new List<SelectListItem>();
             }
             catch (Exception)
             {
@@ -59,9 +55,9 @@ namespace TPV.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    db.Puesto.Add(puesto);
-                    db.SaveChanges();
-                    return RedirectToAction("Index", new {puesto.PuestoID});
+                    _PuestoRepositorio.Add(puesto);
+
+                    return RedirectToAction("Index", new { puesto.PuestoID });
                 }
                 else
                 {
@@ -83,10 +79,13 @@ namespace TPV.Controllers
         public ActionResult Detalles(int id)
         {
             if (id != 0) {
-                Puesto puesto = db.Puesto.Find(id);
+                Puesto puesto = _PuestoRepositorio.FindById(id);
+
                 if (puesto == null)
-                { return HttpNotFound(); }
-                else { return View(puesto); }
+                    return HttpNotFound();
+                else
+                    return View(puesto);
+
             }
             else { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
         }
@@ -101,9 +100,10 @@ namespace TPV.Controllers
 
             if (id > 0)
             {
-                Puesto p = db.Puesto.Find(id);
+                Puesto p = _PuestoRepositorio.FindById(id);
 
-                string[] funcs = p.Funciones.Split(separador, System.StringSplitOptions.RemoveEmptyEntries);
+                string[] funcs = p.Funciones.Split(
+                    separador, System.StringSplitOptions.RemoveEmptyEntries);
 
                 foreach (var x in funcs)
                 {
@@ -113,14 +113,9 @@ namespace TPV.Controllers
                 ViewData["funciones"] = funciones;
 
                 if (p == null)
-                {
                     return HttpNotFound();
-                }
                 else
-                {
                     return View(p);
-                }
-
             }
             else
             {
@@ -134,8 +129,7 @@ namespace TPV.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(puesto).State = EntityState.Modified;
-                db.SaveChanges();
+                _PuestoRepositorio.Update(puesto);
                 return RedirectToAction("Index", new { puesto.PuestoID });
             }
             return View(puesto);
@@ -147,9 +141,7 @@ namespace TPV.Controllers
         {
             if (id > 0)
             {
-                Puesto puesto = db.Puesto.Find(id);
-                db.Puesto.Remove(puesto);
-                db.SaveChanges();
+                _PuestoRepositorio.Delete(id);
             }
             else
             {

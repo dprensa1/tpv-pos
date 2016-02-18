@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using TPV.Models;
+﻿using TPV.Models;
 
-namespace TPV.Seguridad
+namespace TPV.Security
 {
     public class UsuarioProveedorIdentidad : System.Web.Security.MembershipUser
     {

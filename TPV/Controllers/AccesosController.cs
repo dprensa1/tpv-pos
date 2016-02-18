@@ -1,26 +1,19 @@
 ﻿using System.Web.Mvc;
-using TPV.Models;
-using System.Linq;
-using System.Collections.Generic;
-using System.Net;
-using System;
-using System.Data.Entity;
+using TPV.Models.Repositorios;
+
 namespace TPV.Controllers
 {
     public class AccesosController : Controller
     {
-        private LyraContext db = new LyraContext();
+        AccesoRepositorio _AccesoRepositorio = new AccesoRepositorio();
 
         [HttpGet]
         public ViewResult Index(int PuestoID = 0)
         {
-            IEnumerable<Acceso> acceso = db.Acceso
-                .OrderBy(order => order.AccesoID);
-
             if (PuestoID >= 1)
                 ViewBag.activoSeleccion = PuestoID;
 
-            return View(acceso.ToList());
+            return View(_AccesoRepositorio.List);
         }
 
         // GET: Accesos/Crear

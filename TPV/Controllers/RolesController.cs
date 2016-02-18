@@ -1,24 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using TPV.Models;
+﻿using System.Web.Mvc;
+using TPV.Models.Repositorios;
 
 namespace TPV.Controllers
 {
     public class RolesController : Controller
     {
-        private LyraContext db = new LyraContext();
+        RolRepositorio _RolRepositorio = new RolRepositorio();
         // GET: Roles
         public ActionResult Index()
         {
-                IEnumerable<Rol> roles = db.Rol
-                    .OrderBy(order => order.RolID);
-
-                //if (PuestoID >= 1)
-                //    ViewBag.activoSeleccion = PuestoID;
-
-                return View(roles.ToList());
-            }
+            return View(_RolRepositorio.List);
+        }
 
         // GET: Roles/Crear
         public ActionResult Crear()

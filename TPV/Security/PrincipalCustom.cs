@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Principal;
 
-namespace TPV.Seguridad
+namespace TPV.Security
 {
     public class PrincipalCustom : IPrincipal
     {

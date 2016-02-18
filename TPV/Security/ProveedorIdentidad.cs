@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Security.Principal;
-using System.Web.Security;
 
-namespace TPV.Seguridad
+namespace TPV.Security
 {
     public class ProveedorIdentidad : IIdentity
     {

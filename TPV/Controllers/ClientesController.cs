@@ -1,13 +1,16 @@
 ﻿using System.Web.Mvc;
+using TPV.Models.Repositorios;
 
 namespace TPV.Controllers
 {
     public class ClientesController : Controller
     {
+        ClienteRepositorio _ClienteRepositorio = new ClienteRepositorio();
+
         // GET: Clientes
         public ActionResult Index()
         {
-            return View();
+            return View(_ClienteRepositorio.List);
         }
 
         // GET: Clientes/Create

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace TPV.Models
@@ -7,20 +6,20 @@ namespace TPV.Models
     public class LyraContext : DbContext
     //public class LyraContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Acceso> Acceso { get; set; }
-        public DbSet<Cliente> Cliente { get; set; }
-        public DbSet<Empleado> Empleado { get; set; }
-        public DbSet<Puesto> Puesto { get; set; }
-        public DbSet<Rol> Rol { get; set; }
-        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Acceso> Accesos { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Empleado> Empleados { get; set; }
+        public DbSet<Puesto> Puestos { get; set; }
+        public DbSet<Rol> Roles { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         public LyraContext() : base()
         {
             //Database.SetInitializer<Lyra>(new DropCreateDatabaseAlways<Lyra>());
             
-            Database.SetInitializer<LyraContext>(new CreateDatabaseIfNotExists<LyraContext>());
+            //Database.SetInitializer<LyraContext>(new CreateDatabaseIfNotExists<LyraContext>());
             
-            //Database.SetInitializer<Lyra>(new DropCreateDatabaseIfModelChanges<Lyra>());
+            Database.SetInitializer<LyraContext>(new DropCreateDatabaseIfModelChanges<LyraContext>());
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
