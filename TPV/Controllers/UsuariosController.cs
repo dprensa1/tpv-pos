@@ -36,6 +36,8 @@ namespace TPV.Controllers
             }
         }
 
+        [Route("Login")]
+        [HttpGet]
         public ActionResult Login()
         {
             return View();

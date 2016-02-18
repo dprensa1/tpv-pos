@@ -1,13 +1,12 @@
 ﻿using System.Web.Mvc;
-using TPV.Models;
 
 namespace TPV.Controllers
 {
     public class InicioController : Controller
     {
         // GET: Inicio
-        [Route("Inicio")]
-        public ActionResult Main()
+        // [Authorize]
+        public ActionResult Index()
         {
             return View();
         }

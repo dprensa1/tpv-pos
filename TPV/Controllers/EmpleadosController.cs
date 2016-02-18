@@ -13,8 +13,8 @@ namespace TPV.Controllers
         [HttpGet]
         public ViewResult Index(int PuestoID = 0)
         {
-            if (PuestoID >= 1)
-                ViewBag.activoSeleccion = PuestoID;
+            //if (PuestoID >= 1)
+            //    ViewBag.activoSeleccion = PuestoID;
 
             return View(_EmpleadoRepositorio.List);
         }
@@ -56,7 +56,7 @@ namespace TPV.Controllers
         public ActionResult Crear()
         {
             //ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre") as IEnumerable<SelectList>;
-            ViewBag.Puestos = new SelectList(new Puesto().List, "PuestoID", "Nombre");
+            ViewBag.Puestos = new SelectList(new PuestoRepositorio().List, "PuestoID", "Nombre");
 
             return View();
         }
@@ -66,7 +66,7 @@ namespace TPV.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Crear(Empleado empleado)
         {
-            ViewBag.Puestos = new SelectList(new Puesto().List, "PuestoID", "Nombre");
+            ViewBag.Puestos = new SelectList(new PuestoRepositorio().List, "PuestoID", "Nombre");
             //string[] text =
             //    {
             //        empleado.EmpleadoID.ToString(),
@@ -116,7 +116,7 @@ namespace TPV.Controllers
                 }
                 else
                 {
-                    ViewBag.Puestos = new SelectList(new Puesto().List, "PuestoID", "Nombre");
+                    ViewBag.Puestos = new SelectList(new PuestoRepositorio().List, "PuestoID", "Nombre");
                     return View(empleado);
                 }
             }

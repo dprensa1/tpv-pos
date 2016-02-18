@@ -299,7 +299,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Usuarios\Login.cshtml" />
-    <Content Include="Views\Inicio\Main.cshtml" />
+    <Content Include="Views\Inicio\Index.cshtml" />
     <Content Include="Views\Shared\_Layout3.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Reportes\Index.cshtml" />

@@ -12,7 +12,7 @@ namespace TPV
             routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
-                name: "Default",
+                name: "Inicio",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Inicio", action = "Index", id = UrlParameter.Optional }
             );

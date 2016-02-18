@@ -13,7 +13,7 @@ namespace TPV.Models
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
 
-        public LyraContext() : base()
+        public LyraContext() : base("Lyra")
         {
             //Database.SetInitializer<Lyra>(new DropCreateDatabaseAlways<Lyra>());
             
