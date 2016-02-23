@@ -2,11 +2,42 @@
 using System.Linq;
 using System.Web.Security;
 using TPV.Models;
+using TPV.Models.Repositories;
 
 namespace TPV.Security
 {
-    public class ProveedorAuth : MembershipProvider
+    public class ProveedorMembresia : MembershipProvider
     {
+        UsuarioRepositorio _UsuarioRepositorio = new UsuarioRepositorio();
+        public string User { get; set; }
+
+        public override bool EnablePasswordRetrieval
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
+        public override bool EnablePasswordReset
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
+        public override bool RequiresQuestionAndAnswer
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
         public override string ApplicationName
         {
             get
@@ -20,21 +51,6 @@ namespace TPV.Security
             }
         }
 
-        public override bool EnablePasswordReset
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override bool EnablePasswordRetrieval
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         public override int MaxInvalidPasswordAttempts
         {
@@ -44,21 +60,6 @@ namespace TPV.Security
             }
         }
 
-        public override int MinRequiredNonAlphanumericCharacters
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override int MinRequiredPasswordLength
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         public override int PasswordAttemptWindow
         {
@@ -68,29 +69,6 @@ namespace TPV.Security
             }
         }
 
-        public override MembershipPasswordFormat PasswordFormat
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override string PasswordStrengthRegularExpression
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override bool RequiresQuestionAndAnswer
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         public override bool RequiresUniqueEmail
         {
@@ -100,14 +78,40 @@ namespace TPV.Security
             }
         }
 
-        public override bool ChangePassword(string username, string oldPassword, string newPassword)
+
+        public override MembershipPasswordFormat PasswordFormat
         {
-            throw new NotImplementedException();
+            get
+            {
+                throw new NotImplementedException();
+            }
         }
 
-        public override bool ChangePasswordQuestionAndAnswer(string username, string password, string newPasswordQuestion, string newPasswordAnswer)
+
+        public override int MinRequiredPasswordLength
         {
-            throw new NotImplementedException();
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
+        public override int MinRequiredNonAlphanumericCharacters
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
+        public override string PasswordStrengthRegularExpression
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public override MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out MembershipCreateStatus status)
@@ -115,17 +119,63 @@ namespace TPV.Security
             throw new NotImplementedException();
         }
 
+
+        public override bool ChangePasswordQuestionAndAnswer(string username, string password, string newPasswordQuestion, string newPasswordAnswer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string GetPassword(string username, string answer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool ChangePassword(string username, string oldPassword, string newPassword)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ResetPassword(string username, string answer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void UpdateUser(MembershipUser user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool ValidateUser(string username, string password)
+        {
+            return (
+                _UsuarioRepositorio.List
+                .Where(
+                    a => a.User.Equals(username) && 
+                    a.Clave.Equals(password)
+                ).FirstOrDefault() != null) ? true : false;
+        }
+
+        public override bool UnlockUser(string userName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override MembershipUser GetUser(object providerUserKey, bool userIsOnline)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override MembershipUser GetUser(string username, bool userIsOnline)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string GetUserNameByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
+
         public override bool DeleteUser(string username, bool deleteAllRelatedData)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override MembershipUserCollection FindUsersByEmail(string emailToMatch, int pageIndex, int pageSize, out int totalRecords)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override MembershipUserCollection FindUsersByName(string usernameToMatch, int pageIndex, int pageSize, out int totalRecords)
         {
             throw new NotImplementedException();
         }
@@ -140,64 +190,14 @@ namespace TPV.Security
             throw new NotImplementedException();
         }
 
-        public override string GetPassword(string username, string answer)
+        public override MembershipUserCollection FindUsersByName(string usernameToMatch, int pageIndex, int pageSize, out int totalRecords)
         {
             throw new NotImplementedException();
         }
 
-        public override MembershipUser GetUser(string username, bool userIsOnline)
-        {
-            var db = new LyraContext();
-            var us = db.Usuarios.FirstOrDefault(o => o.User == username);
-
-            if (us != null)
-            {
-                var mu = new UsuarioProveedorIdentidad(us);
-                return mu;
-            }
-            else
-            {
-                return null;
-            }
-            
-        }
-
-        public override MembershipUser GetUser(object providerUserKey, bool userIsOnline)
+        public override MembershipUserCollection FindUsersByEmail(string emailToMatch, int pageIndex, int pageSize, out int totalRecords)
         {
             throw new NotImplementedException();
-        }
-
-        public override string GetUserNameByEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override string ResetPassword(string username, string answer)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool UnlockUser(string userName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void UpdateUser(MembershipUser user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool ValidateUser(string username, string password)
-        {
-            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-            {
-                return false;
-            }
-
-            var db = new LyraContext();
-            var us = db.Usuarios.Any(o => o.User == username && o.Clave == password);
-
-            return us;
         }
     }
 }

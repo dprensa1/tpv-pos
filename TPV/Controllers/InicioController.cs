@@ -5,7 +5,7 @@ namespace TPV.Controllers
     public class InicioController : Controller
     {
         // GET: Inicio
-        // [Authorize]
+        [Authorize]
         public ActionResult Index()
         {
             return View();

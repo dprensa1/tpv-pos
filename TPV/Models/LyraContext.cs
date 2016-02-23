@@ -1,10 +1,11 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace TPV.Models
 {
     public class LyraContext : DbContext
-    //public class LyraContext : IdentityDbContext<ApplicationUser>
+    //public class LyraContext : IdentityDbContext<Usuario>
     {
         public DbSet<Acceso> Accesos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }

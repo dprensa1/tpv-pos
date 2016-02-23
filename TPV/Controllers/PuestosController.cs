@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System;
 using TPV.Models;
-using TPV.Models.Repositorios;
+using TPV.Models.Repositories;
 
 namespace TPV.Controllers
 {

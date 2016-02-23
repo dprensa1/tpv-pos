@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using TPV.Models.Repositorios;
+using TPV.Models.Repositories;
 
 namespace TPV.Controllers
 {

@@ -1,11 +1,11 @@
 ﻿using System.Web.Mvc;
-using TPV.Models;
 
 namespace TPV.Controllers
 {
     public class ReportesController : Controller
     {
         // GET: Reportes
+        [Authorize]
         public ActionResult Index()
         {
             return View();

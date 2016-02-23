@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TPV.Models.Repositorios
+namespace TPV.Models.Repositories
 {
     public class PuestoRepositorio : IRepositorio<Puesto>
     {

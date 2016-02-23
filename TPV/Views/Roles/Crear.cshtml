@@ -12,72 +12,92 @@
     </button>
     <h2>Crear Rol</h2>
 </div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.RolID)
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombre, new { @class = "control-label col-lg-2" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.Nombre, true, htmlAttributes: new { @class = "form-control", id = "Nombre", placeholder = "Nombre del Rol", autofocus = "" })
+            </div>
+            <div class="col-sm-3">
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descripcion, new { @class = "control-label col-lg-2" })
+            <div class="col-md-3">
+                @Html.TextAreaFor(model => model.Descripcion, true, htmlAttributes: new { @class = "form-control", id = "Descripcion", placeholder = "Describa el Rol", rows = "2", maxlength = "128" })
+            </div>
+            <div class="col-sm-3">
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "label label-danger text-info"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Accesos, new { @class = "control-label col-lg-2" })
+            <div class="col-md-3">
+                @Html.TextAreaFor(model => model.Accesos, true, htmlAttributes: new { @class = "form-control", id = "Descripcion", placeholder = "Describa el Rol", rows = "2", maxlength = "128" })
+            </div>
+            <div class="col-sm-3">
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "label label-danger text-info" })
+            </div>
+        </div>
+    </div>
+}
 
 <form class="form-horizontal">
-    <fieldset>
-        <div class="form-group">
-            <label for="Nombre" class="col-lg-2 control-label">Nombre</label>
-            <div class="col-md-3">
-                <input type="text" class="form-control" id="Nombre" placeholder="Nombre del Rol" required autofocus>
-            </div>
+    <div class="form-group">
+        <label for="Funciones" class="col-lg-2 control-label">Accesos</label>
+        <div class="col-md-2">
+            @*<a href="#" class="btn btn-default">Gestion Accesos</a>
+            <span class="help-block">No hay Accesos Seleccionados</span>*@
+            @Html.Partial("~/Views/Roles/_ListaAccesos.cshtml")
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="Descripcion" class="col-lg-2 control-label">Descripci&oacute;n</label>
-            <div class="col-md-3">
-                <textarea class="form-control" rows="2" id="Descripcion" placeholder="Describa el Rol" maxlength="128"></textarea>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Estado</label>
+        <div class="col-lg-10">
+
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default">
+                    <input type="radio" name="Estado" id="Activo" autocomplete="on" checked required> Activo
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="Estado" id="Inactivo" autocomplete="off" required> Inactivo
+                </label>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label for="Funciones" class="col-lg-2 control-label">Accesos</label>
-            <div class="col-md-2">
-                @*<a href="#" class="btn btn-default">Gestion Accesos</a><span class="help-block">No hay Accesos Seleccionados</span>*@
-                @Html.Partial("~/Views/Roles/_ListaAccesos.cshtml")
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-lg-2 control-label">Estado</label>
-            <div class="col-lg-10">
-
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-default">
-                        <input type="radio" name="Estado" id="Activo" autocomplete="on" checked required> Activo
+            @*<div class="radio">
+                    <label>
+                        <input type="radio" name="Estado" id="Activo" value="Activo" required>
+                        Activo
                     </label>
-                    <label class="btn btn-default">
-                        <input type="radio" name="Estado" id="Inactivo" autocomplete="off" required> Inactivo
+                    <label>
+                        <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
+                        Inactivo
                     </label>
-                </div>
-
-                @*<div class="radio">
-                        <label>
-                            <input type="radio" name="Estado" id="Activo" value="Activo" required>
-                            Activo
-                        </label>
-                        <label>
-                            <input type="radio" name="Estado" id="Inactivo" value="Inactivo">
-                            Inactivo
-                        </label>
-                    </div>*@
-            </div>
+                </div>*@
         </div>
+    </div>
 
-        <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-                <button type="reset" class="btn btn-default">Limpiar</button>
-                <button onclick="atras()" class="btn btn-danger">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Crear Acceso</button>
-            </div>
+    <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+            <button type="reset" class="btn btn-default">Limpiar</button>
+            <button onclick="atras()" class="btn btn-danger">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Crear Acceso</button>
         </div>
-    </fieldset>
+    </div>
 </form>
 
 <script>
 
     function seleccionarTodo(source) {
         var chk = document.getElementsByClassName("Selec");
-        for (i = 0; i < chk.length; i++)  if (chk[i].type == "checkbox") chk[i].checked = source.checked
+        for (i = 0; i < chk.length; i++) if (chk[i].type == "checkbox") chk[i].checked = source.checked
     };
 
 </script>

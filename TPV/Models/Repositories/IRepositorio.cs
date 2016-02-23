@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TPV.Models.Repositorios
+namespace TPV.Models.Repositories
 {
     public interface IRepositorio<T>
     {
