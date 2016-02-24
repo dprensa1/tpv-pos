@@ -68,3 +68,14 @@
         </a>
     </div>
 </div>
+@HttpContext.Current.User.Identity.Name
+@{ 
+    if (Request.IsAuthenticated)
+    {
+        <a href="/Usuarios/Salir">Salir</a>
+    }
+    else
+    {
+        <a href="Usuarios/Login">Login</a>
+    }
+}
