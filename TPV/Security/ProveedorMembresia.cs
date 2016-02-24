@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Security;
-using TPV.Models;
 using TPV.Models.Repositories;
 
 namespace TPV.Security

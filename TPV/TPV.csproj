@@ -238,6 +238,7 @@
     <Compile Include="Models\Repositories\PuestoRepositorio.cs" />
     <Compile Include="Models\Repositories\RolRepositorio.cs" />
     <Compile Include="Models\Repositories\UsuarioRepositorio.cs" />
+    <Compile Include="Security\ProveedorRoles.cs" />
     <Compile Include="ViewModels\Login.cs" />
     <Compile Include="Models\LyraContext.cs" />
     <Compile Include="Models\Empleado.cs" />
@@ -319,7 +320,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Usuarios\Login.cshtml" />
-    <Content Include="Views\Inicio\Index.cshtml" />
     <Content Include="Views\Shared\_Layout3.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Reportes\Index.cshtml" />
@@ -343,6 +343,7 @@
     <Content Include="Views\Roles\Crear.cshtml" />
     <Content Include="Views\Empleados\Editar.cshtml" />
     <None Include="Views\Empleados\__Detalles.cshtml" />
+    <Content Include="Views\Inicio\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,28 +6,28 @@ namespace TPV.Models.Repositories
 {
     public class UsuarioRepositorio : IRepositorio<Usuario>
     {
-        LyraContext _UsuarioContext = new LyraContext();
+        LyraContext _Context = new LyraContext();
 
         public IEnumerable<Usuario> List
         {
             get
             {
-                return _UsuarioContext.Usuarios.ToList();
+                return _Context.Usuarios.ToList();
             }
         }
 
         public void Add(Usuario entity)
         {
-            _UsuarioContext.Usuarios.Add(entity);
-            _UsuarioContext.SaveChanges();
+            _Context.Usuarios.Add(entity);
+            _Context.SaveChanges();
         }
 
         public void Delete(int Id)
         {
-            _UsuarioContext.Usuarios.Remove(
+            _Context.Usuarios.Remove(
                 FindById(Id)
                 );
-            _UsuarioContext.SaveChanges();
+            _Context.SaveChanges();
         }
 
         public Usuario FindById(int Id)
@@ -42,8 +42,18 @@ namespace TPV.Models.Repositories
 
         public void Update(Usuario entity)
         {
-            _UsuarioContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
-            _UsuarioContext.SaveChanges();
+            _Context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            _Context.SaveChanges();
+        }
+
+        public string [] UserInRoles(string username)
+        {
+            return (
+                from r in _Context.Roles
+                    join u in _Context.Usuarios
+                        on r.RolID equals u.RolID
+                where u.User.Equals(username)
+                select r.Nombre).ToArray();
         }
     }
 }

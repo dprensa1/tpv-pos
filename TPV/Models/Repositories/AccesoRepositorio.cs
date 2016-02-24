@@ -6,28 +6,28 @@ namespace TPV.Models.Repositories
 {
     public class AccesoRepositorio : IRepositorio<Acceso>
     {
-        LyraContext _AccesoContext = new LyraContext();
+        LyraContext _Context = new LyraContext();
 
         public IEnumerable<Acceso> List
         {
             get
             {
-                return _AccesoContext.Accesos.ToList();
+                return _Context.Accesos.ToList();
             }
         }
 
         public void Add(Acceso entity)
         {
-            _AccesoContext.Accesos.Add(entity);
-            _AccesoContext.SaveChanges();
+            _Context.Accesos.Add(entity);
+            _Context.SaveChanges();
         }
 
         public void Delete(int Id)
         {
-            _AccesoContext.Accesos.Remove(
+            _Context.Accesos.Remove(
                 FindById(Id)
                 );
-            _AccesoContext.SaveChanges();
+            _Context.SaveChanges();
         }
 
         public Acceso FindById(int Id)
@@ -42,8 +42,8 @@ namespace TPV.Models.Repositories
 
         public void Update(Acceso entity)
         {
-            _AccesoContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
-            _AccesoContext.SaveChanges();
+            _Context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            _Context.SaveChanges();
         }
     }
 }
