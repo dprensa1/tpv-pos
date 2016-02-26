@@ -13,7 +13,6 @@
 <body style="padding-top: 25px; ">
     <div class="container">
         <div class="row">
-
             <!-- Header -->
             <nav class="navbar navbar-default navbar-fixed-top col-lg-12" role="navigation" id="barra">
                 <div class="navbar-header">
@@ -22,7 +21,6 @@
                     </a>
                     <button class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target=".navbar-ex1-collapse"></button>
                 </div>
-
                 <!-- Menu -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
@@ -44,21 +42,22 @@
                             </ul>
                         </li>
                     </ul>
-
-                    <!-- Usuario y Opciones
                     <div class="navbar-form navbar-right form-group">
                         <div class="pull-right">
                             <a href="#" class="btn btn-default">
-                                <i class="glyphicon glyphicon-user"></i><span> Usuario</span>
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>
+                                    @{
+                                        var identity = (HttpContext.Current.User as TPV.Security.Principal).Identity as TPV.Security.Identity;
+                                    }
+                                    @string.Format("{0} - {1}", identity.User.User, identity.User.Empleado)
+                                </span>
                             </a>
-
                             <a href="#" class="btn btn-default">
                                 <i class="glyphicon glyphicon-cog"></i>
-
                             </a>
                         </div>
-                    </div>-->
-
+                    </div>
                 </div>
             </nav>
         </div>
@@ -71,7 +70,6 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jqueryMask")
     @Scripts.Render("~/bundles/sweetalert")
-
     <script type="text/javascript">
 
         $(function () {

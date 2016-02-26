@@ -8,9 +8,53 @@ namespace TPV.Models
     [Table("Empleados")]
     public class Empleado
     {
+        public int EmpleadoId { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Sexo { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+        public string Cedula { get; set; }
+        public string Telefono { get; set; }
+        public decimal Salario { get; set; }
+        public int PuestoId { get; set; }
+        public virtual Puesto Puesto { get; set; }
+        public int Codigo { get; set; }
+        public DateTime FechaEntrada { get; set; }
+        public bool Estado { get; set; }
+        public string CreadoEn { get; set; }
+        public string CreadoPor { get; set; }
+        public string ModificadoEn { get; set; }
+        public string ModificadoPor { get; set; }
+
+        public decimal quitarComa(decimal Salario = 00)
+        {
+            char [] aux = Salario.ToString().ToCharArray();
+            string salida = "";
+            foreach (char x in aux)
+            {
+                if (x.Equals(','))
+                    if (x.Equals('0'))
+                        if (x.Equals('0'))
+                            break;
+                        else
+                            break;
+                    else
+                        break;
+                else
+                    salida += x;
+            }
+            return decimal.Parse(salida);
+        }
+    }
+}
+
+
+/*
+    [Table("Empleados")]
+     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? EmpleadoID { get; set; }
+        public int EmpleadoId { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
         [RegularExpression(@"^[a-zA-Z ]+\w$", ErrorMessage = "Solo letras.")]
@@ -60,9 +104,9 @@ namespace TPV.Models
         }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        public int PuestoID { get; set; }
+        public int PuestoId { get; set; }
 
-        [ForeignKey("PuestoID")]
+        [ForeignKey("PuestoId")]
         public virtual Puesto Puesto { get; set; }
 
         [NotMapped]
@@ -108,6 +152,11 @@ namespace TPV.Models
             }
             return decimal.Parse(salida);
         }
+
+        public string CreadoEn { get; set; }
+        public string CreadoPor { get; set; }
+        public string ModificadoEn { get; set; }
+        public string ModificadoPor { get; set; }
         /*
         CREATE DEFINER = CURRENT_USER TRIGGER `lyra`.`empleados_BEFORE_INSERT`
         BEFORE INSERT ON `empleados`
@@ -115,6 +164,6 @@ namespace TPV.Models
         BEGIN
             SET NEW.Codigo = (SELECT `EmpleadoID` FROM `empleados` ORDER BY `EmpleadoID` DESC LIMIT 1) + 1;
         END
-        */
+        
     }
-}
+ */

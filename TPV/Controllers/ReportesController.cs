@@ -4,8 +4,7 @@ namespace TPV.Controllers
 {
     public class ReportesController : Controller
     {
-        // GET: Reportes
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();

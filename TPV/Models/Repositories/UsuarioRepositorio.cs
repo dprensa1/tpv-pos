@@ -35,9 +35,9 @@ namespace TPV.Models.Repositories
             return (from a in List where a.UsuarioID == Id select a).FirstOrDefault();
         }
 
-        public Usuario Find(Usuario entity)
+        public Usuario FindByUserName(string username)
         {
-            throw new NotImplementedException();
+            return (from a in List where a.User == username select a).FirstOrDefault();
         }
 
         public void Update(Usuario entity)
@@ -50,8 +50,8 @@ namespace TPV.Models.Repositories
         {
             return (
                 from r in _Context.Roles
-                    join u in _Context.Usuarios
-                        on r.RolID equals u.RolID
+                join u in _Context.Usuarios
+                    on r.RolID equals u.RolID
                 where u.User.Equals(username)
                 select r.Nombre).ToArray();
         }

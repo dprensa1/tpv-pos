@@ -9,6 +9,5 @@ namespace TPV.Models.Repositories
         void Delete(int Id);
         void Update(T entity);
         T FindById(int Id);
-        T Find(T entity);
     }
 }

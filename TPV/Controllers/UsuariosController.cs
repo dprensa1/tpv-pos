@@ -1,19 +1,18 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
+using TPV.Models;
 using TPV.Models.Repositories;
-using TPV.ViewModels;
 using TPV.Security;
+using TPV.ViewModels;
 
 namespace TPV.Controllers
 {
     public class UsuariosController : Controller
     {
-        ProveedorMembresia _ProveedorMembreria = new ProveedorMembresia();
-        UsuarioRepositorio _UsuarioRepositorio = new UsuarioRepositorio();
-        AccesoRepositorio _AccesoRepositorio = new AccesoRepositorio();
-
-        public UsuariosController() { }
+        private ProveedorMembresia _ProveedorMembreria = new ProveedorMembresia();
+        private UsuarioRepositorio _UsuarioRepositorio = new UsuarioRepositorio();
+        private AccesoRepositorio _AccesoRepositorio = new AccesoRepositorio();
 
         // GET: Usuarios
         public ActionResult Index()
@@ -25,7 +24,7 @@ namespace TPV.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult Crear(FormCollection collection)
         {
@@ -40,7 +39,7 @@ namespace TPV.Controllers
                 return View();
             }
         }
-        
+
         [HttpGet]
         [AllowAnonymous]
         public ActionResult Login()
@@ -51,9 +50,9 @@ namespace TPV.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Login usuario, string returnUrl = "" )
+        public ActionResult Login(Login usuario, string returnUrl = "")
         {
-
+            LyraContext _Context = new LyraContext();
             if (ModelState.IsValid)
             {
                 var userValid = _ProveedorMembreria.ValidateUser(usuario.User, usuario.Clave);
@@ -79,11 +78,10 @@ namespace TPV.Controllers
                 ModelState.AddModelError("", "Su Usuario o Contraseña estan incorrectos");
                 return Redirect("~/Usuarios/Login");
             }
-
             ModelState.Remove("Clave");
             return View();
         }
-      
+
         [Authorize]
         public ActionResult Salir()
         {
@@ -94,7 +92,7 @@ namespace TPV.Controllers
 
         private bool validar(Login usuario)
         {
-            if (new Models.LyraContext().Usuarios.FirstOrDefault( u => u.User.Equals(usuario.User) && u.Clave.Equals(usuario.Clave.ToString())) != null)
+            if (_UsuarioRepositorio.List.FirstOrDefault(u => u.User.Equals(usuario.User) && u.Clave.Equals(usuario.Clave.ToString())) != null)
                 return true;
             else
                 return false;

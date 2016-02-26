@@ -148,3 +148,6 @@ D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Microsoft.Practices.
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Microsoft.Practices.Unity.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Microsoft.Practices.Unity.Configuration.xml
 D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\Faker.NET4.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\FizzWare.NBuilder.dll
+D:\D\Desarrollo\Proyectos\Visual Studio\TPV\tpv-pos\TPV\bin\de-DE\Faker.NET4.resources.dll

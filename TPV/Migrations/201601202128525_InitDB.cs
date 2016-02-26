@@ -1,8 +1,7 @@
 namespace TPV.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class InitDB : DbMigration
     {
         public override void Up()
@@ -57,7 +56,7 @@ namespace TPV.Migrations
                         Cedula = c.String(nullable: false, maxLength: 11),
                         Telefono = c.String(nullable: false, maxLength: 10),
                         Salario = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        PuestoID = c.Int(nullable: false, identity: true),
+                        PuestoID = c.Int(nullable: false),
                         Codigo = c.Int(nullable: false),
                         FechaEntrada = c.DateTime(nullable: false),
                         Estado = c.Boolean(nullable: false),

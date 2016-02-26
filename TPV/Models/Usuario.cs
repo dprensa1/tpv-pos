@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TPV.Models
 {
@@ -23,38 +22,25 @@ namespace TPV.Models
         [StringLength(10, MinimumLength = 4, ErrorMessage = " El usuario deber tener entre 4 y 10 caracteres")]
         public string User
         {
-            get
-            {
-                return _User;
-            }
-            set
-            {
-                _User = value;
-            }
+            get { return _User; }
+            set { _User = value; }
         }
 
         [Required(ErrorMessage = "Contraseña obligatoria", AllowEmptyStrings = false)]
         [StringLength(16, MinimumLength = 4, ErrorMessage = " La contraseña deber tener entre 6 y 16 caracteres")]
         public string Clave { get; set; }
 
-        public int? RolID { get; set; }
+        public int RolID { get; set; }
 
         [ForeignKey("RolID")]
-        public virtual ICollection<Rol> Roles { get; set; }
+        public virtual ICollection<Rol> Rols { get; set; }
 
         [DefaultValue("1")]
         public bool Estado { get; set; }
 
-        /*
-        //No se muestran en el formulario
-        public char Estatus { get; set; }
-
-        [DatabaseGenerated(DatabaseGenerationOption.Computed)] 
-        public DateTime FechaCreacion { get; set; }
-
-        public int UsuarioID { get; set; }
-
-        public virtual Usuario CreadoPor { get; set; }
-        */
+        public string CreadoEn { get; set; }
+        public string CreadoPor { get; set; }
+        public string ModificadoEn { get; set; }
+        public string ModificadoPor { get; set; }
     }
 }

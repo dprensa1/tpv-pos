@@ -18,7 +18,26 @@ namespace TPV
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
         }
+
+        /*protected void Application_PostAuthenticateRequest()
+        {
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+
+                Usuario usuario = js.Deserialize<Usuario>(ticket.UserData);
+
+                Identity Identity = new Identity(usuario);
+
+                Principal Principal = new Principal(Identity);
+
+                HttpContext.Current.User = Principal;
+            }
+        }*/
     }
 }
