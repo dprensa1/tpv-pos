@@ -1,11 +1,8 @@
 ﻿using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using TPV.Infrastructure.Validation;
 
 namespace TPV.Models
 {
-    [Table("Empleados")]
     public class Empleado
     {
         public int EmpleadoId { get; set; }
@@ -25,26 +22,6 @@ namespace TPV.Models
         public string CreadoPor { get; set; }
         public string ModificadoEn { get; set; }
         public string ModificadoPor { get; set; }
-
-        public decimal quitarComa(decimal Salario = 00)
-        {
-            char [] aux = Salario.ToString().ToCharArray();
-            string salida = "";
-            foreach (char x in aux)
-            {
-                if (x.Equals(','))
-                    if (x.Equals('0'))
-                        if (x.Equals('0'))
-                            break;
-                        else
-                            break;
-                    else
-                        break;
-                else
-                    salida += x;
-            }
-            return decimal.Parse(salida);
-        }
     }
 }
 
@@ -57,13 +34,13 @@ namespace TPV.Models
         public int EmpleadoId { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        [RegularExpression(@"^[a-zA-Z ]+\w$", ErrorMessage = "Solo letras.")]
+        [RegularExpression(@"/[a-zA-Z ]+\w/g", ErrorMessage = "Solo letras.")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "Deber tener entre 2 y 30 caracteres.")]
         [DataType(DataType.Text)]
         public string Nombre { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Requerido.")]
-        [RegularExpression(@"^[a-zA-Z ]+\w$", ErrorMessage = "Solo letras.")]
+        [RegularExpression(@"/[a-zA-Z ]+\w/g", ErrorMessage = "Solo letras.")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "Deber tener entre 2 y 30 caracteres.")]
         [DataType(DataType.Text)]
         public string Apellido { get; set; }
@@ -162,7 +139,7 @@ namespace TPV.Models
         BEFORE INSERT ON `empleados`
         FOR EACH ROW
         BEGIN
-            SET NEW.Codigo = (SELECT `EmpleadoID` FROM `empleados` ORDER BY `EmpleadoID` DESC LIMIT 1) + 1;
+            SET NEW.Codigo = (SELECT `EmpleadoId` FROM `empleados` ORDER BY `EmpleadoId` DESC LIMIT 1) + 1;
         END
         
     }

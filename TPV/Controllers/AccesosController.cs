@@ -8,10 +8,10 @@ namespace TPV.Controllers
         AccesoRepositorio _AccesoRepositorio = new AccesoRepositorio();
 
         [HttpGet]
-        public ViewResult Index(int PuestoID = 0)
+        public ViewResult Index(int PuestoId = 0)
         {
-            if (PuestoID >= 1)
-                ViewBag.activoSeleccion = PuestoID;
+            if (PuestoId >= 1)
+                ViewBag.activoSeleccion = PuestoId;
 
             return View(_AccesoRepositorio.List);
         }

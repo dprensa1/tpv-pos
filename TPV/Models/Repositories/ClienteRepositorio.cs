@@ -32,7 +32,7 @@ namespace TPV.Models.Repositories
 
         public Cliente FindById(int Id)
         {
-            return (from a in List where a.ClienteID == Id select a).FirstOrDefault();
+            return (from a in List where a.ClienteId == Id select a).FirstOrDefault();
         }
 
         public Cliente Find(Cliente entity)

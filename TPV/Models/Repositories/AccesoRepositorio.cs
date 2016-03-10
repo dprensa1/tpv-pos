@@ -32,7 +32,7 @@ namespace TPV.Models.Repositories
 
         public Acceso FindById(int Id)
         {
-            return (from a in List where a.AccesoID == Id select a).FirstOrDefault();
+            return (from a in List where a.AccesoId == Id select a).FirstOrDefault();
         }
 
         public Acceso Find(Acceso entity)

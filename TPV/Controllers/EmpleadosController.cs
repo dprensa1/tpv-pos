@@ -11,10 +11,10 @@ namespace TPV.Controllers
         EmpleadoRepositorio _EmpleadoRepositorio = new EmpleadoRepositorio();
 
         [HttpGet]
-        public ViewResult Index(int PuestoID = 0)
+        public ViewResult Index(int PuestoId = 0)
         {
-            //if (PuestoID >= 1)
-            //    ViewBag.activoSeleccion = PuestoID;
+            //if (PuestoId >= 1)
+            //    ViewBag.activoSeleccion = PuestoId;
 
             return View(_EmpleadoRepositorio.List);
         }
@@ -55,8 +55,8 @@ namespace TPV.Controllers
         // GET: Empleados/Crear
         public ActionResult Crear()
         {
-            //ViewBag.Puestos = new SelectList(db.Puesto, "PuestoID", "Nombre") as IEnumerable<SelectList>;
-            ViewBag.Puestos = new SelectList(new PuestoRepositorio().List, "PuestoID", "Nombre");
+            //ViewBag.Puestos = new SelectList(db.Puesto, "PuestoId", "Nombre") as IEnumerable<SelectList>;
+            ViewBag.Puestos = new SelectList(new PuestoRepositorio().List, "PuestoId", "Nombre");
 
             return View();
         }
@@ -66,10 +66,10 @@ namespace TPV.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Crear(Empleado empleado)
         {
-            ViewBag.Puestos = new SelectList(new PuestoRepositorio().List, "PuestoID", "Nombre");
+            ViewBag.Puestos = new SelectList(new PuestoRepositorio().List, "PuestoId", "Nombre");
             //string[] text =
             //    {
-            //        empleado.EmpleadoID.ToString(),
+            //        empleado.EmpleadoId.ToString(),
             //        empleado.Nombre,
             //        empleado.Apellido,
             //        empleado.Sexo.ToString(),
@@ -77,7 +77,7 @@ namespace TPV.Controllers
             //        empleado.Cedula,
             //        empleado.Telefono,
             //        empleado.Salario.ToString(),
-            //        empleado.PuestoID.ToString(),
+            //        empleado.PuestoId.ToString(),
             //        empleado.Codigo.ToString(),
             //        empleado.FechaEntrada.ToString(),
             //        empleado.Activo.ToString()
@@ -87,7 +87,7 @@ namespace TPV.Controllers
                 if (ModelState.IsValid)
                 {
                     _EmpleadoRepositorio.Add(empleado);
-                    return RedirectToAction("Index", new { empleado.EmpleadoID });
+                    return RedirectToAction("Index", new { empleado.EmpleadoId });
                 }
                 else
                 {
@@ -116,7 +116,7 @@ namespace TPV.Controllers
                 }
                 else
                 {
-                    ViewBag.Puestos = new SelectList(new PuestoRepositorio().List, "PuestoID", "Nombre");
+                    ViewBag.Puestos = new SelectList(new PuestoRepositorio().List, "PuestoId", "Nombre");
                     return View(empleado);
                 }
             }
@@ -133,7 +133,7 @@ namespace TPV.Controllers
             if (ModelState.IsValid)
             {
                 _EmpleadoRepositorio.Update(empleado);
-                return RedirectToAction("Index", new { empleado.EmpleadoID });
+                return RedirectToAction("Index", new { empleado.EmpleadoId });
             }
             return View(empleado);
         }

@@ -1,18 +1,28 @@
-﻿using System.Linq;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using TPV.Infrastructure.Validation;
 using TPV.Models;
-using TPV.Models.Repositories;
-using TPV.Security;
-using TPV.ViewModels;
 
 namespace TPV.Controllers
 {
     public class UsuariosController : Controller
     {
-        private ProveedorMembresia _ProveedorMembreria = new ProveedorMembresia();
-        private UsuarioRepositorio _UsuarioRepositorio = new UsuarioRepositorio();
-        private AccesoRepositorio _AccesoRepositorio = new AccesoRepositorio();
+        private UsuarioValidator _UsuarioValidator = new UsuarioValidator();
+
+        public UsuariosController()
+            : this(new UserManager<Usuario>(new UserStore<Usuario>(new LyraContext())))
+        {
+        }
+
+        public UsuariosController(UserManager<Usuario> userManager)
+        {
+            UserManager = userManager;
+        }
 
         // GET: Usuarios
         public ActionResult Index()
@@ -26,60 +36,78 @@ namespace TPV.Controllers
         }
 
         [HttpPost]
-        public ActionResult Crear(FormCollection collection)
+        public async Task<ActionResult> Crear(Usuario _Usuario)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            ModelValidation<Usuario> UsuarioValidation = new ModelValidation<Usuario>(_Usuario, new UsuarioValidator());
 
-                return RedirectToAction("Index");
-            }
-            catch
+            if (UsuarioValidation.Validate.IsValid)
             {
-                return View();
+                var user = new Usuario { UserName = _Usuario.UserName };
+                var result = await UserManager.CreateAsync(user, _Usuario.Clave);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    foreach (var Error in result.Errors)
+                    {
+                        ModelState.AddModelError("", Error);
+                    }
+                    ModelState.AddModelError("", @"\nNo se pudo crear el usuario.");
+                    return View(_Usuario);
+                }
+            }
+            else
+            {
+                foreach (var Error in UsuarioValidation.Validate.Errors)
+                {
+                    ModelState.AddModelError(Error.PropertyName, Error.ErrorMessage);
+                }
+                return View(_Usuario);
             }
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Login usuario, string returnUrl = "")
+        public async Task<ActionResult> Login(Usuario _Usuario, string returnUrl)
         {
-            LyraContext _Context = new LyraContext();
-            if (ModelState.IsValid)
-            {
-                var userValid = _ProveedorMembreria.ValidateUser(usuario.User, usuario.Clave);
+            ModelValidation<Usuario> UsuarioValidation = new ModelValidation<Usuario>(_Usuario, new UsuarioValidator());
 
-                if (userValid)
+            if (UsuarioValidation.Validate.IsValid)
+            {
+                var user = await UserManager.FindAsync(_Usuario.User, _Usuario.Clave);
+
+                if (user != null)
                 {
-                    FormsAuthentication.SetAuthCookie(usuario.User, false);
+                    await SignInAsync(user);
 
                     ModelState.Remove("Clave");
 
-                    if (Url.IsLocalUrl(returnUrl))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    else
-                    {
-                        return Redirect("~/Inicio");
-                    }
+                    return (Url.IsLocalUrl(returnUrl)) ? Redirect(returnUrl) : Redirect("~/Inicio");
                 }
+
+                ModelState.AddModelError("", "Usuario / Clave invalidos");
+                return View(_Usuario);
             }
             else
             {
-                ModelState.AddModelError("", "Su Usuario o Contraseña estan incorrectos");
-                return Redirect("~/Usuarios/Login");
+                foreach (var Error in UsuarioValidation.Validate.Errors)
+                {
+                    ModelState.AddModelError(Error.PropertyName, Error.ErrorMessage);
+                }
+                return View(_Usuario);
             }
-            ModelState.Remove("Clave");
-            return View();
         }
 
         [Authorize]
@@ -90,12 +118,23 @@ namespace TPV.Controllers
             return RedirectToAction("Login");
         }
 
-        private bool validar(Login usuario)
+        public UserManager<Usuario> UserManager { get; private set; }
+
+        private IAuthenticationManager AuthenticationManager
         {
-            if (_UsuarioRepositorio.List.FirstOrDefault(u => u.User.Equals(usuario.User) && u.Clave.Equals(usuario.Clave.ToString())) != null)
-                return true;
-            else
-                return false;
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
+
+        private async Task SignInAsync(Usuario user)
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+
+            var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+            AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, identity);
         }
     }
 }

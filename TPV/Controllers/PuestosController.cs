@@ -14,10 +14,10 @@ namespace TPV.Controllers
         private LyraContext db = new LyraContext();
 
         [HttpGet]
-        public ViewResult Index(int PuestoID = 0)
+        public ViewResult Index(int PuestoId = 0)
         {
-            if (PuestoID >= 1)
-                ViewBag.activoSeleccion = PuestoID;
+            if (PuestoId >= 1)
+                ViewBag.activoSeleccion = PuestoId;
 
             return View(_PuestoRepositorio.List);
         }
@@ -46,7 +46,7 @@ namespace TPV.Controllers
             {
                 string[] text =
                 {
-                    puesto.PuestoID.ToString(),
+                    puesto.PuestoId.ToString(),
                     puesto.Nombre,
                     puesto.Descripcion,
                     puesto.Funciones,
@@ -57,7 +57,7 @@ namespace TPV.Controllers
                 {
                     _PuestoRepositorio.Add(puesto);
 
-                    return RedirectToAction("Index", new { puesto.PuestoID });
+                    return RedirectToAction("Index", new { puesto.PuestoId });
                 }
                 else
                 {
@@ -70,7 +70,7 @@ namespace TPV.Controllers
                 //Log the error (uncomment dex variable name and add a line here to write a log.)
                 ModelState.AddModelError("", "No se puede guardar." + e.GetBaseException());
             }
-            ViewBag.activoSeleccion = puesto.PuestoID;
+            ViewBag.activoSeleccion = puesto.PuestoId;
             return View();
         }
 
@@ -130,7 +130,7 @@ namespace TPV.Controllers
             if (ModelState.IsValid)
             {
                 _PuestoRepositorio.Update(puesto);
-                return RedirectToAction("Index", new { puesto.PuestoID });
+                return RedirectToAction("Index", new { puesto.PuestoId });
             }
             return View(puesto);
         }

@@ -15,7 +15,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.EmpleadoID)
+    @Html.HiddenFor(model => model.EmpleadoId)
     <div class="form-horizontal">
         <div class="form-group">
             @Html.LabelFor(model => model.Nombre, new { @class = "control-label col-lg-2" })
@@ -98,12 +98,12 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PuestoID, "Puesto", new { @class = "col-lg-2 control-label" })
+            @Html.LabelFor(model => model.PuestoId, "Puesto", new { @class = "col-lg-2 control-label" })
             <div class="col-sm-3">
-                @Html.DropDownListFor(model => model.PuestoID, (IEnumerable<SelectListItem>)ViewBag.Puestos, "Seleccione..", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.PuestoId, (IEnumerable<SelectListItem>)ViewBag.Puestos, "Seleccione..", new { @class = "form-control" })
             </div>
             <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.PuestoID, "", new { @class = "label label-danger text-info" })
+                @Html.ValidationMessageFor(model => model.PuestoId, "", new { @class = "label label-danger text-info" })
             </div>
         </div>
 

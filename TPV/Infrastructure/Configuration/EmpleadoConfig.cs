@@ -10,7 +10,7 @@ namespace TPV.Infrastructure.Configuration
         {
             ToTable("Empleados");
 
-            HasKey(e => e.EmpleadoId);
+            HasKey(e => new { e.EmpleadoId, e.Cedula });
 
             Property(e => e.EmpleadoId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
@@ -27,7 +27,7 @@ namespace TPV.Infrastructure.Configuration
                 .IsRequired();
 
             Property(c => c.Sexo)
-                .HasColumnType("nvarchar")
+                .HasColumnType("char")
                 .HasMaxLength(1)
                 .IsRequired();
 
@@ -42,17 +42,16 @@ namespace TPV.Infrastructure.Configuration
 
             Property(c => c.Telefono)
                 .HasColumnType("nvarchar")
-                .HasMaxLength(11)
+                .HasMaxLength(10)
                 .IsRequired();
 
             Property(c => c.Salario)
-                .HasColumnType("nvarchar")
                 .HasPrecision(18, 2)
                 .IsRequired();
 
-            HasRequired(a => a.Puesto)
-                .WithMany(b => b.Empleados)
-                .HasForeignKey(c => c.EmpleadoId);
+            HasRequired(p => p.Puesto)
+                .WithMany(e => e.Empleados)
+                .HasForeignKey(p => p.PuestoId);
 
             Property(c => c.FechaEntrada)
                 .HasColumnType("date")

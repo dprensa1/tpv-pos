@@ -1,4 +1,5 @@
-﻿namespace TPV.Models
+﻿
+namespace TPV.Models
 {
     public class Cliente
     {
@@ -16,12 +17,13 @@
         public string CreadoPor { get; set; }
         public string ModificadoEn { get; set; }
         public string ModificadoPor { get; set; }
+        public bool Status { get; set; }
 
 
 
         //[Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //public int? ClienteID { get; set; }
+        //public int? ClienteId { get; set; }
         //public string Nombre { get; set; }
         //public string Apellido { get; set; }
         //public string Identificacion { get; set; }

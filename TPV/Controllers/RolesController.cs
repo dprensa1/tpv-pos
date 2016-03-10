@@ -1,15 +1,16 @@
 ﻿using System.Web.Mvc;
+using TPV.Models;
 using TPV.Models.Repositories;
 
 namespace TPV.Controllers
 {
     public class RolesController : Controller
     {
-        RolRepositorio _RolRepositorio = new RolRepositorio();
+        LyraContext _RolRepositorio = new LyraContext();
         // GET: Roles
         public ActionResult Index()
         {
-            return View(_RolRepositorio.List);
+            return View(_RolRepositorio);
         }
 
         // GET: Roles/Crear

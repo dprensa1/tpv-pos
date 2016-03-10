@@ -2,7 +2,7 @@
 using System.Data.Entity.ModelConfiguration;
 using TPV.Models;
 
-namespace TPV.Infrastructure
+namespace TPV.Infrastructure.Configuration
 {
     public class RolConfig : EntityTypeConfiguration<Rol>
     {
@@ -21,13 +21,17 @@ namespace TPV.Infrastructure
                 .HasMaxLength(16)
                 .IsRequired();
 
-            HasMany(u => u.Usuarios)
-                .WithMany(r => r.Rols)
-                .Map(m =>
+            Property(r => r.Descripcion)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(128);
+
+            HasMany(r => r.Accesos)
+                .WithMany(u => u.Rols)
+                .Map(ur =>
                 {
-                    m.MapLeftKey("UsuarioRefId");
-                    m.MapRightKey("RolRefId");
-                    m.ToTable("UsuarioRoles");
+                    ur.MapLeftKey("RolId");
+                    ur.MapRightKey("AccesoId");
+                    ur.ToTable("RolesAccesos");
                 });
         }
     }

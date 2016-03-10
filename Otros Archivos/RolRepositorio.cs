@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace TPV.Models.Repositories
 {
@@ -13,7 +12,8 @@ namespace TPV.Models.Repositories
         {
             get
             {
-                return _RolContext.Roles.ToList();
+                //return _RolContext.Roles.ToList();
+                throw new NotImplementedException();
             }
         }
 
@@ -34,7 +34,7 @@ namespace TPV.Models.Repositories
 
         public Rol FindById(int Id)
         {
-            return (from a in List where a.RolID == Id select a).FirstOrDefault();
+            return (from a in List where a.RolId == Id select a).FirstOrDefault();
         }
 
         public Rol Find(Rol entity)

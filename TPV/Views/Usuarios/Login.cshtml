@@ -1,4 +1,4 @@
-﻿@model TPV.ViewModels.Login
+﻿@model TPV.Models.Usuario
 @{
     ViewBag.Title = "Inicio de Sesion";
     Layout = "~/Views/Shared/_Layout2.cshtml";
@@ -12,15 +12,19 @@
             @using (Html.BeginForm("Login", "Usuarios", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
-                <div class="input-group">
-                    <label class="input-group-addon"><i class="glyphicon glyphicon-user"></i></label>
-                    @Html.TextBoxFor(m => m.User, new { @class = "form-control", placeholder = "Usuario" })
+                <div>
+                    <div class="input-group">
+                        <label class="input-group-addon"><i class="glyphicon glyphicon-user"></i></label>
+                        @Html.TextBoxFor(m => m.User, new { @class = "form-control", placeholder = "Usuario" })
+                    </div>
                     @Html.ValidationMessageFor(m => m.User)
                 </div>
                 <br>
-                <div class="input-group">
-                    <label class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></label>
-                    @Html.PasswordFor(m => m.Clave, new { @class = "form-control", placeholder = "Clave de Acceso" })
+                <div>
+                    <div class="input-group">
+                        <label class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></label>
+                        @Html.PasswordFor(m => m.Clave, new { @class = "form-control", placeholder = "Clave de Acceso" })
+                    </div>
                     @Html.ValidationMessageFor(m => m.Clave)
                 </div>
                 <br>

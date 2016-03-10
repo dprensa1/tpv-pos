@@ -47,23 +47,23 @@
             @Html.AntiForgeryToken()
             @foreach (var puesto in Model)
             {
-                activoSeleccion = (ViewBag.activoSeleccion == puesto.PuestoID) ? "bg-success" : "";
+                activoSeleccion = (ViewBag.activoSeleccion == puesto.PuestoId) ? "bg-success" : "";
                 x++;
 
                 <tr class="@activoSeleccion.ToString()">
                     <td><input type="checkbox"></td>
                     <td>
-                        <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
+                        <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoId)">
                             @Html.Encode(x)
                         </a>
                     </td>
                     <td>
-                        <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
+                        <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoId)">
                             @Html.DisplayFor(Nombre => puesto.Nombre)
                         </a>
                     </td>
                     <td>
-                        <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)">
+                        <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoId)">
                             @Html.DisplayFor(Nombre => puesto.Descripcion)
                         </a>
                     </td>
@@ -74,13 +74,13 @@
                     </td>
                     <td class="text-center">
                         <div class="btn-group" role="group">
-                            <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoID)" class="btn btn-default" id="">
+                            <a href="/Puestos/Detalles/@Html.DisplayFor(id => puesto.PuestoId)" class="btn btn-default" id="">
                                 <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
                             </a>
-                            <a href="/Puestos/Editar/@Html.DisplayFor(id => puesto.PuestoID)" class="btn btn-default" id="">
+                            <a href="/Puestos/Editar/@Html.DisplayFor(id => puesto.PuestoId)" class="btn btn-default" id="">
                                 <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
                             </a>
-                            <a href="/Puestos/Borrar/@Html.DisplayFor(id => puesto.PuestoID)" class="btn btn-default" id="">
+                            <a href="/Puestos/Borrar/@Html.DisplayFor(id => puesto.PuestoId)" class="btn btn-default" id="">
                                 <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
                             </a>
                         </div>

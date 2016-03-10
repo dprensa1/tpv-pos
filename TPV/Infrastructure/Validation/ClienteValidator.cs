@@ -8,13 +8,13 @@ namespace TPV.Infrastructure.Validation
         public ClienteValidator()
         {
             RuleFor(a => a.Nombre)
-                .Matches(@"^[a-zA-Z ]+\w$").WithMessage("Solo letras.")
+                .Matches(@"/[a-zA-Z ]+\w/g").WithMessage("Solo letras.")
                 .NotNull().WithMessage("Requerido.")
                 .NotEmpty().WithMessage("Requerido.")
                 .Length(4, 64).WithMessage("Debe tener entre 4 y 64 letras.");
 
             RuleFor(a => a.Apellido)
-                .Matches(@"^[a-zA-Z ]+\w$").WithMessage("Solo letras.")
+                .Matches(@"/[a-zA-Z ]+\w/g").WithMessage("Solo letras.")
                 .Length(4, 32).WithMessage("Debe tener entre 4 y 32 letras.");
 
             RuleFor(a => a.Identificacion)
@@ -34,7 +34,7 @@ namespace TPV.Infrastructure.Validation
                 .Length(16, 16).WithMessage("Debe tener entre 16 y 64 caracteres.");
 
             RuleFor(a => a.Contacto)
-                .Matches(@"^[a-zA-Z ]+\w$").WithMessage("Solo letras.")
+                .Matches(@"/[a-zA-Z ]+\w/g").WithMessage("Solo letras.")
                 .Length(32).WithMessage("Maximo 32 caracteres.");
 
             RuleFor(a => a.Telefono_Contacto)

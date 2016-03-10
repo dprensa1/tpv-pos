@@ -230,6 +230,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccesosController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
@@ -244,26 +245,30 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AppRoleManager.cs" />
+    <Compile Include="Infrastructure\AppUserManager.cs" />
     <Compile Include="Infrastructure\Configuration\AccesoConfig.cs" />
     <Compile Include="Infrastructure\Configuration\ClienteConfig.cs" />
     <Compile Include="Infrastructure\Configuration\EmpleadoConfig.cs" />
+    <Compile Include="Infrastructure\Configuration\PuestoConfig.cs" />
     <Compile Include="Infrastructure\Configuration\RolConfig.cs" />
+    <Compile Include="Infrastructure\Configuration\UsuarioConfig.cs" />
     <Compile Include="Infrastructure\Validation\AccesoValidator.cs" />
     <Compile Include="Infrastructure\Validation\ClienteValidator.cs" />
     <Compile Include="Infrastructure\Validation\EmpleadoValidator.cs" />
+    <Compile Include="Infrastructure\Validation\ModelValidation.cs" />
+    <Compile Include="Infrastructure\Validation\PuestoValidator.cs" />
     <Compile Include="Infrastructure\Validation\RolValidator.cs" />
-    <Compile Include="Migrations\201601202128525_InitDB.cs" />
-    <Compile Include="Migrations\201601202128525_InitDB.Designer.cs">
-      <DependentUpon>201601202128525_InitDB.cs</DependentUpon>
+    <Compile Include="Infrastructure\Validation\UsuarioValidator.cs" />
+    <Compile Include="Migrations\201602291839248_InitDB.cs" />
+    <Compile Include="Migrations\201602291839248_InitDB.Designer.cs">
+      <DependentUpon>201602291839248_InitDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Acceso.cs" />
+    <Compile Include="Models\Auditoria.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Repositories\PuestoRepositorio.cs" />
-    <Compile Include="Models\Repositories\RolRepositorio.cs" />
-    <Compile Include="Models\Repositories\UsuarioRepositorio.cs" />
-    <Compile Include="Security\ProveedorRoles.cs" />
-    <Compile Include="ViewModels\Login.cs" />
     <Compile Include="Models\LyraContext.cs" />
     <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\Puesto.cs" />
@@ -279,7 +284,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Security\ProveedorMembresia.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -375,6 +379,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -386,8 +391,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601202128525_InitDB.resx">
-      <DependentUpon>201601202128525_InitDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201602291839248_InitDB.resx">
+      <DependentUpon>201602291839248_InitDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

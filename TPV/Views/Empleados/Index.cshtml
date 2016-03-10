@@ -80,48 +80,48 @@
             @foreach (var empleado in Model)
             {
                 x++;
-                activoSeleccion = (ViewBag.activoSeleccion == empleado.EmpleadoID) ? "bg-success" : "";
+                activoSeleccion = (ViewBag.activoSeleccion == empleado.EmpleadoId) ? "bg-success" : "";
 
                 <tr class="@activoSeleccion.ToString()">
                     <td><input type="checkbox"></td>
                     <td>
-                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoId)">
                             @Html.Encode(x)
                         </a>
                     </td>
                     <td>
-                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoId)">
                             @Html.DisplayFor(Nombre => empleado.Nombre)
                         </a>
                     </td>
                     <td>
-                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoId)">
                             @Html.DisplayFor(Apellido => empleado.Apellido)
                         </a>
                     </td>
                     <td>
-                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoId)">
                             @Html.DisplayFor(EmpleadoCodigo => empleado.Codigo)
                         </a>
                     </td>
                     <td>
-                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)">
+                        <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoId)">
                             @Html.DisplayFor(EmpleadoPuesto => empleado.Puesto.Nombre)
                         </a>
                     </td>
                     <td class="text-center">
                         <div class="btn-group" role="group">
-                            <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoID)" class="btn btn-default" name=@Html.DisplayFor(id => empleado.EmpleadoID)>
+                            <a href="/Empleados/Detalles/@Html.DisplayFor(id => empleado.EmpleadoId)" class="btn btn-default" name=@Html.DisplayFor(id => empleado.EmpleadoId)>
                                 <i class="fa fa-eye fa-lg" style="color:#276aa4"></i>
                             </a>
-                            <a href="/Empleados/Editar/@Html.DisplayFor(id => empleado.EmpleadoID)" class="btn btn-default" name=@Html.DisplayFor(id => empleado.EmpleadoID)>
+                            <a href="/Empleados/Editar/@Html.DisplayFor(id => empleado.EmpleadoId)" class="btn btn-default" name=@Html.DisplayFor(id => empleado.EmpleadoId)>
                                 <i class="fa fa-pencil fa-lg" style="color:#276aa4"></i>
                             </a>
                             <a href="#"
-                            @*<a href="/Empleados/Borrar/@Html.DisplayFor(id => empleado.EmpleadoID)"*@
+                            @*<a href="/Empleados/Borrar/@Html.DisplayFor(id => empleado.EmpleadoId)"*@
                                class="btn btn-default borrar"
                                name=@string.Concat(empleado.Nombre, '-', empleado.Apellido)
-                               onclick="ValidarBorrar(this, event, @Html.DisplayFor(id => empleado.EmpleadoID))">
+                               onclick="ValidarBorrar(this, event, @Html.DisplayFor(id => empleado.EmpleadoId))">
                                 <i class="fa fa-trash fa-lg" style="color:#276aa4"></i>
                             </a>
                         </div>

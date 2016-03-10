@@ -32,7 +32,7 @@ namespace TPV.Models.Repositories
 
         public Empleado FindById(int Id)
         {
-            return (from a in List where a.EmpleadoID == Id select a).FirstOrDefault();
+            return (from a in List where a.EmpleadoId == Id select a).FirstOrDefault();
         }
 
         public Empleado Find(Empleado entity)

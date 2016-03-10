@@ -16,7 +16,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.PuestoID)
+    @Html.HiddenFor(model => model.PuestoId)
     <div class="form-horizontal">
         <div class="form-group">
             @Html.LabelFor(model => model.Nombre, new { @class = "control-label col-lg-2" })

@@ -2,7 +2,7 @@
 using System.Data.Entity.ModelConfiguration;
 using TPV.Models;
 
-namespace TPV.Infrastructure
+namespace TPV.Infrastructure.Configuration
 {
     public class ClienteConfig : EntityTypeConfiguration<Cliente>
     {
@@ -10,9 +10,9 @@ namespace TPV.Infrastructure
         {
             ToTable("Clientes");
 
-            HasKey(c => c.ClienteID);
+            HasKey(c => new {c.ClienteId, c.Identificacion});
 
-            Property(c => c.ClienteID)
+            Property(c => c.ClienteId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("Id");
 

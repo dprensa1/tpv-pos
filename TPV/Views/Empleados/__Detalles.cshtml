@@ -44,7 +44,7 @@
         @Html.LabelFor(model => model.Puesto, "Puesto", new { @class = "col-lg-2 control-label" })
         <div class="col-sm-3">
             <span>
-                <a href="/Puestos/Detalles/@Html.DisplayFor(model => model.Puesto.PuestoID)" class="btn btn-info">
+                <a href="/Puestos/Detalles/@Html.DisplayFor(model => model.Puesto.PuestoId)" class="btn btn-info">
                     @Html.DisplayFor(model => model.Puesto.Nombre)
                     <i class="fa fa-share"></i>
                 </a>
@@ -75,7 +75,7 @@
 
     <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
-            <a class="btn btn-info" href="/Empleados/Editar/@Html.DisplayFor(model => model.PuestoID)">
+            <a class="btn btn-info" href="/Empleados/Editar/@Html.DisplayFor(model => model.PuestoId)">
                 Editar
                 <i class="fa fa-pencil"></i>
             </a>

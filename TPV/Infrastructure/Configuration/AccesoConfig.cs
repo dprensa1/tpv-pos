@@ -2,7 +2,7 @@
 using System.Data.Entity.ModelConfiguration;
 using TPV.Models;
 
-namespace TPV.Infrastructure
+namespace TPV.Infrastructure.Configuration
 {
     public class AccesoConfig : EntityTypeConfiguration<Acceso>
     {
@@ -18,7 +18,8 @@ namespace TPV.Infrastructure
 
             Property(a => a.Nombre)
                 .HasMaxLength(16)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnType("varchar");
 
             Property(a => a.Descripcion)
                 .HasMaxLength(128)
@@ -26,15 +27,6 @@ namespace TPV.Infrastructure
 
             Property(a => a.Rutas)
                 .IsRequired();
-
-            HasMany(a => a.Roles)
-                .WithMany(b => b.Accesos)
-                .Map(m =>
-                {
-                    m.ToTable("RolesAccesos");
-                    m.MapRightKey("RolId");
-                    m.MapLeftKey("AccesoId");
-                });
         }
     }
 }
